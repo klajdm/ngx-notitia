@@ -1,6 +1,6 @@
 {
   "buildCommand": "npm run demo:build",
-  "outputDirectory": "dist/ngx-notita-site/browser",
+  "outputDirectory": "dist/ngx-notitia-site/browser",
   "installCommand": "npm install",
   "framework": "angular",
   "rewrites": [
