@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { Toast, ActiveToast, ToastrModule, type ToastNoAnimation, ToastrService } from 'ngx-toastr';
+import { Toast, ActiveToast, ToastrModule, type ToastNoAnimation, ToastrService } from 'ngx-notitia';
 import { NotyfToast } from './notyf-toast/notyf-toast.component';
 import { PinkToast } from './pink-toast/pink-toast.component';
 import { firstValueFrom } from 'rxjs';

@@ -21,7 +21,7 @@ module.exports = function (config) {
       clearContext: false, // leave Jasmine Spec Runner output visible in browser
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/ngx-toastr'),
+      dir: require('path').join(__dirname, './coverage/ngx-notitia'),
       subdir: '.',
       includeAllSources: false,
       reporters: [{ type: 'html' }, { type: 'text-summary' }, { type: 'lcovonly' }],

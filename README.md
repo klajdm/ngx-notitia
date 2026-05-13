@@ -1,19 +1,19 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/scttcper/ngx-toastr/master/misc/documentation-assets/ngx-toastr-example.png" width="300" alt="Angular Toastr">
+  <img src="https://raw.githubusercontent.com/klajdm/ngx-notitia/main/misc/documentation-assets/ngx-notitia-example.png" width="300" alt="Angular Toastr">
   <br>
-  <h1>ngx-toastr</h1>
+  <h1>ngx-notitia</h1>
   <br>
-  <a href="https://www.npmjs.org/package/ngx-toastr">
-    <img src="https://badge.fury.io/js/ngx-toastr.svg" alt="npm">
+  <a href="https://www.npmjs.org/package/ngx-notitia">
+    <img src="https://badge.fury.io/js/ngx-notitia.svg" alt="npm">
   </a>
-  <a href="https://codecov.io/github/scttcper/ngx-toastr">
-    <img src="https://img.shields.io/codecov/c/github/scttcper/ngx-toastr.svg" alt="codecov">
+  <a href="https://codecov.io/github/klajdm/ngx-notitia">
+    <img src="https://img.shields.io/codecov/c/github/klajdm/ngx-notitia.svg" alt="codecov">
   </a>
   <br>
   <br>
 </div>
 
-DEMO: https://ngx-toastr.vercel.app
+DEMO: https://ngx-notitia.vercel.app
 
 ## Features
 
@@ -29,7 +29,7 @@ DEMO: https://ngx-toastr.vercel.app
 
 Latest version available for each version of Angular
 
-| ngx-toastr      | Angular         |
+| ngx-notitia      | Angular         |
 | --------------- | --------------- |
 | 13.2.1          | 10.x 11.x       |
 | 14.3.0          | 12.x 13.x       |
@@ -42,7 +42,7 @@ Latest version available for each version of Angular
 ## Install
 
 ```bash
-npm install ngx-toastr --save
+npm install ngx-notitia --save
 ```
 
 ## Setup
@@ -56,21 +56,21 @@ npm install ngx-toastr --save
 
 ```scss
 // regular style toast
-@import 'ngx-toastr/toastr';
+@import 'ngx-notitia/toastr';
 
 // bootstrap style toast
 // or import a bootstrap 4 alert styled design (SASS ONLY)
 // should be after your bootstrap imports, it uses bs4 variables, mixins, functions
-@import 'ngx-toastr/toastr-bs4-alert';
+@import 'ngx-notitia/toastr-bs4-alert';
 
 // if you'd like to use it without importing all of bootstrap it requires
 @import 'bootstrap/scss/functions';
 @import 'bootstrap/scss/variables';
 @import 'bootstrap/scss/mixins';
 // bootstrap 4
-@import 'ngx-toastr/toastr-bs4-alert';
+@import 'ngx-notitia/toastr-bs4-alert';
 // boostrap 5
-@import 'ngx-toastr/toastr-bs5-alert';
+@import 'ngx-notitia/toastr-bs5-alert';
 ```
 
 - If you are using angular-cli you can add it to your angular.json
@@ -78,7 +78,7 @@ npm install ngx-toastr --save
 ```ts
 "styles": [
   "styles.scss",
-  "node_modules/ngx-toastr/toastr.css" // try adding '../' if you're using angular cli before 6
+  "node_modules/ngx-notitia/toastr.css" // try adding '../' if you're using angular cli before 6
 ]
 ```
 
@@ -87,7 +87,7 @@ npm install ngx-toastr --save
 - Module based
 
 ```typescript
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-notitia';
 
 @NgModule({
   imports: [
@@ -103,7 +103,7 @@ class MainModule {}
 
 ```typescript
 import { AppComponent } from './src/app.component';
-import { provideToastr } from 'ngx-toastr';
+import { provideToastr } from 'ngx-notitia';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -115,7 +115,7 @@ bootstrapApplication(AppComponent, {
 ## Use
 
 ```typescript
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-notitia';
 import { inject } from '@angular/core';
 
 @Component({...})
@@ -149,7 +149,7 @@ Passed to `ToastrService.success/error/warning/info/show()`
 | newestOnTop       | boolean                        | true                           | New toast placement                               |
 | progressBar       | boolean                        | false                          | Show progress bar                                 |
 | progressAnimation | `'decreasing' \| 'increasing'` | 'decreasing'                   | Changes the animation of the progress bar.        |
-| toastClass        | string                         | 'ngx-toastr'                   | CSS class(es) for toast                           |
+| toastClass        | string                         | 'ngx-notitia'                   | CSS class(es) for toast                           |
 | positionClass     | string                         | 'toast-top-right'              | CSS class(es) for toast container                 |
 | titleClass        | string                         | 'toast-title'                  | CSS class(es) for inside toast on title           |
 | messageClass      | string                         | 'toast-message'                | CSS class(es) for inside toast on message         |
@@ -215,7 +215,7 @@ imports: [
 
 ```typescript
 import { AppComponent } from './src/app.component';
-import { provideToastr } from 'ngx-toastr';
+import { provideToastr } from 'ngx-notitia';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -264,7 +264,7 @@ the container it is announced by screen readers.
 
 ```typescript
 import { NgModule } from '@angular/core';
-import { ToastrModule, ToastContainerDirective } from 'ngx-toastr';
+import { ToastrModule, ToastContainerDirective } from 'ngx-notitia';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -283,7 +283,7 @@ Add a div with `toastContainer` directive on it.
 
 ```typescript
 import { Component, OnInit, viewChild, inject } from '@angular/core';
-import { ToastContainerDirective, ToastrService } from 'ngx-toastr';
+import { ToastContainerDirective, ToastrService } from 'ngx-notitia';
 
 @Component({
   selector: 'app-root',
@@ -329,11 +329,11 @@ If you are using SystemJS, you should also adjust your configuration to point to
 the UMD bundle.
 
 In your SystemJS config file, `map` needs to tell the System loader where to
-look for `ngx-toastr`:
+look for `ngx-notitia`:
 
 ```js
 map: {
-  'ngx-toastr': 'node_modules/ngx-toastr/bundles/ngx-toastr.umd.min.js',
+  'ngx-notitia': 'node_modules/ngx-notitia/bundles/ngx-notitia.umd.min.js',
 }
 ```
 
@@ -346,7 +346,7 @@ toast component in the global config to use
 In your main module (ex: `app.module.ts`)
 
 ```typescript
-import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
+import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-notitia';
 
 @NgModule({
   imports: [
@@ -363,10 +363,10 @@ That's it! No animations.
 ## Using A Custom Toast
 
 Create your toast component extending Toast see the demo's pink toast for an example
-https://github.com/scttcper/ngx-toastr/blob/master/src/app/pink.toast.ts
+https://github.com/klajdm/ngx-notitia/blob/main/src/app/pink.toast.ts
 
 ```typescript
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-notitia';
 
 @NgModule({
   imports: [
@@ -393,11 +393,11 @@ ngOnInit() {
 ```
 
 2.  Change default icons (check, warning sign, etc)\
-    Overwrite the css background-image: https://github.com/scttcper/ngx-toastr/blob/master/src/lib/toastr.css.
+    Overwrite the css background-image: https://github.com/klajdm/ngx-notitia/blob/main/src/lib/toastr.css.
 3.  How do I use this in an ErrorHandler?\
-    See: https://github.com/scttcper/ngx-toastr/issues/179.
+    See: https://github.com/klajdm/ngx-notitia/issues/179.
 4.  How can I translate messages?\
-    See: https://github.com/scttcper/ngx-toastr/issues/201.
+    See: https://github.com/klajdm/ngx-notitia/issues/201.
 5.  How to handle toastr click/tap action?
     ```ts
     showToaster() {
@@ -414,15 +414,14 @@ ngOnInit() {
 6. How to customize styling without overridding defaults?\
     Add multiple CSS classes separated by a space:
     ```ts
-    toastClass: 'yourclass ngx-toastr'
+    toastClass: 'yourclass ngx-notitia'
     ```
-    See: https://github.com/scttcper/ngx-toastr/issues/594.
+    See: https://github.com/klajdm/ngx-notitia/issues/594.
 
 ## Previous Works
 
-[toastr](https://github.com/CodeSeven/toastr) original toastr\
-[angular-toastr](https://github.com/Foxandxss/angular-toastr) AngularJS toastr\
-[notyf](https://github.com/caroso1222/notyf) notyf (css)
+[ngx-chronica](https://github.com/klajdm/ngx-chronica) About
+📅 Chronica - Complete Angular Date & Time Component Library
 
 ## License
 
@@ -430,5 +429,5 @@ MIT
 
 ---
 
-> GitHub [@scttcper](https://github.com/scttcper) &nbsp;&middot;&nbsp;
-> Twitter [@scttcper](https://twitter.com/scttcper)
+> GitHub [@klajdm](https://github.com/klajdm) &nbsp;&middot;&nbsp;
+> Twitter [@klajdm](https://twitter.com/klajdm)

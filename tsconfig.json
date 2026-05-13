@@ -16,8 +16,8 @@
     "module": "preserve",
     "moduleResolution": "bundler",
     "paths": {
-      "ngx-toastr": [
-        "./projects/ngx-toastr/src/public-api.ts"
+      "ngx-notitia": [
+        "./projects/ngx-notitia/src/public-api.ts"
       ]
     },
   },
@@ -36,7 +36,7 @@
       "path": "./tsconfig.spec.json"
     },
     {
-      "path": "./projects/ngx-toastr/tsconfig.lib.json"
+      "path": "./projects/ngx-notitia/tsconfig.lib.json"
     }
   ]
 }
