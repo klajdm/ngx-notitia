@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/klajdm/ngx-notitia/master/misc/documentation-assets/ngx-notitia-example.png" width="300" alt="Angular Toastr">
+  <img src="https://raw.githubusercontent.com/klajdm/ngx-notitia/main/misc/documentation-assets/ngx-notitia-example.png" width="300" alt="Angular Toastr">
   <br>
   <h1>ngx-notitia</h1>
   <br>
@@ -363,7 +363,7 @@ That's it! No animations.
 ## Using A Custom Toast
 
 Create your toast component extending Toast see the demo's pink toast for an example
-https://github.com/klajdm/ngx-notitia/blob/master/src/app/pink.toast.ts
+https://github.com/klajdm/ngx-notitia/blob/main/src/app/pink.toast.ts
 
 ```typescript
 import { ToastrModule } from 'ngx-notitia';
@@ -393,7 +393,7 @@ ngOnInit() {
 ```
 
 2.  Change default icons (check, warning sign, etc)\
-    Overwrite the css background-image: https://github.com/klajdm/ngx-notitia/blob/master/src/lib/toastr.css.
+    Overwrite the css background-image: https://github.com/klajdm/ngx-notitia/blob/main/src/lib/toastr.css.
 3.  How do I use this in an ErrorHandler?\
     See: https://github.com/klajdm/ngx-notitia/issues/179.
 4.  How can I translate messages?\
