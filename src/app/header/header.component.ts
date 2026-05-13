@@ -5,7 +5,7 @@ import { GhButtonModule } from '@ctrl/ngx-github-buttons';
   selector: 'app-header',
   template: `
     <header class="header mt-5 text-center">
-      <h1>Angular Toastr</h1>
+      <h1>Angular Notitia</h1>
       <p style="color: #777" class="mb-1">Easy Toasts for Angular</p>
       <gh-button user="klajdm" repo="ngx-notitia" [count]="true"></gh-button>
     </header>

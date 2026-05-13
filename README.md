@@ -1,7 +1,11 @@
+> **Note:** This repository is a fork of [ngx-toastr](https://github.com/scttcper/ngx-toastr). It builds upon the original project to provide additional features, fixes, or customizations.
+
+-------------------------------------------------------------------------------
+
 <div align="center">
-  <img src="https://raw.githubusercontent.com/klajdm/ngx-notitia/main/misc/documentation-assets/ngx-notitia-example.png" width="300" alt="Angular Toastr">
+  <img src="https://raw.githubusercontent.com/klajdm/ngx-notitia/main/public/logo.png" width="300" alt="Angular Notitia">
   <br>
-  <h1>ngx-notitia</h1>
+  <h1>Angular Notitia</h1>
   <br>
   <a href="https://www.npmjs.org/package/ngx-notitia">
     <img src="https://badge.fury.io/js/ngx-notitia.svg" alt="npm">
@@ -29,14 +33,8 @@ DEMO: https://ngx-notitia.vercel.app
 
 Latest version available for each version of Angular
 
-| ngx-notitia      | Angular         |
+| ngx-notitia     | Angular         |
 | --------------- | --------------- |
-| 13.2.1          | 10.x 11.x       |
-| 14.3.0          | 12.x 13.x       |
-| 15.2.2          | 14.x.           |
-| 16.2.0          | 15.x            |
-| 17.0.2          | 16.x            |
-| 18.x 19x        | >= 17.x < 23.x  |
 | current         | >= 20.x         |
 
 ## Install
