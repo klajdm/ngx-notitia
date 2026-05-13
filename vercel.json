@@ -1,5 +1,12 @@
 {
-  "github": {
-    "silent": true
-  }
+  "buildCommand": "npm run demo:build",
+  "outputDirectory": "dist/ngx-notita-site/browser",
+  "installCommand": "npm install",
+  "framework": "angular",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
