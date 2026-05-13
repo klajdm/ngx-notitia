@@ -32,6 +32,6 @@ jobs:
       - run: npm ci
       - run: npm run build
       - name: Release
-        run: cd dist/ngx-toastr && npx semantic-release@latest
+        run: cd dist/ngx-notitia && npx semantic-release@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

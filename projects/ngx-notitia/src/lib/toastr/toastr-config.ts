@@ -51,7 +51,7 @@ export interface IndividualConfig<ConfigPayload = unknown> {
   enableHtml: boolean;
   /**
    * css class on toast component
-   * default: ngx-toastr
+   * default: ngx-notitia
    */
   toastClass: string;
   /**
@@ -219,7 +219,7 @@ export const DefaultNoComponentGlobalConfig: GlobalConfig = {
   extendedTimeOut: 1000,
   enableHtml: false,
   progressBar: false,
-  toastClass: 'ngx-toastr',
+  toastClass: 'ngx-notitia',
   positionClass: 'toast-top-right',
   titleClass: 'toast-title',
   messageClass: 'toast-message',

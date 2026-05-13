@@ -15,7 +15,7 @@
     }
   },
   "projects": {
-    "ngx-toastr-site": {
+    "ngx-notitia-site": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -68,10 +68,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ngx-toastr-site:build:production"
+              "buildTarget": "ngx-notitia-site:build:production"
             },
             "development": {
-              "buildTarget": "ngx-toastr-site:build:development"
+              "buildTarget": "ngx-notitia-site:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -93,20 +93,20 @@
         }
       }
     },
-    "ngx-toastr": {
+    "ngx-notitia": {
       "projectType": "library",
-      "root": "projects/ngx-toastr",
-      "sourceRoot": "projects/ngx-toastr/src",
+      "root": "projects/ngx-notitia",
+      "sourceRoot": "projects/ngx-notitia/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",
           "configurations": {
             "production": {
-              "tsConfig": "projects/ngx-toastr/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ngx-notitia/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ngx-toastr/tsconfig.lib.json"
+              "tsConfig": "projects/ngx-notitia/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"

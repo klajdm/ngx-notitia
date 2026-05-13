@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Toast } from 'ngx-toastr';
+import { Toast } from 'ngx-notitia';
 
 @Component({
   selector: 'notyf-toast-component',

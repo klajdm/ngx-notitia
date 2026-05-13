@@ -16,7 +16,7 @@ export const DefaultGlobalConfig: GlobalConfig = {
  *
  * @example
  * ```ts
- * import { provideToastr } from 'ngx-toastr';
+ * import { provideToastr } from 'ngx-notitia';
  *
  * bootstrap(AppComponent, {
  *   providers: [

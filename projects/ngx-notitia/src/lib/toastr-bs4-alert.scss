@@ -40,14 +40,14 @@
   bottom: 12px;
   left: 12px;
 }
-.toast-container.toast-top-center .ngx-toastr,
-.toast-container.toast-bottom-center .ngx-toastr {
+.toast-container.toast-top-center .ngx-notitia,
+.toast-container.toast-bottom-center .ngx-notitia {
   width: 300px;
   margin-left: auto;
   margin-right: auto;
 }
-.toast-container.toast-top-full-width .ngx-toastr,
-.toast-container.toast-bottom-full-width .ngx-toastr {
+.toast-container.toast-top-full-width .ngx-notitia,
+.toast-container.toast-bottom-full-width .ngx-notitia {
   width: 96%;
   margin-left: auto;
   margin-right: auto;
@@ -59,7 +59,7 @@
   position: fixed;
   z-index: 999999;
 
-  .ngx-toastr {
+  .ngx-notitia {
     @include border-radius($alert-border-radius);
     position: relative;
     overflow: hidden;
@@ -111,7 +111,7 @@
       opacity: 0.75;
     }
   }
-  .ngx-toastr:hover {
+  .ngx-notitia:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     opacity: 1;
     cursor: pointer;
@@ -208,7 +208,7 @@
 
 // Responsive Design
 @media all and (max-width: 240px) {
-  .toast-container .ngx-toastr.div {
+  .toast-container .ngx-notitia.div {
     padding: 8px 8px 8px 50px;
     width: 11em;
   }
@@ -218,7 +218,7 @@
   }
 }
 @media all and (min-width: 241px) and (max-width: 480px) {
-  .toast-container .ngx-toastr.div {
+  .toast-container .ngx-notitia.div {
     padding: 8px 8px 8px 50px;
     width: 18em;
   }
@@ -228,7 +228,7 @@
   }
 }
 @media all and (min-width: 481px) and (max-width: 768px) {
-  .toast-container .ngx-toastr.div {
+  .toast-container .ngx-notitia.div {
     padding: 15px 15px 15px 50px;
     width: 25em;
   }
