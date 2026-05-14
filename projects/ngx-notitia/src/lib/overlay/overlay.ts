@@ -28,8 +28,17 @@ export class Overlay {
    * @returns A reference to the created overlay.
    */
   create(positionClass?: string, overlayContainer?: ToastContainerDirective): OverlayRef {
-    // get existing pane if possible
-    return this._createOverlayRef(this.getPaneElement(positionClass, overlayContainer));
+    const resolvedClass = positionClass ?? '';
+    const pane = this.getPaneElement(resolvedClass, overlayContainer);
+    return new OverlayRef(this._createPortalHost(pane), () => {
+      if (pane.children.length === 0) {
+        pane.remove();
+        const panes = this._paneElements.get(overlayContainer as ToastContainerDirective);
+        if (panes) {
+          delete panes[resolvedClass];
+        }
+      }
+    });
   }
 
   getPaneElement(positionClass = '', overlayContainer?: ToastContainerDirective): HTMLElement {
@@ -75,13 +84,5 @@ export class Overlay {
    */
   private _createPortalHost(pane: HTMLElement): DomPortalHost {
     return new DomPortalHost(pane, this._appRef);
-  }
-
-  /**
-   * Creates an OverlayRef for an overlay in the given DOM element.
-   * @param pane DOM element for the overlay
-   */
-  private _createOverlayRef(pane: HTMLElement): OverlayRef {
-    return new OverlayRef(this._createPortalHost(pane));
   }
 }

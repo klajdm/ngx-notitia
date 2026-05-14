@@ -7,9 +7,8 @@ import {
   type GlobalConfig,
   type IndividualConfig,
 } from 'ngx-notitia';
-import { BootstrapToast } from './bootstrap-toast/bootstrap-toast.component';
-import { NotyfToast } from './notyf-toast/notyf-toast.component';
-import { PinkToast } from './pink-toast/pink-toast.component';
+import { NotyfToast } from './components/notyf-toast/notyf-toast.component';
+import { PinkToast } from './components/pink-toast/pink-toast.component';
 import { quotes, type Quote } from './quotes';
 
 @Injectable({ providedIn: 'root' })
@@ -43,18 +42,6 @@ export class ToastManagerService {
 
         toastClass: 'pinktoast',
         toastComponent: PinkToast,
-      },
-      quote,
-    );
-  }
-
-  public openBootstrapToast(options?: IndividualConfig, quote?: Quote) {
-    return this.openToast<BootstrapToast>(
-      {
-        ...(options ?? this.toastr.toastrConfig),
-
-        toastClass: 'toast',
-        toastComponent: BootstrapToast,
       },
       quote,
     );

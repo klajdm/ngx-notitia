@@ -1,0 +1,555 @@
+<div class="text-center mb-6 mt-2">
+  <h1 class="text-primary text-4xl font-bold pb-1 mb-1">Angular Notitia</h1>
+  <p class="text-gray-500 mb-3">Easy Toasts for Angular</p>
+  <gh-button user="klajdm" repo="ngx-notitia" [count]="true"></gh-button>
+</div>
+
+<div class="rounded-lg border border-gray-200 bg-white shadow-sm">
+  <div class="p-6">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+      <div class="md:col-span-5">
+        <div class="mb-3">
+          <label for="toastTitle" class="block mb-1 text-sm font-medium text-gray-700">
+            <strong>Title</strong>
+          </label>
+          <input
+            [(ngModel)]="title"
+            type="text"
+            class="block w-full rounded border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            name="toastTitle"
+            id="toastTitle"
+            placeholder="Toast title"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="toastMessage" class="block mb-1 text-sm font-medium text-gray-700">
+            <strong>Message</strong>
+          </label>
+          <textarea
+            [(ngModel)]="message"
+            rows="3"
+            class="block w-full rounded border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            name="toastMessage"
+            id="toastMessage"
+            placeholder="Toast message"
+          ></textarea>
+        </div>
+
+        <div class="mb-3 space-y-1">
+          <div class="flex items-center gap-2">
+            <input
+              class="h-4 w-4 rounded border-gray-300 text-blue-600"
+              type="checkbox"
+              [(ngModel)]="options.enableHtml"
+              id="enableHtml"
+            />
+            <label class="text-sm text-gray-700" for="enableHtml"> Enable HTML (message) </label>
+          </div>
+          <div class="flex items-center gap-2">
+            <input
+              class="h-4 w-4 rounded border-gray-300 text-blue-600"
+              type="checkbox"
+              [(ngModel)]="options.tapToDismiss"
+              id="tapToDismiss"
+            />
+            <label class="text-sm text-gray-700" for="tapToDismiss"> Tap to dismiss </label>
+          </div>
+          <div class="flex items-center gap-2">
+            <input
+              class="h-4 w-4 rounded border-gray-300 text-blue-600"
+              type="checkbox"
+              [(ngModel)]="options.closeButton"
+              id="closeButton"
+            />
+            <label class="text-sm text-gray-700" for="closeButton"> Close button </label>
+          </div>
+          <div class="flex items-center gap-2">
+            <input
+              class="h-4 w-4 rounded border-gray-300 text-blue-600"
+              type="checkbox"
+              [(ngModel)]="options.preventDuplicates"
+              id="preventDuplicates"
+            />
+            <label class="text-sm text-gray-700" for="preventDuplicates">
+              Prevent duplicates
+            </label>
+          </div>
+          <div class="flex items-center gap-2 ml-4">
+            <input
+              class="h-4 w-4 rounded border-gray-300 text-blue-600"
+              type="checkbox"
+              [(ngModel)]="options.countDuplicates"
+              id="countDuplicates"
+              [disabled]="!options.preventDuplicates"
+            />
+            <label class="text-sm text-gray-700" for="countDuplicates"> Count duplicates </label>
+          </div>
+          <div class="flex items-center gap-2 ml-4">
+            <input
+              class="h-4 w-4 rounded border-gray-300 text-blue-600"
+              type="checkbox"
+              [(ngModel)]="options.resetTimeoutOnDuplicate"
+              id="resetTimeoutOnDuplicate"
+              [disabled]="!options.preventDuplicates"
+            />
+            <label class="text-sm text-gray-700" for="resetTimeoutOnDuplicate">
+              Reset timeout on duplicate
+            </label>
+          </div>
+          <div class="flex items-center gap-2 ml-4">
+            <input
+              class="h-4 w-4 rounded border-gray-300 text-blue-600"
+              type="checkbox"
+              [(ngModel)]="options.includeTitleDuplicates"
+              id="includeTitleDuplicate"
+              [disabled]="!options.preventDuplicates"
+            />
+            <label class="text-sm text-gray-700" for="includeTitleDuplicate">
+              Include title in duplicate checks
+            </label>
+          </div>
+          <div class="flex items-center gap-2">
+            <input
+              class="h-4 w-4 rounded border-gray-300 text-blue-600"
+              type="checkbox"
+              [(ngModel)]="options.newestOnTop"
+              id="newestOnTop"
+            />
+            <label class="text-sm text-gray-700" for="newestOnTop"> New toasts on top </label>
+          </div>
+          <div class="flex items-center gap-2">
+            <input
+              class="h-4 w-4 rounded border-gray-300 text-blue-600"
+              type="checkbox"
+              [(ngModel)]="options.progressBar"
+              id="progressBar"
+            />
+            <label class="text-sm text-gray-700" for="progressBar"> Progress bar </label>
+          </div>
+        </div>
+        <fieldset class="mb-3">
+          <label class="block mb-1 text-sm font-medium text-gray-700">
+            <strong>Progress Bar Animation</strong>
+          </label>
+          <div class="flex items-center gap-2">
+            <input
+              class="h-4 w-4 border-gray-300 text-blue-600"
+              type="radio"
+              name="progressAnimationRadio"
+              [(ngModel)]="options.progressAnimation"
+              value="decreasing"
+              [disabled]="!options.progressBar"
+              id="progressBarDecreasing"
+            />
+            <label class="text-sm text-gray-700" for="progressBarDecreasing">Decreasing</label>
+          </div>
+          <div class="flex items-center gap-2">
+            <input
+              class="h-4 w-4 border-gray-300 text-blue-600"
+              type="radio"
+              name="progressAnimationRadio"
+              [(ngModel)]="options.progressAnimation"
+              value="increasing"
+              [disabled]="!options.progressBar"
+              id="progressBarIncreasing"
+            />
+            <label class="text-sm text-gray-700" for="progressBarIncreasing"> Increasing </label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="md:col-span-4 mb-2">
+        <div class="mb-3">
+          <label for="toastTimeout" class="block mb-1 text-sm font-medium text-gray-700">
+            <strong>Timeout</strong>
+          </label>
+          <input
+            type="text"
+            [(ngModel)]="options.timeOut"
+            (ngModelChange)="fixNumber('timeOut')"
+            [disabled]="options.disableTimeOut === true || options.disableTimeOut === 'timeOut'"
+            class="block w-full rounded border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            id="toastTimeout"
+            aria-describedby="toastTimeoutHelp"
+          />
+          <small id="toastTimeoutHelp" class="text-xs text-gray-500">0 never expires</small>
+        </div>
+        <div class="mb-3">
+          <label for="toastExtendedTimeout" class="block mb-1 text-sm font-medium text-gray-700">
+            <strong>Extended Timeout</strong>
+          </label>
+          <input
+            type="text"
+            [(ngModel)]="options.extendedTimeOut"
+            (ngModelChange)="fixNumber('extendedTimeOut')"
+            [disabled]="
+              options.disableTimeOut === true || options.disableTimeOut === 'extendedTimeOut'
+            "
+            class="block w-full rounded border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            id="toastExtendedTimeout"
+          />
+          <small id="toastExtendedTimeoutHelp" class="text-xs text-gray-500">0 never expires</small>
+
+          <fieldset class="mt-3 mb-3">
+            <label class="block mb-1 text-sm font-medium text-gray-700">
+              <strong>Disable Timeouts</strong>
+            </label>
+            <div class="flex items-center gap-2">
+              <input
+                type="radio"
+                class="h-4 w-4 border-gray-300 text-blue-600"
+                [(ngModel)]="options.disableTimeOut"
+                [value]="true"
+                id="disableTimeOut1"
+              />
+              <label for="disableTimeOut" class="text-sm text-gray-700">
+                <code>disableTimeOut = true</code>
+              </label>
+            </div>
+            <div class="flex items-center gap-2">
+              <input
+                type="radio"
+                class="h-4 w-4 border-gray-300 text-blue-600"
+                [(ngModel)]="options.disableTimeOut"
+                [value]="false"
+                id="disableTimeOut2"
+              />
+              <label for="disableTimeOut2" class="text-sm text-gray-700">
+                <code>disableTimeOut = false</code>
+              </label>
+            </div>
+            <div class="flex items-center gap-2">
+              <input
+                type="radio"
+                class="h-4 w-4 border-gray-300 text-blue-600"
+                [(ngModel)]="options.disableTimeOut"
+                value="timeOut"
+                id="disableTimeOut3"
+              />
+              <label for="disableTimeOut3" class="text-sm text-gray-700">
+                <code>timeOut</code> only
+              </label>
+            </div>
+            <div class="flex items-center gap-2">
+              <input
+                type="radio"
+                class="h-4 w-4 border-gray-300 text-blue-600"
+                [(ngModel)]="options.disableTimeOut"
+                value="extendedTimeOut"
+                id="disableTimeOut4"
+              />
+              <label for="disableTimeOut4" class="text-sm text-gray-700">
+                <code>extendedTimeOut</code> only
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="mb-3">
+          <label for="maxNumberToasts" class="block mb-1 text-sm font-medium text-gray-700">
+            <strong>Maximum Toasts</strong>
+          </label>
+          <input
+            [(ngModel)]="toastr.toastrConfig.maxOpened"
+            (ngModelChange)="fixNumber('maxOpened')"
+            type="text"
+            class="block w-full rounded border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            id="maxNumberToasts"
+            aria-describedby="maxNumberToastsHelp"
+          />
+          <small id="maxNumberToastsHelp" class="text-xs text-gray-500">0 is no limit</small>
+          <div class="flex items-center gap-2 mt-1">
+            <input
+              type="checkbox"
+              class="h-4 w-4 rounded border-gray-300 text-blue-600"
+              [(ngModel)]="toastr.toastrConfig.autoDismiss"
+              id="autoDismiss"
+            />
+            <label for="autoDismiss" class="text-sm text-gray-700">Auto dismiss on max</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="easeTime" class="block mb-1 text-sm font-medium text-gray-700">
+            <strong>Ease Time</strong>
+          </label>
+          <input
+            type="text"
+            [(ngModel)]="toastr.toastrConfig.easeTime"
+            (ngModelChange)="fixNumber('easeTime')"
+            class="block w-full rounded border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            id="easeTime"
+          />
+        </div>
+      </div>
+      <div class="md:col-span-3">
+        <div class="grid grid-cols-2 md:grid-cols-1 gap-2">
+          <div>
+            <fieldset class="mb-3">
+              <label class="block mb-1 text-sm font-medium text-gray-700">
+                <strong>Toast Type</strong>
+              </label>
+              <div class="flex items-center gap-2">
+                <input
+                  class="h-4 w-4 border-gray-300 text-blue-600"
+                  type="radio"
+                  name="typeRadios"
+                  [(ngModel)]="type"
+                  value="success"
+                  id="typesuccess"
+                />
+                <label class="text-sm text-gray-700" for="typesuccess"> Success </label>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  class="h-4 w-4 border-gray-300 text-blue-600"
+                  type="radio"
+                  name="typeRadios"
+                  [(ngModel)]="type"
+                  value="info"
+                  id="typeinfo"
+                />
+                <label class="text-sm text-gray-700" for="typeinfo"> Info </label>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  class="h-4 w-4 border-gray-300 text-blue-600"
+                  type="radio"
+                  name="typeRadios"
+                  [(ngModel)]="type"
+                  value="warning"
+                  id="typewarning"
+                />
+                <label class="text-sm text-gray-700" for="typewarning"> Warning </label>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  class="h-4 w-4 border-gray-300 text-blue-600"
+                  type="radio"
+                  name="typeRadios"
+                  [(ngModel)]="type"
+                  value="error"
+                  id="typeerror"
+                />
+                <label class="text-sm text-gray-700" for="typeerror"> Error </label>
+              </div>
+            </fieldset>
+          </div>
+          <div>
+            <fieldset class="mb-3">
+              <label class="block mb-1 text-sm font-medium text-gray-700">
+                <strong>Toast Position</strong>
+              </label>
+              <div class="flex items-center gap-2">
+                <input
+                  class="h-4 w-4 border-gray-300 text-blue-600"
+                  type="radio"
+                  name="positionRadio"
+                  [(ngModel)]="options.positionClass"
+                  [disabled]="inline"
+                  value="toast-top-right"
+                  id="toast-top-right"
+                />
+                <label for="toast-top-right" class="text-sm text-gray-700">Top Right</label>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  class="h-4 w-4 border-gray-300 text-blue-600"
+                  type="radio"
+                  name="positionRadio"
+                  [(ngModel)]="options.positionClass"
+                  [disabled]="inline"
+                  value="toast-bottom-right"
+                  id="toast-bottom-right"
+                />
+                <label for="toast-bottom-right" class="text-sm text-gray-700">Bottom Right</label>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  class="h-4 w-4 border-gray-300 text-blue-600"
+                  type="radio"
+                  name="positionRadio"
+                  [(ngModel)]="options.positionClass"
+                  [disabled]="inline"
+                  value="toast-bottom-left"
+                  id="toast-bottom-left"
+                />
+                <label for="toast-bottom-left" class="text-sm text-gray-700">Bottom Left</label>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  class="h-4 w-4 border-gray-300 text-blue-600"
+                  type="radio"
+                  name="positionRadio"
+                  [(ngModel)]="options.positionClass"
+                  [disabled]="inline"
+                  value="toast-top-left"
+                  id="toast-top-left"
+                />
+                <label for="toast-top-left" class="text-sm text-gray-700">Top Left</label>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  class="h-4 w-4 border-gray-300 text-blue-600"
+                  type="radio"
+                  name="positionRadio"
+                  [(ngModel)]="options.positionClass"
+                  [disabled]="inline"
+                  value="toast-top-full-width"
+                  id="top-full-width"
+                />
+                <label for="top-full-width" class="text-sm text-gray-700">Top Full Width</label>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  class="h-4 w-4 border-gray-300 text-blue-600"
+                  type="radio"
+                  name="positionRadio"
+                  [(ngModel)]="options.positionClass"
+                  [disabled]="inline"
+                  value="toast-bottom-full-width"
+                  id="bottom-full-width"
+                />
+                <label for="bottom-full-width" class="text-sm text-gray-700"
+                  >Bottom Full Width</label
+                >
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  class="h-4 w-4 border-gray-300 text-blue-600"
+                  type="radio"
+                  name="positionRadio"
+                  [(ngModel)]="options.positionClass"
+                  [disabled]="inline"
+                  value="toast-top-center"
+                  id="toast-top-center"
+                />
+                <label for="toast-top-center" class="text-sm text-gray-700">Top Center</label>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  class="h-4 w-4 border-gray-300 text-blue-600"
+                  type="radio"
+                  name="positionRadio"
+                  [(ngModel)]="options.positionClass"
+                  [disabled]="inline"
+                  value="toast-bottom-center"
+                  id="toast-bottom-center"
+                />
+                <label for="toast-bottom-center" class="text-sm text-gray-700">Bottom Center</label>
+              </div>
+            </fieldset>
+            <div class="mb-3 space-y-1">
+              <div class="flex items-center gap-2">
+                <input
+                  class="h-4 w-4 rounded border-gray-300 text-blue-600"
+                  type="checkbox"
+                  (ngModelChange)="setInlineClass($event)"
+                  [(ngModel)]="inline"
+                  id="inline"
+                />
+                <label for="inline" class="text-sm text-gray-700">Inline Position</label>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  class="h-4 w-4 border-gray-300 text-blue-600"
+                  type="radio"
+                  name="inlinePositionRadio"
+                  (ngModelChange)="setInlinePosition($event)"
+                  [(ngModel)]="inlinePositionIndex"
+                  [disabled]="!inline"
+                  [value]="0"
+                  id="inline-a"
+                />
+                <label for="inline-a" class="text-sm text-gray-700">A</label>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  class="h-4 w-4 border-gray-300 text-blue-600"
+                  type="radio"
+                  name="inlinePositionRadio"
+                  (ngModelChange)="setInlinePosition($event)"
+                  [(ngModel)]="inlinePositionIndex"
+                  [disabled]="!inline"
+                  [value]="1"
+                  id="inline-b"
+                />
+                <label for="inline-b" class="text-sm text-gray-700">B</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-1 md:col-span-6">
+        <label class="block mb-1 text-sm font-medium text-gray-700">
+          <strong>Inline A</strong>
+        </label>
+        <span toastContainer></span>
+      </div>
+      <div class="col-span-1 md:col-span-6">
+        <label class="block mb-1 text-sm font-medium text-gray-700">
+          <strong>Inline B</strong>
+        </label>
+        <span toastContainer></span>
+      </div>
+    </div>
+    <hr class="my-4 border-gray-200" />
+    <div class="mb-3">
+      <div class="text-center">
+        <p class="mb-1">
+          <small class="text-gray-500">Toast Controls:</small>
+        </p>
+        <div class="flex justify-center gap-2">
+          <button
+            (click)="toastManager.openToastAnimation(options, type, { message, title })"
+            type="button"
+            class="btn-primary"
+          >
+            Open Toast
+          </button>
+
+          <button
+            (click)="toastManager.clearLastToast()"
+            type="button"
+            class="rounded border border-blue-600 px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 focus:outline-none"
+          >
+            Clear Last Toast
+          </button>
+
+          <button
+            (click)="toastManager.clearToasts()"
+            type="button"
+            class="rounded border border-blue-600 px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 focus:outline-none"
+          >
+            Clear All Toasts
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="mb-2">
+      <div class="text-center">
+        <p class="mb-1">
+          <small class="text-gray-500">Example Custom Toasts:</small>
+        </p>
+        <button
+          (click)="toastManager.openToastNoAnimation(options, type, { message, title })"
+          type="button"
+          class="rounded bg-gray-100 px-3 py-1 text-sm font-medium text-gray-700 hover:bg-gray-200 mx-1 focus:outline-none"
+        >
+          No Animations
+        </button>
+        <button
+          (click)="toastManager.openPinkToast(options, { message, title })"
+          type="button"
+          class="btn-pink mx-1"
+        >
+          Pink
+        </button>
+        <button
+          (click)="toastManager.openNotyf(options, { message, title })"
+          type="button"
+          class="rounded bg-gray-900 px-3 py-1 text-sm font-medium text-white hover:bg-gray-700 mx-1 focus:outline-none"
+        >
+          Notyf
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

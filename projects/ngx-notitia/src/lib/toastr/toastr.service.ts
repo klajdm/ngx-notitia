@@ -283,7 +283,7 @@ export class ToastrService {
       this.currentlyActive = this.currentlyActive + 1;
       setTimeout(() => {
         ins.toastRef.activate();
-      });
+      }, 0);
     }
 
     this.toasts.push(ins);

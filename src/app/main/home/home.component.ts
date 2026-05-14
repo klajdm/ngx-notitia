@@ -1,7 +1,8 @@
 import { Component, VERSION, ChangeDetectionStrategy, inject, viewChildren } from '@angular/core';
 import { GlobalConfig, ToastrService, ToastContainerDirective } from 'ngx-notitia';
 import { FormsModule } from '@angular/forms';
-import { ToastManagerService } from '../toast-manager.service';
+import { GhButtonModule } from '@ctrl/ngx-github-buttons';
+import { ToastManagerService } from '../../toast-manager.service';
 
 const types = ['success', 'error', 'info', 'warning'];
 
@@ -9,7 +10,7 @@ const types = ['success', 'error', 'info', 'warning'];
   selector: 'app-home',
   templateUrl: './home.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FormsModule],
+  imports: [FormsModule, GhButtonModule, ToastContainerDirective],
 })
 export class HomeComponent {
   protected toastr = inject(ToastrService);

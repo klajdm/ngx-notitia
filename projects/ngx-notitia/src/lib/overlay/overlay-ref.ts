@@ -6,7 +6,10 @@ import { BasePortalHost, ComponentPortal } from '../portal/portal';
  * Used to manipulate or dispose of said overlay.
  */
 export class OverlayRef {
-  constructor(private _portalHost: BasePortalHost) {}
+  constructor(
+    private _portalHost: BasePortalHost,
+    private _cleanup?: () => void,
+  ) {}
 
   attach(portal: ComponentPortal<unknown>, newestOnTop = true): ComponentRef<unknown> {
     return this._portalHost.attach(portal, newestOnTop);
@@ -17,6 +20,8 @@ export class OverlayRef {
    * @returns Resolves when the overlay has been detached.
    */
   detach() {
-    return this._portalHost.detach();
+    const result = this._portalHost.detach();
+    this._cleanup?.();
+    return result;
   }
 }
