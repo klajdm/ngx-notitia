@@ -85,5 +85,4 @@ export class Overlay {
   private _createPortalHost(pane: HTMLElement): DomPortalHost {
     return new DomPortalHost(pane, this._appRef);
   }
-
 }
