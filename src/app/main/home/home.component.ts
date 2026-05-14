@@ -10,7 +10,7 @@ const types = ['success', 'error', 'info', 'warning'];
   selector: 'app-home',
   templateUrl: './home.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FormsModule, GhButtonModule],
+  imports: [FormsModule, GhButtonModule, ToastContainerDirective],
 })
 export class HomeComponent {
   protected toastr = inject(ToastrService);
