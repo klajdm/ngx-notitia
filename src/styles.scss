@@ -1,3 +1,4 @@
+@use "sass:color";
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 $enable-shadows: true;
@@ -51,12 +52,12 @@ $enable-gradients: true;
   color: #FFFFFF;
   background-color: $pink;
   border-color: $pink;
-  background: $pink linear-gradient(180deg, $pink, darken($pink, 10%)) repeat-x;
+  background: $pink linear-gradient(180deg, $pink, color.adjust($pink, $lightness: -10%)) repeat-x;
   border-color: $pink;
 
   &:hover {
-    background-color: darken($pink, 5%);
-    border-color: darken($pink, 5%);
+    background-color: color.adjust($pink, $lightness: -5%);
+    border-color: color.adjust($pink, $lightness: -5%);
   }
 }
 

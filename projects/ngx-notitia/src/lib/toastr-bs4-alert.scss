@@ -1,3 +1,9 @@
+// Requires Bootstrap 4 to be imported before this file.
+// Example: @import 'bootstrap/scss/bootstrap';
+@if not variable-exists(alert-border-radius) {
+  @error "ngx-notitia: 'toastr-bs4-alert.scss' requires Bootstrap 4 variables. Import Bootstrap 4 before this file.";
+}
+
 // Position
 .toast-center-center {
   top: 50%;

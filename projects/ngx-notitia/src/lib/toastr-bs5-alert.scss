@@ -1,3 +1,9 @@
+// Requires Bootstrap 5 to be imported before this file.
+// Example: @use 'bootstrap/scss/bootstrap';
+@if not variable-exists(success) {
+  @error "ngx-notitia: 'toastr-bs5-alert.scss' requires Bootstrap 5 variables. Import Bootstrap 5 before this file.";
+}
+
 $theme-color-interval:      8% !default;
 
 // Position
