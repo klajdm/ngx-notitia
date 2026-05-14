@@ -1,6 +1,15 @@
 {
   "name": "ngx-notitia",
   "version": "1.0.0",
+  "description": "Easy, flexible toast notifications for Angular",
+  "keywords": [
+    "angular",
+    "toast",
+    "notification",
+    "toastr",
+    "alert",
+    "snackbar"
+  ],
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^21.0.0",

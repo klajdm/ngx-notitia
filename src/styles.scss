@@ -1,101 +1,21 @@
 @use "sass:color";
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-$enable-shadows: true;
-$enable-gradients: true;
-@import "bootstrap/scss/maps";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/utilities";
-
-// Layout & components
-@import "bootstrap/scss/root";
-@import "bootstrap/scss/reboot";
-@import "bootstrap/scss/type";
-// @import "bootstrap/scss/images";
-@import "bootstrap/scss/containers";
-@import "bootstrap/scss/grid";
-// @import "bootstrap/scss/tables";
-@import "bootstrap/scss/forms";
-@import "bootstrap/scss/buttons";
-// @import "bootstrap/scss/transitions";
-// @import "bootstrap/scss/dropdown";
-// @import "bootstrap/scss/button-group";
-// @import "bootstrap/scss/nav";
-// @import "bootstrap/scss/navbar";
-@import "bootstrap/scss/card";
-// @import "bootstrap/scss/accordion";
-// @import "bootstrap/scss/breadcrumb";
-// @import "bootstrap/scss/pagination";
-// @import "bootstrap/scss/badge";
-// @import "bootstrap/scss/alert";
-// @import "bootstrap/scss/progress";
-// @import "bootstrap/scss/list-group";
-@import "bootstrap/scss/close";
-// @import "bootstrap/scss/toasts";
-// @import "bootstrap/scss/modal";
-// @import "bootstrap/scss/tooltip";
-// @import "bootstrap/scss/popover";
-// @import "bootstrap/scss/carousel";
-// @import "bootstrap/scss/spinners";
-// @import "bootstrap/scss/offcanvas";
-// @import "bootstrap/scss/placeholders";
-
-// Helpers
-@import "bootstrap/scss/helpers";
-
-// Utilities
-@import "bootstrap/scss/utilities/api";
 
 @import "../projects/ngx-notitia/src/lib/toastr.css";
 
+$pink: #e83e8c;
+
 .btn-pink {
-  color: #FFFFFF;
-  background-color: $pink;
-  border-color: $pink;
+  color: #ffffff;
   background: $pink linear-gradient(180deg, $pink, color.adjust($pink, $lightness: -10%)) repeat-x;
-  border-color: $pink;
+  border: 1px solid $pink;
+  border-radius: 0.375rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  cursor: pointer;
 
   &:hover {
     background-color: color.adjust($pink, $lightness: -5%);
     border-color: color.adjust($pink, $lightness: -5%);
+    background-image: none;
   }
-}
-
-// bs5 toast https://github.com/twbs/bootstrap/blob/main/scss/_toasts.scss
-.toast {
-  width: $toast-max-width;
-  max-width: 100%;
-  @include font-size($toast-font-size);
-  color: $toast-color;
-  pointer-events: auto;
-  background-color: $toast-background-color;
-  background-clip: padding-box;
-  border: $toast-border-width solid $toast-border-color;
-  box-shadow: $toast-box-shadow;
-  @include border-radius($toast-border-radius);
-
-  &.showing {
-    opacity: 0;
-  }
-}
-
-.toast-header {
-  display: flex;
-  align-items: center;
-  padding: $toast-padding-y $toast-padding-x;
-  color: $toast-header-color;
-  background-color: $toast-header-background-color;
-  background-clip: padding-box;
-  border-bottom: $toast-border-width solid $toast-header-border-color;
-  @include border-top-radius(subtract($toast-border-radius, $toast-border-width));
-
-  .btn-close {
-    margin-right: $toast-padding-x * -.5;
-    margin-left: $toast-padding-x;
-  }
-}
-
-.toast-body {
-  padding: $toast-padding-x; // apply to both vertical and horizontal
-  word-wrap: break-word;
 }
