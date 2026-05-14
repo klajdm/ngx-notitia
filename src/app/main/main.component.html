@@ -1,0 +1,22 @@
+<div class="h-screen bg-white flex flex-col">
+  <!-- Header at the very top -->
+  <header class="z-40 shadow-sm border-b border-gray-200">
+    <app-header></app-header>
+  </header>
+
+  <!-- Main layout use overflow-hidden so only main scrolls -->
+  <div class="flex-1 flex overflow-hidden">
+    <!-- Main Content Column -->
+    <div #scrollContainer class="flex-1 overflow-auto">
+      <!-- Scrollable main content -->
+      <main class="p-4 lg:p-6 max-w-4xl min-h-screen mx-auto">
+        <router-outlet></router-outlet>
+      </main>
+
+      <!-- Footer (scrolls with content)-->
+      <footer class="border-t border-gray-200">
+        <app-footer></app-footer>
+      </footer>
+    </div>
+  </div>
+</div>
