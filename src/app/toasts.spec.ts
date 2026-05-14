@@ -9,7 +9,6 @@ import {
 import { NotyfToast } from './toasts/notyf-toast/notyf-toast.component';
 import { PinkToast } from './toasts/pink-toast/pink-toast.component';
 import { firstValueFrom } from 'rxjs';
-import type { BootstrapToast } from './toasts/bootstrap-toast/bootstrap-toast.component';
 import { ToastManagerService } from './toast-manager.service';
 
 describe('Toasts', () => {
@@ -128,11 +127,6 @@ describe('Toasts', () => {
 
   it('should have defined componentInstance', () => {
     const opened = toastManager.openToastAnimation() as ActiveToast<Toast>;
-    expect(opened.toastRef.componentInstance).toBeDefined();
-  });
-
-  it('should have defined componentInstance BootstrapToast', () => {
-    const opened = toastManager.openBootstrapToast() as ActiveToast<BootstrapToast>;
     expect(opened.toastRef.componentInstance).toBeDefined();
   });
 

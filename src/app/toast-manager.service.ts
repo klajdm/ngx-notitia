@@ -7,7 +7,6 @@ import {
   type GlobalConfig,
   type IndividualConfig,
 } from 'ngx-notitia';
-import { BootstrapToast } from './toasts/bootstrap-toast/bootstrap-toast.component';
 import { NotyfToast } from './toasts/notyf-toast/notyf-toast.component';
 import { PinkToast } from './toasts/pink-toast/pink-toast.component';
 import { quotes, type Quote } from './quotes';
@@ -43,18 +42,6 @@ export class ToastManagerService {
 
         toastClass: 'pinktoast',
         toastComponent: PinkToast,
-      },
-      quote,
-    );
-  }
-
-  public openBootstrapToast(options?: IndividualConfig, quote?: Quote) {
-    return this.openToast<BootstrapToast>(
-      {
-        ...(options ?? this.toastr.toastrConfig),
-
-        toastClass: 'toast',
-        toastComponent: BootstrapToast,
       },
       quote,
     );
