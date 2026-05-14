@@ -2,12 +2,14 @@ import {
   ApplicationRef,
   ChangeDetectionStrategy,
   Component,
+  SecurityContext,
   computed,
   inject,
   linkedSignal,
   signal,
   type OnDestroy,
 } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ToastPackage, type IndividualConfig } from '../toastr-config';
 import { ToastrService } from '../toastr.service';
 import type { Subscription } from 'rxjs';
@@ -50,6 +52,12 @@ export class ToastBase<ConfigPayload = unknown> implements OnDestroy {
 
   protected timeout: number | undefined;
   protected intervalId: number | undefined;
+
+  private sanitizer = inject(DomSanitizer);
+
+  readonly safeHtmlMessage = computed(() =>
+    this.sanitizer.sanitize(SecurityContext.HTML, this.toastPackage.message ?? ''),
+  );
 
   protected afterActivateSubscription!: Subscription;
   protected manualClosedSubscription!: Subscription;
