@@ -82,8 +82,9 @@ export abstract class BasePortalHost {
 
     this._attachedPortal = undefined;
     if (this._disposeFn) {
-      this._disposeFn();
+      const fn = this._disposeFn;
       this._disposeFn = undefined;
+      fn();
     }
   }
 
