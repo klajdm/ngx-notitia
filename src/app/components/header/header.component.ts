@@ -17,7 +17,7 @@ import { LucideMenu, LucideSun, LucideMoon } from '@lucide/angular';
       <div class="flex items-center h-16">
         <!-- Hamburger (mobile only) -->
         <button
-          class="lg:hidden relative flex items-center justify-center p-2 mr-3 focus:outline-none rounded-md z-50 theme-toggle"
+          class="lg:hidden p-2 mr-3 focus:outline-none rounded-md text-(--color-nav-link) hover:bg-(--bg-nav-link-hover)"
           aria-label="Open menu"
           (click)="onToggleMobileMenu()"
         >
@@ -32,25 +32,12 @@ import { LucideMenu, LucideSun, LucideMoon } from '@lucide/angular';
           </a>
         </div>
 
-        <!-- Theme toggle (mobile only, right of logo) -->
-        <button
-          (click)="themeService.toggle()"
-          class="lg:hidden theme-toggle"
-          [attr.aria-label]="themeService.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
-        >
-          @if (themeService.isDark()) {
-            <svg lucideSun class="w-5 h-5"></svg>
-          } @else {
-            <svg lucideMoon class="w-5 h-5"></svg>
-          }
-        </button>
-
         <!-- Support, GitHub links + theme toggle (desktop only) -->
-        <div class="hidden lg:flex items-center space-x-4">
+        <div class=" flex items-center space-x-4">
           <a
             href="https://github.com/klajdm/ngx-notitia/discussions"
             target="_blank"
-            class="nav-link text-sm font-medium flex items-center"
+            class="nav-link  text-sm font-medium hidden lg:flex items-center"
           >
             Support
             <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -65,7 +52,7 @@ import { LucideMenu, LucideSun, LucideMoon } from '@lucide/angular';
           <a
             href="https://github.com/klajdm/ngx-notitia"
             target="_blank"
-            class="nav-link text-sm font-medium flex items-center"
+            class="nav-link text-sm font-medium hidden lg:flex items-center"
           >
             GitHub
             <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

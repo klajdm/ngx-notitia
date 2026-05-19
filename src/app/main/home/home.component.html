@@ -2,6 +2,20 @@
 <div class="text-center py-16 px-4">
   <h1 class="text-primary text-5xl font-bold pb-2">Angular Notitia</h1>
   <p class="text-body text-lg mb-8">Modern toast notifications for Angular</p>
+  <div class="flex items-center justify-center gap-3 flex-wrap">
+    <a routerLink="/documentation" class="btn-primary flex items-center gap-2">
+      Get Started
+      <svg lucideArrowRight class="w-4 h-4"></svg>
+    </a>
+    <a
+      href="https://github.com/klajdm/ngx-notitia"
+      target="_blank"
+      class="btn-secondary flex items-center gap-2"
+    >
+      Give a Star
+      <svg lucideStar class="w-4 h-4 fill-yellow-400 text-yellow-400"></svg>
+    </a>
+  </div>
 </div>
 
 <!-- Playground -->
@@ -409,7 +423,7 @@
 
   <!-- Actions -->
   <div class="px-8 py-5 relative z-10">
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
       <div class="flex flex-wrap gap-2">
         <button
           (click)="toastManager.openToastAnimation(options, type, { message, title })"
@@ -418,44 +432,38 @@
         >
           Open Toast
         </button>
-        <button
-          (click)="toastManager.clearLastToast()"
-          type="button"
-          class="btn-secondary"
-        >
+        <button (click)="toastManager.clearLastToast()" type="button" class="btn-secondary">
           Clear Last
         </button>
-        <button
-          (click)="toastManager.clearToasts()"
-          type="button"
-          class="btn-secondary"
-        >
+        <button (click)="toastManager.clearToasts()" type="button" class="btn-secondary">
           Clear All
         </button>
       </div>
-      <div class="flex flex-wrap items-center gap-2">
-        <span class="text-xs text-faint uppercase tracking-wider">Custom:</span>
-        <button
-          (click)="toastManager.openToastNoAnimation(options, type, { message, title })"
-          type="button"
-          class="btn-no-anim"
-        >
-          No Animations
-        </button>
-        <button
-          (click)="toastManager.openPinkToast(options, { message, title })"
-          type="button"
-          class="rounded-lg btn-pink"
-        >
-          Pink
-        </button>
-        <button
-          (click)="toastManager.openNotyf(options, { message, title })"
-          type="button"
-          class="btn-notyf"
-        >
-          Notyf
-        </button>
+      <div class="flex flex-col items-center gap-1.5 sm:flex-row sm:items-center">
+        <span class="text-xs text-faint uppercase tracking-wider">Custom</span>
+        <div class="flex flex-wrap gap-2 justify-center">
+          <button
+            (click)="toastManager.openToastNoAnimation(options, type, { message, title })"
+            type="button"
+            class="btn-no-anim"
+          >
+            No Animations
+          </button>
+          <button
+            (click)="toastManager.openPinkToast(options, { message, title })"
+            type="button"
+            class="btn-pink"
+          >
+            Pink
+          </button>
+          <button
+            (click)="toastManager.openNotyf(options, { message, title })"
+            type="button"
+            class="btn-notyf"
+          >
+            Notyf
+          </button>
+        </div>
       </div>
     </div>
   </div>

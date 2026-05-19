@@ -2,6 +2,8 @@ import { Component, VERSION, ChangeDetectionStrategy, inject, viewChildren } fro
 import { TitleCasePipe } from '@angular/common';
 import { GlobalConfig, ToastrService, ToastContainerDirective } from 'ngx-notitia';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { LucideStar, LucideArrowRight } from '@lucide/angular';
 import { ToastManagerService } from '../../services/toast-manager.service';
 
 const types = ['success', 'error', 'info', 'warning'];
@@ -10,7 +12,14 @@ const types = ['success', 'error', 'info', 'warning'];
   selector: 'app-home',
   templateUrl: './home.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FormsModule, ToastContainerDirective, TitleCasePipe],
+  imports: [
+    FormsModule,
+    ToastContainerDirective,
+    TitleCasePipe,
+    RouterModule,
+    LucideStar,
+    LucideArrowRight,
+  ],
 })
 export class HomeComponent {
   protected toastr = inject(ToastrService);
