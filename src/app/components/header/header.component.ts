@@ -1,5 +1,6 @@
 import { Component, ChangeDetectorRef, inject, AfterViewInit } from '@angular/core';
 import { GhButtonModule } from '@ctrl/ngx-github-buttons';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -16,11 +17,11 @@ import { GhButtonModule } from '@ctrl/ngx-github-buttons';
         </div>
 
         <!-- Links -->
-        <div class="flex items-center space-x-6">
+        <div class="flex items-center space-x-4">
           <a
             href="https://github.com/klajdm/ngx-notitia/discussions"
             target="_blank"
-            class="text-gray-300 hover:text-white text-sm font-medium flex items-center transition-colors"
+            class="nav-link text-sm font-medium flex items-center"
           >
             Support
             <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -35,7 +36,7 @@ import { GhButtonModule } from '@ctrl/ngx-github-buttons';
           <a
             href="https://github.com/klajdm/ngx-notitia"
             target="_blank"
-            class="text-gray-300 hover:text-white text-sm font-medium flex items-center transition-colors"
+            class="nav-link text-sm font-medium flex items-center"
           >
             GitHub
             <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,12 +49,54 @@ import { GhButtonModule } from '@ctrl/ngx-github-buttons';
             </svg>
           </a>
           <gh-button user="klajdm" repo="ngx-notitia" [count]="true"></gh-button>
+
+          <!-- Theme toggle -->
+          <button
+            (click)="themeService.toggle()"
+            class="theme-toggle"
+            [attr.aria-label]="themeService.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
+          >
+            @if (themeService.isDark()) {
+              <!-- Sun icon -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </svg>
+            } @else {
+              <!-- Moon icon -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            }
+          </button>
         </div>
       </div>
     </div>
   `,
 })
 export class HeaderComponent implements AfterViewInit {
+  protected themeService = inject(ThemeService);
   private cdr = inject(ChangeDetectorRef);
 
   ngAfterViewInit() {

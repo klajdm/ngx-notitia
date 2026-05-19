@@ -6,10 +6,142 @@ body {
   height: 100%;
 }
 
-/* Scrollbar — matches dark gradient theme */
+/* =====================================================
+   Theme tokens
+   ===================================================== */
+:root,
+[data-theme='dark'] {
+  --bg-page: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #0f172a 100%);
+
+  --bg-glass-card: rgba(255, 255, 255, 0.06);
+  --border-glass-card: rgba(255, 255, 255, 0.12);
+
+  --bg-glass-header: rgba(15, 23, 42, 0.7);
+  --border-glass-header: rgba(255, 255, 255, 0.08);
+
+  --color-text: #d1d5db; /* gray-300 */
+  --color-text-muted: #9ca3af; /* gray-400 */
+  --color-text-faint: #6b7280; /* gray-500 */
+
+  --color-nav-link: #d1d5db;
+  --color-nav-link-hover: #ffffff;
+  --bg-nav-link-hover: rgba(255, 255, 255, 0.06);
+
+  --color-section-label: rgba(167, 139, 250, 0.8); /* purple-400 muted */
+  --color-field-label: #d1d5db;
+
+  --bg-field-input: rgba(255, 255, 255, 0.07);
+  --border-field-input: rgba(255, 255, 255, 0.15);
+  --color-field-input: #ffffff;
+  --color-field-placeholder: #6b7280;
+  --border-field-input-focus: rgba(167, 139, 250, 0.6);
+  --shadow-field-input-focus: rgba(139, 92, 246, 0.2);
+  --accent-color: #8b5cf6; /* purple-500 */
+  --color-scrollbar: rgba(139, 92, 246, 0.35);
+  --color-scrollbar-hover: rgba(139, 92, 246, 0.6);
+
+  --bg-pill: rgba(255, 255, 255, 0.05);
+  --border-pill: rgba(255, 255, 255, 0.15);
+  --color-pill: #9ca3af;
+  --color-pill-hover: #e5e7eb;
+  --border-pill-hover: rgba(167, 139, 250, 0.4);
+  --bg-pill-active: rgba(139, 92, 246, 0.25);
+  --border-pill-active: rgba(167, 139, 250, 0.6);
+  --color-pill-active: #e9d5ff;
+
+  --color-divider: rgba(255, 255, 255, 0.08);
+  --border-drop-zone: rgba(255, 255, 255, 0.12);
+  --bg-drop-zone: rgba(255, 255, 255, 0.03);
+
+  --color-code: #c4b5fd; /* purple-300 */
+
+  --border-btn-secondary: rgba(255, 255, 255, 0.3);
+  --color-btn-secondary: #e5e7eb;
+  --bg-btn-secondary-hover: rgba(255, 255, 255, 0.1);
+
+  --bg-btn-no-anim: rgba(255, 255, 255, 0.1);
+  --bg-btn-no-anim-hover: rgba(255, 255, 255, 0.15);
+
+  --color-footer-border: rgba(255, 255, 255, 0.1);
+  --color-footer-heading: #e5e7eb;
+  --color-footer-text: #9ca3af;
+  --color-footer-link-hover: #ffffff;
+
+  --bg-btn-notyf: rgba(17, 24, 39, 0.8); /* gray-900/80 */
+  --border-btn-notyf: rgba(255, 255, 255, 0.1);
+  --color-btn-notyf: #ffffff;
+  --bg-btn-notyf-hover: #1f2937; /* gray-800 */
+}
+
+[data-theme='light'] {
+  --bg-page: linear-gradient(135deg, #f8fafc 0%, #eff6ff 60%, #f8fafc 100%);
+
+  --bg-glass-card: rgba(255, 255, 255, 0.85);
+  --border-glass-card: rgba(100, 116, 139, 0.2);
+
+  --bg-glass-header: rgba(248, 250, 252, 0.85);
+  --border-glass-header: rgba(100, 116, 139, 0.15);
+
+  --color-text: #1e293b; /* slate-800 */
+  --color-text-muted: #64748b; /* slate-500 */
+  --color-text-faint: #94a3b8; /* slate-400 */
+
+  --color-nav-link: #475569; /* slate-600 */
+  --color-nav-link-hover: #0f172a; /* slate-900 */
+  --bg-nav-link-hover: rgba(100, 116, 139, 0.08);
+
+  --color-section-label: #1d4ed8; /* blue-700 */
+  --color-field-label: #334155; /* slate-700 */
+
+  --bg-field-input: rgba(255, 255, 255, 0.9);
+  --border-field-input: #cbd5e1; /* slate-300 */
+  --color-field-input: #0f172a;
+  --color-field-placeholder: #94a3b8;
+  --border-field-input-focus: rgba(37, 99, 235, 0.5); /* blue-600 */
+  --shadow-field-input-focus: rgba(37, 99, 235, 0.15);
+  --accent-color: #2563eb; /* blue-600 */
+  --color-scrollbar: rgba(100, 116, 139, 0.3); /* slate-500 */
+  --color-scrollbar-hover: rgba(100, 116, 139, 0.55);
+
+  --bg-pill: rgba(100, 116, 139, 0.08);
+  --border-pill: rgba(100, 116, 139, 0.2);
+  --color-pill: #64748b;
+  --color-pill-hover: #1e293b;
+  --border-pill-hover: rgba(37, 99, 235, 0.35); /* blue-600 */
+  --bg-pill-active: rgba(37, 99, 235, 0.1);
+  --border-pill-active: rgba(37, 99, 235, 0.5);
+  --color-pill-active: #1e40af; /* blue-800 */
+
+  --color-divider: rgba(100, 116, 139, 0.12);
+  --border-drop-zone: rgba(100, 116, 139, 0.25);
+  --bg-drop-zone: rgba(248, 250, 252, 0.6);
+
+  --color-code: #1d4ed8; /* blue-700 */
+
+  --border-btn-secondary: #cbd5e1;
+  --color-btn-secondary: #334155;
+  --bg-btn-secondary-hover: rgba(100, 116, 139, 0.1);
+
+  --bg-btn-no-anim: rgba(100, 116, 139, 0.1);
+  --bg-btn-no-anim-hover: rgba(100, 116, 139, 0.18);
+
+  --color-footer-border: #e2e8f0; /* slate-200 */
+  --color-footer-heading: #1e293b;
+  --color-footer-text: #64748b;
+  --color-footer-link-hover: #0f172a;
+
+  --bg-btn-notyf: #1e293b; /* slate-800 */
+  --border-btn-notyf: rgba(100, 116, 139, 0.3);
+  --color-btn-notyf: #f1f5f9; /* slate-100 */
+  --bg-btn-notyf-hover: #0f172a; /* slate-900 */
+}
+
+/* =====================================================
+   Scrollbar — matches accent color in both themes
+   ===================================================== */
 .app-scroll {
   scrollbar-width: thin;
-  scrollbar-color: rgba(139, 92, 246, 0.35) transparent;
+  scrollbar-color: var(--color-scrollbar) transparent;
 }
 .app-scroll::-webkit-scrollbar {
   width: 6px;
@@ -18,16 +150,18 @@ body {
   background: transparent;
 }
 .app-scroll::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.35);
+  background: var(--color-scrollbar);
   border-radius: 9999px;
 }
 .app-scroll::-webkit-scrollbar-thumb:hover {
-  background: rgba(139, 92, 246, 0.6);
+  background: var(--color-scrollbar-hover);
 }
 
-/* Project utilities: don't rely on @apply to avoid PostCSS config issues */
+/* =====================================================
+   Brand / button utilities (theme-independent)
+   ===================================================== */
 .text-primary {
-  background-image: linear-gradient(to right, #ef4444, #8b5cf6); /* red-600 -> purple-600 */
+  background-image: linear-gradient(to right, #ef4444, #8b5cf6);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -37,8 +171,8 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1rem; /* px-4 py-2 */
-  border-radius: 0.375rem; /* rounded-md */
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
   font-weight: 600;
   color: #fff;
   background-image: linear-gradient(to right, #ef4444, #8b5cf6);
@@ -49,20 +183,16 @@ body {
   transition: background-position 250ms ease, transform 80ms ease, box-shadow 150ms ease;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-
 .btn-primary:hover {
   background-position: 100% 0%;
 }
-
 .btn-primary:active {
   transform: translateY(1px);
 }
-
 .btn-primary:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.18); /* purple-600 18% */
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.18);
 }
-
 .btn-primary[disabled],
 .btn-primary.disabled {
   opacity: 0.6;
@@ -71,24 +201,298 @@ body {
   background-position: 0% 0%;
 }
 
+/* =====================================================
+   Theme-aware layout utilities
+   ===================================================== */
 .bg-gradient {
-  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #0f172a 100%);
+  background: var(--bg-page);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--bg-glass-card);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border-glass-card);
 }
 
 .glass-header {
-  background: rgba(15, 23, 42, 0.7);
+  background: var(--bg-glass-header);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--border-glass-header);
 }
 
+/* =====================================================
+   Nav
+   ===================================================== */
+.nav-link {
+  color: var(--color-nav-link);
+  transition: color 150ms ease, background-color 150ms ease;
+  border-radius: 0.375rem;
+  padding: 0.25rem 0.375rem;
+}
+.nav-link:hover {
+  color: var(--color-nav-link-hover);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  color: var(--color-nav-link);
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.theme-toggle:hover {
+  background: var(--bg-nav-link-hover);
+  color: var(--color-nav-link-hover);
+}
+
+/* =====================================================
+   Playground card — section utilities
+   ===================================================== */
+.section-divider {
+  height: 1px;
+  background: var(--color-divider);
+}
+
+.divide-theme > * + * {
+  border-color: var(--color-divider) !important;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-section-label);
+  margin-bottom: 0.75rem;
+}
+
+.field-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-field-label);
+  margin-bottom: 0.25rem;
+}
+
+.field-input {
+  display: block;
+  width: 100%;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border-field-input);
+  background: var(--bg-field-input);
+  padding: 0.375rem 0.625rem;
+  font-size: 1rem;
+  color: var(--color-field-input);
+}
+.field-input::placeholder {
+  color: var(--color-field-placeholder);
+}
+.field-input:focus {
+  outline: none;
+  border-color: var(--border-field-input-focus);
+  box-shadow: 0 0 0 2px var(--shadow-field-input-focus);
+}
+
+/* =====================================================
+   Semantic text utilities
+   ===================================================== */
+.text-body {
+  color: var(--color-text);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-faint {
+  color: var(--color-text-faint);
+}
+
+.text-code {
+  color: var(--color-code);
+}
+
+/* =====================================================
+   Form controls
+   ===================================================== */
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.toggle-check,
+.toggle-radio {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  accent-color: var(--accent-color);
+  cursor: pointer;
+}
+
+/* =====================================================
+   Type pills
+   ===================================================== */
+.type-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.875rem;
+  border-radius: 9999px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border: 1px solid var(--border-pill);
+  color: var(--color-pill);
+  background: var(--bg-pill);
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+.type-pill:hover {
+  border-color: var(--border-pill-hover);
+  color: var(--color-pill-hover);
+}
+.type-pill--active {
+  background: var(--bg-pill-active);
+  border-color: var(--border-pill-active);
+  color: var(--color-pill-active);
+}
+
+/* =====================================================
+   Inline toast drop zone
+   ===================================================== */
+.inline-drop-zone {
+  min-height: 80px;
+  max-height: 240px;
+  overflow-y: auto;
+  border-radius: 0.5rem;
+  border: 1px dashed var(--border-drop-zone);
+  background: var(--bg-drop-zone);
+  padding: 8px;
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.3) transparent;
+}
+
+/* =====================================================
+   Position pills
+   ===================================================== */
+.pos-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--border-pill);
+  color: var(--color-pill);
+  background: var(--bg-pill);
+  cursor: pointer;
+  transition: all 150ms ease;
+  white-space: nowrap;
+}
+.pos-pill:hover {
+  border-color: var(--border-pill-hover);
+  color: var(--color-pill-hover);
+}
+.pos-pill--active {
+  background: var(--bg-pill-active);
+  border-color: var(--border-pill-active);
+  color: var(--color-pill-active);
+}
+
+/* =====================================================
+   Action buttons
+   ===================================================== */
+.btn-secondary {
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-btn-secondary);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-btn-secondary);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+.btn-secondary:focus {
+  outline: none;
+}
+.btn-secondary:hover {
+  background: var(--bg-btn-secondary-hover);
+}
+
+.btn-no-anim {
+  border-radius: 0.5rem;
+  background: var(--bg-btn-no-anim);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-btn-secondary);
+  border: none;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+.btn-no-anim:focus {
+  outline: none;
+}
+.btn-no-anim:hover {
+  background: var(--bg-btn-no-anim-hover);
+}
+
+.btn-notyf {
+  border-radius: 0.5rem;
+  background: var(--bg-btn-notyf);
+  border: 1px solid var(--border-btn-notyf);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-btn-notyf);
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+.btn-notyf:focus {
+  outline: none;
+}
+.btn-notyf:hover {
+  background: var(--bg-btn-notyf-hover);
+}
+
+/* =====================================================
+   Footer
+   ===================================================== */
+.footer-divider {
+  border-top: 1px solid var(--color-footer-border);
+}
+
+.footer-heading {
+  color: var(--color-footer-heading);
+}
+
+.footer-text {
+  color: var(--color-footer-text);
+}
+
+.footer-link {
+  color: var(--color-footer-text);
+  transition: color 150ms ease;
+}
+.footer-link:hover {
+  color: var(--color-footer-link-hover);
+}
+
+/* =====================================================
+   Outline white button (hero CTA — theme-independent)
+   ===================================================== */
 .btn-outline-white {
   display: inline-flex;
   align-items: center;
@@ -106,126 +510,4 @@ body {
 .btn-outline-white:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.6);
-}
-
-/* Playground card — section utilities */
-.section-divider {
-  height: 1px;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.section-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(167, 139, 250, 0.8); /* purple-400 muted */
-  margin-bottom: 0.75rem;
-}
-
-.field-label {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #d1d5db; /* gray-300 */
-  margin-bottom: 0.25rem;
-}
-
-.field-input {
-  display: block;
-  width: 100%;
-  border-radius: 0.375rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.07);
-  padding: 0.375rem 0.625rem;
-  font-size: 1rem;
-  color: #fff;
-}
-.field-input::placeholder {
-  color: #6b7280;
-}
-.field-input:focus {
-  outline: none;
-  border-color: rgba(167, 139, 250, 0.6);
-  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
-}
-
-.toggle-row {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-}
-
-.toggle-check,
-.toggle-radio {
-  width: 1rem;
-  height: 1rem;
-  flex-shrink: 0;
-  accent-color: #8b5cf6;
-  cursor: pointer;
-}
-
-/* Type pills */
-.type-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.25rem 0.875rem;
-  border-radius: 9999px;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #9ca3af;
-  background: rgba(255, 255, 255, 0.05);
-  cursor: pointer;
-  transition: all 150ms ease;
-}
-.type-pill:hover {
-  border-color: rgba(167, 139, 250, 0.4);
-  color: #e5e7eb;
-}
-.type-pill--active {
-  background: rgba(139, 92, 246, 0.25);
-  border-color: rgba(167, 139, 250, 0.6);
-  color: #e9d5ff;
-}
-
-/* Inline toast drop zone */
-.inline-drop-zone {
-  min-height: 80px;
-  max-height: 240px;
-  overflow-y: auto;
-  border-radius: 0.5rem;
-  border: 1px dashed rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.03);
-  padding: 8px;
-  position: relative;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(139, 92, 246, 0.3) transparent;
-}
-
-/* Position pills */
-.pos-pill {
-  display: flex;
-  align-items: center;
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #9ca3af;
-  background: rgba(255, 255, 255, 0.04);
-  cursor: pointer;
-  transition: all 150ms ease;
-  white-space: nowrap;
-}
-.pos-pill:hover {
-  border-color: rgba(167, 139, 250, 0.35);
-  color: #e5e7eb;
-}
-.pos-pill--active {
-  background: rgba(139, 92, 246, 0.2);
-  border-color: rgba(167, 139, 250, 0.5);
-  color: #ddd6fe;
 }

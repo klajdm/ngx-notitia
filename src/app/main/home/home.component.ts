@@ -2,7 +2,7 @@ import { Component, VERSION, ChangeDetectionStrategy, inject, viewChildren } fro
 import { TitleCasePipe } from '@angular/common';
 import { GlobalConfig, ToastrService, ToastContainerDirective } from 'ngx-notitia';
 import { FormsModule } from '@angular/forms';
-import { ToastManagerService } from '../../toast-manager.service';
+import { ToastManagerService } from '../../services/toast-manager.service';
 
 const types = ['success', 'error', 'info', 'warning'];
 

@@ -7,13 +7,13 @@ import { Component } from '@angular/core';
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Brand -->
         <div class="col-span-1">
-          <h3 class="text-lg font-semibold text-gray-200 mb-2">ngx-notitia</h3>
-          <p class="text-gray-400 mb-4">Easy Toasts for Angular.</p>
+          <h3 class="text-lg font-semibold footer-heading mb-2">ngx-notitia</h3>
+          <p class="footer-text mb-4">Easy Toasts for Angular.</p>
           <div class="flex space-x-4">
             <a
               href="https://github.com/klajdm/ngx-notitia"
               target="_blank"
-              class="text-gray-500 hover:text-gray-300 transition-colors"
+              class="footer-link"
               aria-label="GitHub"
             >
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -25,7 +25,7 @@ import { Component } from '@angular/core';
             <a
               href="https://www.npmjs.com/package/ngx-notitia"
               target="_blank"
-              class="text-gray-500 hover:text-gray-300 transition-colors"
+              class="footer-link"
               aria-label="npm"
             >
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -40,7 +40,7 @@ import { Component } from '@angular/core';
         <div class="flex flex-row justify-between">
           <!-- Resources -->
           <div>
-            <h4 class="text-sm font-semibold text-gray-200 uppercase tracking-wider mb-4">
+            <h4 class="text-sm font-semibold footer-heading uppercase tracking-wider mb-4">
               Resources
             </h4>
             <ul class="space-y-2">
@@ -48,7 +48,7 @@ import { Component } from '@angular/core';
                 <a
                   href="https://github.com/klajdm/ngx-notitia#readme"
                   target="_blank"
-                  class="text-gray-400 hover:text-white transition-colors"
+                  class="footer-link"
                   >Documentation</a
                 >
               </li>
@@ -56,7 +56,7 @@ import { Component } from '@angular/core';
                 <a
                   href="https://github.com/klajdm/ngx-notitia/issues"
                   target="_blank"
-                  class="text-gray-400 hover:text-white transition-colors"
+                  class="footer-link"
                   >Issues</a
                 >
               </li>
@@ -65,7 +65,7 @@ import { Component } from '@angular/core';
 
           <!-- Community -->
           <div class="me-6">
-            <h4 class="text-sm font-semibold text-gray-200 uppercase tracking-wider mb-4">
+            <h4 class="text-sm font-semibold footer-heading uppercase tracking-wider mb-4">
               Community
             </h4>
             <ul class="space-y-2">
@@ -73,7 +73,7 @@ import { Component } from '@angular/core';
                 <a
                   href="https://github.com/klajdm/ngx-notitia/discussions"
                   target="_blank"
-                  class="text-gray-400 hover:text-white transition-colors"
+                  class="footer-link"
                   >Discussions</a
                 >
               </li>
@@ -81,7 +81,7 @@ import { Component } from '@angular/core';
                 <a
                   href="https://github.com/klajdm/ngx-notitia/blob/main/.github/CONTRIBUTING.md"
                   target="_blank"
-                  class="text-gray-400 hover:text-white transition-colors"
+                  class="footer-link"
                   >Contributing</a
                 >
               </li>
@@ -90,10 +90,10 @@ import { Component } from '@angular/core';
         </div>
       </div>
 
-      <div class="mt-8 pt-8 border-t border-white/10">
+      <div class="mt-8 pt-8" style="border-top: 1px solid var(--color-footer-border)">
         <div class="flex flex-col md:flex-row justify-between items-center">
-          <p class="text-gray-500 text-sm">© {{ currentYear }} ngx-notitia. Licensed under MIT.</p>
-          <p class="text-gray-500 text-sm mt-2 md:mt-0">
+          <p class="footer-text text-sm">© {{ currentYear }} ngx-notitia. Licensed under MIT.</p>
+          <p class="footer-text text-sm mt-2 md:mt-0">
             Built with ❤️ by
             <a
               href="https://klajdimurataj.dev"

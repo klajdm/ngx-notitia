@@ -1,7 +1,7 @@
 <!-- Hero -->
 <div class="text-center py-16 px-4">
   <h1 class="text-primary text-5xl font-bold pb-2">Angular Notitia</h1>
-  <p class="text-gray-300 text-lg mb-8">Modern toast notifications for Angular</p>
+  <p class="text-body text-lg mb-8">Modern toast notifications for Angular</p>
 </div>
 
 <!-- Playground -->
@@ -39,7 +39,7 @@
   <div class="section-divider"></div>
 
   <!-- Main body: 3 columns -->
-  <div class="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-white/8">
+  <div class="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-theme">
     <!-- Col 1: Options -->
     <div class="px-8 py-6">
       <p class="section-label">Options</p>
@@ -51,7 +51,7 @@
             [(ngModel)]="options.enableHtml"
             id="enableHtml"
           />
-          <span class="text-base text-gray-300">Enable HTML</span>
+          <span class="text-base text-body">Enable HTML</span>
         </label>
         <label class="toggle-row">
           <input
@@ -60,7 +60,7 @@
             [(ngModel)]="options.tapToDismiss"
             id="tapToDismiss"
           />
-          <span class="text-base text-gray-300">Tap to dismiss</span>
+          <span class="text-base text-body">Tap to dismiss</span>
         </label>
         <label class="toggle-row">
           <input
@@ -69,7 +69,7 @@
             [(ngModel)]="options.closeButton"
             id="closeButton"
           />
-          <span class="text-base text-gray-300">Close button</span>
+          <span class="text-base text-body">Close button</span>
         </label>
         <label class="toggle-row">
           <input
@@ -78,7 +78,7 @@
             [(ngModel)]="options.newestOnTop"
             id="newestOnTop"
           />
-          <span class="text-base text-gray-300">New toasts on top</span>
+          <span class="text-base text-body">New toasts on top</span>
         </label>
         <label class="toggle-row">
           <input
@@ -87,7 +87,7 @@
             [(ngModel)]="options.showBorder"
             id="showBorder"
           />
-          <span class="text-base text-gray-300">Border</span>
+          <span class="text-base text-body">Border</span>
         </label>
 
         <!-- Progress bar — always rendered, sub-options disabled when off -->
@@ -98,7 +98,7 @@
             [(ngModel)]="options.progressBar"
             id="progressBar"
           />
-          <span class="text-base text-gray-300">Progress bar</span>
+          <span class="text-base text-body">Progress bar</span>
         </label>
         <div
           class="pl-5 flex gap-5 transition-opacity"
@@ -114,7 +114,7 @@
               value="decreasing"
               [disabled]="!options.progressBar"
             />
-            <span class="text-base text-gray-400">Decreasing</span>
+            <span class="text-base text-muted">Decreasing</span>
           </label>
           <label class="toggle-row">
             <input
@@ -125,11 +125,11 @@
               value="increasing"
               [disabled]="!options.progressBar"
             />
-            <span class="text-base text-gray-400">Increasing</span>
+            <span class="text-base text-muted">Increasing</span>
           </label>
         </div>
 
-        <div class="pt-2 border-t border-white/6 space-y-3">
+        <div class="pt-2 space-y-3" style="border-top: 1px solid var(--color-divider)">
           <label class="toggle-row">
             <input
               class="toggle-check"
@@ -137,7 +137,7 @@
               [(ngModel)]="options.preventDuplicates"
               id="preventDuplicates"
             />
-            <span class="text-base text-gray-300">Prevent duplicates</span>
+            <span class="text-base text-body">Prevent duplicates</span>
           </label>
           <div
             class="pl-5 space-y-2.5 transition-opacity"
@@ -151,7 +151,7 @@
                 [(ngModel)]="options.countDuplicates"
                 [disabled]="!options.preventDuplicates"
               />
-              <span class="text-base text-gray-400">Count duplicates</span>
+              <span class="text-base text-muted">Count duplicates</span>
             </label>
             <label class="toggle-row">
               <input
@@ -160,7 +160,7 @@
                 [(ngModel)]="options.resetTimeoutOnDuplicate"
                 [disabled]="!options.preventDuplicates"
               />
-              <span class="text-base text-gray-400">Reset timeout</span>
+              <span class="text-base text-muted">Reset timeout</span>
             </label>
             <label class="toggle-row">
               <input
@@ -169,7 +169,7 @@
                 [(ngModel)]="options.includeTitleDuplicates"
                 [disabled]="!options.preventDuplicates"
               />
-              <span class="text-base text-gray-400">Include title</span>
+              <span class="text-base text-muted">Include title</span>
             </label>
           </div>
         </div>
@@ -191,7 +191,7 @@
               class="field-input disabled:opacity-40"
               id="toastTimeout"
             />
-            <span class="text-xs text-gray-500 mt-0.5 block">0 = never</span>
+            <span class="text-xs text-faint mt-0.5 block">0 = never</span>
           </div>
           <div>
             <label for="toastExtendedTimeout" class="field-label">Extended</label>
@@ -205,7 +205,7 @@
               class="field-input disabled:opacity-40"
               id="toastExtendedTimeout"
             />
-            <span class="text-xs text-gray-500 mt-0.5 block">0 = never</span>
+            <span class="text-xs text-faint mt-0.5 block">0 = never</span>
           </div>
         </div>
 
@@ -219,7 +219,7 @@
                 [(ngModel)]="options.disableTimeOut"
                 [value]="true"
               />
-              <code class="text-sm text-purple-300">true</code>
+              <code class="text-sm text-code">true</code>
             </label>
             <label class="toggle-row">
               <input
@@ -228,7 +228,7 @@
                 [(ngModel)]="options.disableTimeOut"
                 [value]="false"
               />
-              <code class="text-sm text-purple-300">false</code>
+              <code class="text-sm text-code">false</code>
             </label>
             <label class="toggle-row">
               <input
@@ -237,8 +237,8 @@
                 [(ngModel)]="options.disableTimeOut"
                 value="timeOut"
               />
-              <code class="text-sm text-purple-300">timeOut</code>
-              <span class="text-base text-gray-500 ml-1">only</span>
+              <code class="text-sm text-code">timeOut</code>
+              <span class="text-base text-faint ml-1">only</span>
             </label>
             <label class="toggle-row">
               <input
@@ -247,8 +247,8 @@
                 [(ngModel)]="options.disableTimeOut"
                 value="extendedTimeOut"
               />
-              <code class="text-sm text-purple-300">extended</code>
-              <span class="text-base text-gray-500 ml-1">only</span>
+              <code class="text-sm text-code">extended</code>
+              <span class="text-base text-faint ml-1">only</span>
             </label>
           </div>
         </div>
@@ -263,7 +263,7 @@
               class="field-input"
               id="maxNumberToasts"
             />
-            <span class="text-xs text-gray-500 mt-0.5 block">0 = no limit</span>
+            <span class="text-xs text-faint mt-0.5 block">0 = no limit</span>
           </div>
           <div>
             <label for="easeTime" class="field-label">Ease Time</label>
@@ -284,7 +284,7 @@
             [(ngModel)]="toastr.toastrConfig.autoDismiss"
             id="autoDismiss"
           />
-          <span class="text-base text-gray-300">Auto dismiss on max</span>
+          <span class="text-base text-body">Auto dismiss on max</span>
         </label>
       </div>
     </div>
@@ -347,7 +347,7 @@
               [(ngModel)]="inline"
               id="inline"
             />
-            <span class="text-base text-gray-300">Inline Position</span>
+            <span class="text-base text-body">Inline Position</span>
           </label>
           <div
             class="flex gap-5 pl-5 transition-opacity"
@@ -364,7 +364,7 @@
                 [disabled]="!inline"
                 [value]="0"
               />
-              <span class="text-base text-gray-300">A</span>
+              <span class="text-base text-body">A</span>
             </label>
             <label class="toggle-row">
               <input
@@ -376,7 +376,7 @@
                 [disabled]="!inline"
                 [value]="1"
               />
-              <span class="text-base text-gray-300">B</span>
+              <span class="text-base text-body">B</span>
             </label>
           </div>
         </div>
@@ -421,24 +421,24 @@
         <button
           (click)="toastManager.clearLastToast()"
           type="button"
-          class="rounded-lg border border-white/30 px-4 py-2 text-sm font-medium text-gray-200 hover:bg-white/10 focus:outline-none transition-colors"
+          class="btn-secondary"
         >
           Clear Last
         </button>
         <button
           (click)="toastManager.clearToasts()"
           type="button"
-          class="rounded-lg border border-white/30 px-4 py-2 text-sm font-medium text-gray-200 hover:bg-white/10 focus:outline-none transition-colors"
+          class="btn-secondary"
         >
           Clear All
         </button>
       </div>
       <div class="flex flex-wrap items-center gap-2">
-        <span class="text-xs text-gray-500 uppercase tracking-wider">Custom:</span>
+        <span class="text-xs text-faint uppercase tracking-wider">Custom:</span>
         <button
           (click)="toastManager.openToastNoAnimation(options, type, { message, title })"
           type="button"
-          class="rounded-lg bg-white/10 px-3 py-2 text-sm font-medium text-gray-200 hover:bg-white/15 focus:outline-none transition-colors"
+          class="btn-no-anim"
         >
           No Animations
         </button>
@@ -452,7 +452,7 @@
         <button
           (click)="toastManager.openNotyf(options, { message, title })"
           type="button"
-          class="rounded-lg bg-gray-900/80 px-3 py-2 text-sm font-medium text-white hover:bg-gray-800 focus:outline-none transition-colors border border-white/10"
+          class="btn-notyf"
         >
           Notyf
         </button>

@@ -7,9 +7,9 @@ import {
   type GlobalConfig,
   type IndividualConfig,
 } from 'ngx-notitia';
-import { NotyfToast } from './components/notyf-toast/notyf-toast.component';
-import { PinkToast } from './components/pink-toast/pink-toast.component';
-import { quotes, type Quote } from './quotes';
+import { Quote, quotes } from '../quotes';
+import { PinkToast } from '../components/pink-toast/pink-toast.component';
+import { NotyfToast } from '../components/notyf-toast/notyf-toast.component';
 
 @Injectable({ providedIn: 'root' })
 export class ToastManagerService {
