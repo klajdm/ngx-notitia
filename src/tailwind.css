@@ -16,6 +16,9 @@ body {
   --bg-glass-card: rgba(255, 255, 255, 0.06);
   --border-glass-card: rgba(255, 255, 255, 0.12);
 
+  --bg-glass-drawer: #1a1f36;
+  --border-glass-drawer: rgba(255, 255, 255, 0.1);
+
   --bg-glass-header: rgba(15, 23, 42, 0.7);
   --border-glass-header: rgba(255, 255, 255, 0.08);
 
@@ -78,6 +81,9 @@ body {
 
   --bg-glass-card: rgba(255, 255, 255, 0.85);
   --border-glass-card: rgba(100, 116, 139, 0.2);
+
+  --bg-glass-drawer: #f1f5f9;
+  --border-glass-drawer: rgba(100, 116, 139, 0.2);
 
   --bg-glass-header: rgba(248, 250, 252, 0.85);
   --border-glass-header: rgba(100, 116, 139, 0.15);
@@ -220,6 +226,11 @@ body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-glass-header);
+}
+
+.glass-drawer {
+  background: var(--bg-glass-drawer);
+  border-right: 1px solid var(--border-glass-drawer);
 }
 
 /* =====================================================

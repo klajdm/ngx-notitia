@@ -1,0 +1,91 @@
+<div class="flex flex-col h-full">
+  <!-- Header with logo and close button -->
+  <div class="flex items-center px-4 py-3 border-b" style="border-color: var(--color-divider)">
+    <img src="logo.png" alt="ngx-notitia" class="h-8 w-8 mr-2" />
+    <div class="font-semibold text-lg text-primary">NGX-NOTITIA</div>
+    <button class="ml-auto p-2" (click)="onCloseClick()" aria-label="Close menu">
+      <svg lucideX class="w-5 h-5" style="color: var(--color-nav-link)"></svg>
+    </button>
+  </div>
+
+  <!-- Navigation menu -->
+  <div class="flex-1 overflow-y-auto p-6">
+    <nav class="space-y-2" aria-label="Mobile site navigation">
+      <ul class="space-y-1">
+        <li>
+          <a
+            routerLink="/"
+            routerLinkActive="font-semibold"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="nav-link flex items-center px-3 py-2 rounded-md text-sm"
+            (click)="onMenuItemClick()"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/documentation"
+            routerLinkActive="font-semibold"
+            class="nav-link flex items-center px-3 py-2 rounded-md text-sm"
+            (click)="onMenuItemClick()"
+          >
+            Documentation
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/development/contributing"
+            routerLinkActive="font-semibold"
+            class="nav-link flex items-center px-3 py-2 rounded-md text-sm"
+            (click)="onMenuItemClick()"
+          >
+            Contributing
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/development/code-of-conduct"
+            routerLinkActive="font-semibold"
+            class="nav-link flex items-center px-3 py-2 rounded-md text-sm"
+            (click)="onMenuItemClick()"
+          >
+            Code of Conduct
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/license"
+            routerLinkActive="font-semibold"
+            class="nav-link flex items-center px-3 py-2 rounded-md text-sm"
+            (click)="onMenuItemClick()"
+          >
+            License
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Footer with support links -->
+  <div class="border-t p-4" style="border-color: var(--color-divider)">
+    <div class="flex items-center justify-between">
+      <a
+        href="https://github.com/klajdm/ngx-notitia/discussions"
+        target="_blank"
+        class="footer-link text-sm font-medium flex items-center"
+      >
+        Support
+        <svg lucideExternalLink class="w-3 h-3 ml-1"></svg>
+      </a>
+      <a
+        href="https://github.com/klajdm/ngx-notitia"
+        target="_blank"
+        class="footer-link text-sm font-medium flex items-center"
+      >
+        GitHub
+        <svg lucideExternalLink class="w-3 h-3 ml-1"></svg>
+      </a>
+    </div>
+  </div>
+</div>
