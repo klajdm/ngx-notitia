@@ -101,6 +101,12 @@ export interface IndividualConfig<ConfigPayload = unknown> {
   newestOnTop: boolean;
 
   /**
+   * Show or hide the toast border
+   * default: true
+   */
+  showBorder: boolean;
+
+  /**
    * Payload to pass to the toast component
    */
   payload?: ConfigPayload;
@@ -228,6 +234,7 @@ export const DefaultNoComponentGlobalConfig: GlobalConfig = {
   tapToDismiss: true,
   onActivateTick: false,
   progressAnimation: 'decreasing',
+  showBorder: true,
 };
 
 export interface ToastToken {

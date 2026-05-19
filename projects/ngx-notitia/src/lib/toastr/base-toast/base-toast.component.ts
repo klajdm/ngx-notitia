@@ -23,6 +23,7 @@ import { TimeoutsService } from '../../timeouts.service';
   host: {
     '[class]': 'toastClasses()',
     '[style.display]': 'displayStyle()',
+    '[style.--nt-border-width]': 'options().showBorder ? null : "0"',
     '(mouseenter)': 'stickAround()',
     '(mouseleave)': 'delayedHideToast()',
     '(click)': 'tapToast()',

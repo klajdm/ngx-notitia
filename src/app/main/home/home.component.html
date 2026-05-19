@@ -80,6 +80,15 @@
           />
           <span class="text-base text-gray-300">New toasts on top</span>
         </label>
+        <label class="toggle-row">
+          <input
+            class="toggle-check"
+            type="checkbox"
+            [(ngModel)]="options.showBorder"
+            id="showBorder"
+          />
+          <span class="text-base text-gray-300">Border</span>
+        </label>
 
         <!-- Progress bar — always rendered, sub-options disabled when off -->
         <label class="toggle-row">
