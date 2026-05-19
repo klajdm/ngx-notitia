@@ -1,12 +1,21 @@
 :host {
-  background-color: #ff69b4;
+  --pk-bg: rgba(253, 242, 248, 0.90);
+  --pk-border: #f9a8d4;
+  --pk-accent: #db2777;
+  --pk-text: #831843;
+
   position: relative;
   overflow: hidden;
-  margin: 0 0 6px;
-  padding: 10px 10px 10px 10px;
-  width: 300px;
-  border-radius: 3px 3px 3px 3px;
-  color: #ffffff;
+  margin: 0 0 8px;
+  padding: 12px 14px;
+  width: 320px;
+  border-radius: 10px;
+  border: 2px solid var(--pk-border);
+  background-color: var(--pk-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: none;
+  color: var(--pk-text);
   pointer-events: all;
   cursor: pointer;
 
@@ -17,17 +26,51 @@
   &.animate-pink-out {
     animation: pink-out 400ms ease-out;
   }
-}
 
-.btn-pink {
-  backface-visibility: hidden;
-  transform: translateZ(0);
+  .toast-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--pk-accent);
+  }
+
+  .toast-message {
+    font-size: 14px;
+    color: var(--pk-text);
+    margin-top: 2px;
+  }
+
+  .btn-pink {
+    background: transparent;
+    border: 1.5px solid var(--pk-accent);
+    color: var(--pk-accent);
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: background 150ms ease, color 150ms ease;
+
+    &:hover {
+      background-color: var(--pk-accent);
+      color: #fff;
+    }
+  }
+
+  .toast-progress {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    background-color: var(--pk-accent);
+    opacity: 0.4;
+    border-radius: 0 0 10px 10px;
+  }
 }
 
 @keyframes pink-out {
-  from {
-    opacity: 1;
-  };
+  from { opacity: 1; }
   to {
     transform: translate3d(100%, 0, 0) skewX(30deg);
     opacity: 0;

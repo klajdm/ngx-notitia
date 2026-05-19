@@ -1,4 +1,4 @@
-/* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
+/* ngx-notitia — Glassmorphism Theme */
 
 /* position */
 .toast-center-center {
@@ -43,48 +43,58 @@
   left: 12px;
 }
 
-/* toast styles */
+/* text elements */
 .toast-title {
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--nt-accent);
 }
 .toast-message {
+  font-size: 14px;
+  line-height: 1.5;
   word-wrap: break-word;
+  color: var(--nt-text);
+  margin-top: 3px;
+}
+.toast-title:only-child,
+.toast-message:only-child {
+  margin-top: 0;
 }
 .toast-message a,
 .toast-message label {
-  color: #FFFFFF;
+  color: var(--nt-accent);
 }
 .toast-message a:hover {
-  color: #CCCCCC;
-  text-decoration: none;
+  color: var(--nt-accent);
+  text-decoration: underline;
 }
+
+/* close button */
 .toast-close-button {
   position: relative;
-  right: -0.3em;
-  top: -0.3em;
+  right: -0.2em;
+  top: -0.2em;
   float: right;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
-  color: #FFFFFF;
-  text-shadow: 0 1px 0 #ffffff;
-  /* opacity: 0.8; */
+  color: var(--nt-accent);
+  text-shadow: none;
+  opacity: 0.6;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  line-height: 1;
 }
 .toast-close-button:hover,
 .toast-close-button:focus {
-  color: #000000;
+  opacity: 1;
   text-decoration: none;
   cursor: pointer;
-  opacity: 0.4;
 }
-/*Additional properties for button version
- iOS requires the button element instead of an anchor tag.
- If you want the anchor version, it requires `href="#"`.*/
-button.toast-close-button {
-  padding: 0;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
-}
+
+/* container */
 .toast-container {
   pointer-events: none;
   position: fixed;
@@ -93,43 +103,80 @@ button.toast-close-button {
 .toast-container * {
   box-sizing: border-box;
 }
+
+/* toast element — define CSS custom properties here */
 .toast-container .ngx-notitia {
+  --nt-border-radius: 10px;
+  --nt-blur: 8px;
+  --nt-border-width: 2px;
+  --nt-icon-size: 25px;
+  --nt-width: 320px;
+  --nt-bg: rgba(255, 255, 255, 0.88);
+  --nt-border-color: rgba(200, 200, 200, 0.6);
+  --nt-accent: #64748b;
+  --nt-text: #1e293b;
+
   position: relative;
   overflow: hidden;
-  margin: 0 0 6px;
-  padding: 15px 15px 15px 50px;
-  width: 300px;
-  border-radius: 3px 3px 3px 3px;
-  background-position: 15px center;
+  margin: 0 0 8px;
+  padding: 14px 14px 14px 52px;
+  width: var(--nt-width);
+  border-radius: var(--nt-border-radius);
+  border: var(--nt-border-width) solid var(--nt-border-color);
+  background-color: var(--nt-bg);
+  backdrop-filter: blur(var(--nt-blur));
+  -webkit-backdrop-filter: blur(var(--nt-blur));
+  box-shadow: none;
+  background-position: 14px center;
   background-repeat: no-repeat;
-  background-size: 24px;
-  box-shadow: 0 0 12px #999999;
-  color: #FFFFFF;
+  background-size: var(--nt-icon-size);
+  pointer-events: auto;
 }
 .toast-container .ngx-notitia:hover {
-  box-shadow: 0 0 12px #000000;
-  opacity: 1;
   cursor: pointer;
+  filter: brightness(0.96);
 }
-/* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/info-circle.svg */
+
+/* type tokens */
+.toast-container .ngx-notitia.toast-info {
+  --nt-bg: rgba(233, 252, 255, 0.90);
+  --nt-border-color: #8debfa;
+  --nt-accent: #0891b2;
+}
+.toast-container .ngx-notitia.toast-success {
+  --nt-bg: rgba(229, 255, 237, 0.90);
+  --nt-border-color: #8beca2;
+  --nt-accent: #16a34a;
+}
+.toast-container .ngx-notitia.toast-warning {
+  --nt-bg: rgba(255, 250, 234, 0.90);
+  --nt-border-color: #ffe495;
+  --nt-accent: #d97706;
+}
+.toast-container .ngx-notitia.toast-error {
+  --nt-bg: rgba(255, 245, 245, 0.90);
+  --nt-border-color: #ffa0aa;
+  --nt-accent: #dc2626;
+}
+
+/* icons — Lucide-style outline SVGs, colored per type */
 .toast-info {
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA1MTIgNTEyJyB3aWR0aD0nNTEyJyBoZWlnaHQ9JzUxMic+PHBhdGggZmlsbD0ncmdiKDI1NSwyNTUsMjU1KScgZD0nTTI1NiA4QzExOS4wNDMgOCA4IDExOS4wODMgOCAyNTZjMCAxMzYuOTk3IDExMS4wNDMgMjQ4IDI0OCAyNDhzMjQ4LTExMS4wMDMgMjQ4LTI0OEM1MDQgMTE5LjA4MyAzOTIuOTU3IDggMjU2IDh6bTAgMTEwYzIzLjE5NiAwIDQyIDE4LjgwNCA0MiA0MnMtMTguODA0IDQyLTQyIDQyLTQyLTE4LjgwNC00Mi00MiAxOC44MDQtNDIgNDItNDJ6bTU2IDI1NGMwIDYuNjI3LTUuMzczIDEyLTEyIDEyaC04OGMtNi42MjcgMC0xMi01LjM3My0xMi0xMnYtMjRjMC02LjYyNyA1LjM3My0xMiAxMi0xMmgxMnYtNjRoLTEyYy02LjYyNyAwLTEyLTUuMzczLTEyLTEydi0yNGMwLTYuNjI3IDUuMzczLTEyIDEyLTEyaDY0YzYuNjI3IDAgMTIgNS4zNzMgMTIgMTJ2MTAwaDEyYzYuNjI3IDAgMTIgNS4zNzMgMTIgMTJ2MjR6Jy8+PC9zdmc+");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4'/%3E%3Cpath d='M12 8h.01'/%3E%3C/svg%3E");
 }
-/* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/times-circle.svg */
 .toast-error {
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA1MTIgNTEyJyB3aWR0aD0nNTEyJyBoZWlnaHQ9JzUxMic+PHBhdGggZmlsbD0ncmdiKDI1NSwyNTUsMjU1KScgZD0nTTI1NiA4QzExOSA4IDggMTE5IDggMjU2czExMSAyNDggMjQ4IDI0OCAyNDgtMTExIDI0OC0yNDhTMzkzIDggMjU2IDh6bTEyMS42IDMxMy4xYzQuNyA0LjcgNC43IDEyLjMgMCAxN0wzMzggMzc3LjZjLTQuNyA0LjctMTIuMyA0LjctMTcgMEwyNTYgMzEybC02NS4xIDY1LjZjLTQuNyA0LjctMTIuMyA0LjctMTcgMEwxMzQuNCAzMzhjLTQuNy00LjctNC43LTEyLjMgMC0xN2w2NS42LTY1LTY1LjYtNjUuMWMtNC43LTQuNy00LjctMTIuMyAwLTE3bDM5LjYtMzkuNmM0LjctNC43IDEyLjMtNC43IDE3IDBsNjUgNjUuNyA2NS4xLTY1LjZjNC43LTQuNyAxMi4zLTQuNyAxNyAwbDM5LjYgMzkuNmM0LjcgNC43IDQuNyAxMi4zIDAgMTdMMzEyIDI1Nmw2NS42IDY1LjF6Jy8+PC9zdmc+");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dc2626' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m15 9-6 6'/%3E%3Cpath d='m9 9 6 6'/%3E%3C/svg%3E");
 }
-/* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/check.svg */
 .toast-success {
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA1MTIgNTEyJyB3aWR0aD0nNTEyJyBoZWlnaHQ9JzUxMic+PHBhdGggZmlsbD0ncmdiKDI1NSwyNTUsMjU1KScgZD0nTTE3My44OTggNDM5LjQwNGwtMTY2LjQtMTY2LjRjLTkuOTk3LTkuOTk3LTkuOTk3LTI2LjIwNiAwLTM2LjIwNGwzNi4yMDMtMzYuMjA0YzkuOTk3LTkuOTk4IDI2LjIwNy05Ljk5OCAzNi4yMDQgMEwxOTIgMzEyLjY5IDQzMi4wOTUgNzIuNTk2YzkuOTk3LTkuOTk3IDI2LjIwNy05Ljk5NyAzNi4yMDQgMGwzNi4yMDMgMzYuMjA0YzkuOTk3IDkuOTk3IDkuOTk3IDI2LjIwNiAwIDM2LjIwNGwtMjk0LjQgMjk0LjQwMWMtOS45OTggOS45OTctMjYuMjA3IDkuOTk3LTM2LjIwNC0uMDAxeicvPjwvc3ZnPg==");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316a34a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E");
 }
-/* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/exclamation-triangle.svg */
 .toast-warning {
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA1NzYgNTEyJyB3aWR0aD0nNTc2JyBoZWlnaHQ9JzUxMic+PHBhdGggZmlsbD0ncmdiKDI1NSwyNTUsMjU1KScgZD0nTTU2OS41MTcgNDQwLjAxM0M1ODcuOTc1IDQ3Mi4wMDcgNTY0LjgwNiA1MTIgNTI3Ljk0IDUxMkg0OC4wNTRjLTM2LjkzNyAwLTU5Ljk5OS00MC4wNTUtNDEuNTc3LTcxLjk4N0wyNDYuNDIzIDIzLjk4NWMxOC40NjctMzIuMDA5IDY0LjcyLTMxLjk1MSA4My4xNTQgMGwyMzkuOTQgNDE2LjAyOHpNMjg4IDM1NGMtMjUuNDA1IDAtNDYgMjAuNTk1LTQ2IDQ2czIwLjU5NSA0NiA0NiA0NiA0Ni0yMC41OTUgNDYtNDYtMjAuNTk1LTQ2LTQ2LTQ2em0tNDMuNjczLTE2NS4zNDZsNy40MTggMTM2Yy4zNDcgNi4zNjQgNS42MDkgMTEuMzQ2IDExLjk4MiAxMS4zNDZoNDguNTQ2YzYuMzczIDAgMTEuNjM1LTQuOTgyIDExLjk4Mi0xMS4zNDZsNy40MTgtMTM2Yy4zNzUtNi44NzQtNS4wOTgtMTIuNjU0LTExLjk4Mi0xMi42NTRoLTYzLjM4M2MtNi44ODQgMC0xMi4zNTYgNS43OC0xMS45ODEgMTIuNjU0eicvPjwvc3ZnPg==");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d97706' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E");
 }
+
+/* center / full-width layout */
 .toast-container.toast-top-center .ngx-notitia,
 .toast-container.toast-bottom-center .ngx-notitia {
-  width: 300px;
+  width: 320px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -139,35 +186,22 @@ button.toast-close-button {
   margin-left: auto;
   margin-right: auto;
 }
-.ngx-notitia {
-  background-color: #030303;
-  pointer-events: auto;
-}
-.toast-success {
-  background-color: #51A351;
-}
-.toast-error {
-  background-color: #BD362F;
-}
-.toast-info {
-  background-color: #2F96B4;
-}
-.toast-warning {
-  background-color: #F89406;
-}
+
+/* progress bar */
 .toast-progress {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 4px;
-  background-color: #000000;
+  height: 3px;
+  background-color: var(--nt-accent);
   opacity: 0.4;
+  border-radius: 0 0 var(--nt-border-radius) var(--nt-border-radius);
 }
 
-/* Responsive Design */
+/* responsive */
 @media all and (max-width: 240px) {
-  .toast-container .ngx-notitia.div {
-    padding: 8px 8px 8px 50px;
+  .toast-container .ngx-notitia {
+    padding: 8px 8px 8px 44px;
     width: 11em;
   }
   .toast-container .toast-close-button {
@@ -176,8 +210,8 @@ button.toast-close-button {
   }
 }
 @media all and (min-width: 241px) and (max-width: 480px) {
-  .toast-container .ngx-notitia.div {
-    padding: 8px 8px 8px 50px;
+  .toast-container .ngx-notitia {
+    padding: 10px 10px 10px 44px;
     width: 18em;
   }
   .toast-container .toast-close-button {
@@ -186,8 +220,8 @@ button.toast-close-button {
   }
 }
 @media all and (min-width: 481px) and (max-width: 768px) {
-  .toast-container .ngx-notitia.div {
-    padding: 15px 15px 15px 50px;
+  .toast-container .ngx-notitia {
+    padding: 14px 14px 14px 52px;
     width: 25em;
   }
 }
