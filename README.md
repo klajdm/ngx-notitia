@@ -53,22 +53,7 @@ npm install ngx-notitia --save
 - If you are using sass you can import the css.
 
 ```scss
-// regular style toast
 @import 'ngx-notitia/toastr';
-
-// bootstrap style toast
-// or import a bootstrap 4 alert styled design (SASS ONLY)
-// should be after your bootstrap imports, it uses bs4 variables, mixins, functions
-@import 'ngx-notitia/toastr-bs4-alert';
-
-// if you'd like to use it without importing all of bootstrap it requires
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
-@import 'bootstrap/scss/mixins';
-// bootstrap 4
-@import 'ngx-notitia/toastr-bs4-alert';
-// boostrap 5
-@import 'ngx-notitia/toastr-bs5-alert';
 ```
 
 - If you are using angular-cli you can add it to your angular.json
