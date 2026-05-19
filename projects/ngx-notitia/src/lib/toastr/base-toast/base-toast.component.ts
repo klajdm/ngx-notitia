@@ -24,6 +24,7 @@ import { TimeoutsService } from '../../timeouts.service';
     '[class]': 'toastClasses()',
     '[style.display]': 'displayStyle()',
     '[style.--nt-border-width]': 'options().showBorder ? null : "0"',
+    '[attr.data-color-scheme]': 'options().colorScheme !== "auto" ? options().colorScheme : null',
     '(mouseenter)': 'stickAround()',
     '(mouseleave)': 'delayedHideToast()',
     '(click)': 'tapToast()',

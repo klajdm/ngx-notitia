@@ -118,7 +118,7 @@
 .toast-container .ngx-notitia {
   --nt-border-radius: 10px;
   --nt-blur: 8px;
-  --nt-border-width: 2px;
+  --nt-border-width: 1px;
   --nt-icon-size: 25px;
   --nt-width: 320px;
   --nt-bg: rgba(255, 255, 255, 0.88);
@@ -181,6 +181,139 @@
 }
 .toast-warning {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d97706' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E");
+}
+
+/* dark theme overrides — triggers on data-theme="dark", .dark class (Tailwind), or system preference */
+[data-theme='dark'] .toast-container .ngx-notitia,
+.dark .toast-container .ngx-notitia {
+  --nt-bg: rgba(30, 41, 59, 0.88);
+  --nt-border-color: rgba(255, 255, 255, 0.12);
+  --nt-accent: #94a3b8;
+  --nt-text: #e2e8f0;
+}
+[data-theme='dark'] .toast-container .ngx-notitia.toast-info,
+.dark .toast-container .ngx-notitia.toast-info {
+  --nt-bg: rgba(15, 40, 60, 0.90);
+  --nt-border-color: #0e7490;
+  --nt-accent: #22d3ee;
+  --nt-text: #e0f7fa;
+}
+[data-theme='dark'] .toast-container .ngx-notitia.toast-success,
+.dark .toast-container .ngx-notitia.toast-success {
+  --nt-bg: rgba(10, 38, 25, 0.90);
+  --nt-border-color: #15803d;
+  --nt-accent: #4ade80;
+  --nt-text: #dcfce7;
+}
+[data-theme='dark'] .toast-container .ngx-notitia.toast-warning,
+.dark .toast-container .ngx-notitia.toast-warning {
+  --nt-bg: rgba(40, 30, 5, 0.90);
+  --nt-border-color: #b45309;
+  --nt-accent: #fbbf24;
+  --nt-text: #fef9c3;
+}
+[data-theme='dark'] .toast-container .ngx-notitia.toast-error,
+.dark .toast-container .ngx-notitia.toast-error {
+  --nt-bg: rgba(45, 15, 15, 0.90);
+  --nt-border-color: #b91c1c;
+  --nt-accent: #f87171;
+  --nt-text: #fee2e2;
+}
+/* colorScheme config override — forces dark regardless of page theme */
+.toast-container .ngx-notitia[data-color-scheme='dark'] {
+  --nt-bg: rgba(30, 41, 59, 0.88);
+  --nt-border-color: rgba(255, 255, 255, 0.12);
+  --nt-accent: #94a3b8;
+  --nt-text: #e2e8f0;
+}
+.toast-container .ngx-notitia[data-color-scheme='dark'].toast-info {
+  --nt-bg: rgba(15, 40, 60, 0.90);
+  --nt-border-color: #0e7490;
+  --nt-accent: #22d3ee;
+  --nt-text: #e0f7fa;
+}
+.toast-container .ngx-notitia[data-color-scheme='dark'].toast-success {
+  --nt-bg: rgba(10, 38, 25, 0.90);
+  --nt-border-color: #15803d;
+  --nt-accent: #4ade80;
+  --nt-text: #dcfce7;
+}
+.toast-container .ngx-notitia[data-color-scheme='dark'].toast-warning {
+  --nt-bg: rgba(40, 30, 5, 0.90);
+  --nt-border-color: #b45309;
+  --nt-accent: #fbbf24;
+  --nt-text: #fef9c3;
+}
+.toast-container .ngx-notitia[data-color-scheme='dark'].toast-error {
+  --nt-bg: rgba(45, 15, 15, 0.90);
+  --nt-border-color: #b91c1c;
+  --nt-accent: #f87171;
+  --nt-text: #fee2e2;
+}
+
+/* colorScheme config override — forces light regardless of page theme */
+.toast-container .ngx-notitia[data-color-scheme='light'] {
+  --nt-bg: rgba(255, 255, 255, 0.88);
+  --nt-border-color: rgba(200, 200, 200, 0.6);
+  --nt-accent: #64748b;
+  --nt-text: #1e293b;
+}
+.toast-container .ngx-notitia[data-color-scheme='light'].toast-info {
+  --nt-bg: rgba(233, 252, 255, 0.90);
+  --nt-border-color: #8debfa;
+  --nt-accent: #0891b2;
+  --nt-text: #1e293b;
+}
+.toast-container .ngx-notitia[data-color-scheme='light'].toast-success {
+  --nt-bg: rgba(229, 255, 237, 0.90);
+  --nt-border-color: #8beca2;
+  --nt-accent: #16a34a;
+  --nt-text: #1e293b;
+}
+.toast-container .ngx-notitia[data-color-scheme='light'].toast-warning {
+  --nt-bg: rgba(255, 250, 234, 0.90);
+  --nt-border-color: #ffe495;
+  --nt-accent: #d97706;
+  --nt-text: #1e293b;
+}
+.toast-container .ngx-notitia[data-color-scheme='light'].toast-error {
+  --nt-bg: rgba(255, 245, 245, 0.90);
+  --nt-border-color: #ffa0aa;
+  --nt-accent: #dc2626;
+  --nt-text: #1e293b;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]):not(.dark) .toast-container .ngx-notitia {
+    --nt-bg: rgba(30, 41, 59, 0.88);
+    --nt-border-color: rgba(255, 255, 255, 0.12);
+    --nt-accent: #94a3b8;
+    --nt-text: #e2e8f0;
+  }
+  html:not([data-theme]):not(.dark) .toast-container .ngx-notitia.toast-info {
+    --nt-bg: rgba(15, 40, 60, 0.90);
+    --nt-border-color: #0e7490;
+    --nt-accent: #22d3ee;
+    --nt-text: #e0f7fa;
+  }
+  html:not([data-theme]):not(.dark) .toast-container .ngx-notitia.toast-success {
+    --nt-bg: rgba(10, 38, 25, 0.90);
+    --nt-border-color: #15803d;
+    --nt-accent: #4ade80;
+    --nt-text: #dcfce7;
+  }
+  html:not([data-theme]):not(.dark) .toast-container .ngx-notitia.toast-warning {
+    --nt-bg: rgba(40, 30, 5, 0.90);
+    --nt-border-color: #b45309;
+    --nt-accent: #fbbf24;
+    --nt-text: #fef9c3;
+  }
+  html:not([data-theme]):not(.dark) .toast-container .ngx-notitia.toast-error {
+    --nt-bg: rgba(45, 15, 15, 0.90);
+    --nt-border-color: #b91c1c;
+    --nt-accent: #f87171;
+    --nt-text: #fee2e2;
+  }
 }
 
 /* center / full-width layout */
