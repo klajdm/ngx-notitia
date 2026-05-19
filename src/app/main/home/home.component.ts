@@ -1,7 +1,7 @@
 import { Component, VERSION, ChangeDetectionStrategy, inject, viewChildren } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
 import { GlobalConfig, ToastrService, ToastContainerDirective } from 'ngx-notitia';
 import { FormsModule } from '@angular/forms';
-import { GhButtonModule } from '@ctrl/ngx-github-buttons';
 import { ToastManagerService } from '../../toast-manager.service';
 
 const types = ['success', 'error', 'info', 'warning'];
@@ -10,11 +10,22 @@ const types = ['success', 'error', 'info', 'warning'];
   selector: 'app-home',
   templateUrl: './home.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FormsModule, GhButtonModule, ToastContainerDirective],
+  imports: [FormsModule, ToastContainerDirective, TitleCasePipe],
 })
 export class HomeComponent {
   protected toastr = inject(ToastrService);
   protected toastManager = inject(ToastManagerService);
+
+  readonly positions = [
+    { label: 'Top Right', value: 'toast-top-right' },
+    { label: 'Bottom Right', value: 'toast-bottom-right' },
+    { label: 'Bottom Left', value: 'toast-bottom-left' },
+    { label: 'Top Left', value: 'toast-top-left' },
+    { label: 'Top Full Width', value: 'toast-top-full-width' },
+    { label: 'Bottom Full Width', value: 'toast-bottom-full-width' },
+    { label: 'Top Center', value: 'toast-top-center' },
+    { label: 'Bottom Center', value: 'toast-bottom-center' },
+  ];
 
   options: GlobalConfig;
   title = '';
@@ -36,8 +47,8 @@ export class HomeComponent {
 
   setInlineClass(enableInline: boolean) {
     if (enableInline) {
-      this.toastr.overlayContainer = this.inlineContainers()[this.inlinePositionIndex];
       this.options.positionClass = 'inline';
+      this.setInlinePosition(this.inlinePositionIndex);
     } else {
       this.toastr.overlayContainer = undefined;
       this.options.positionClass = 'toast-top-right';

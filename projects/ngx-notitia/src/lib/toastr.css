@@ -100,6 +100,16 @@
   position: fixed;
   z-index: 999999;
 }
+.toast-container.inline {
+  position: relative;
+  z-index: auto;
+  width: 100%;
+}
+.toast-container.inline .ngx-notitia {
+  --nt-width: 100%;
+  width: 100%;
+  margin-bottom: 6px;
+}
 .toast-container * {
   box-sizing: border-box;
 }

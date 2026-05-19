@@ -9,8 +9,9 @@ $pink: #e83e8c;
   background: $pink linear-gradient(180deg, $pink, color.adjust($pink, $lightness: -10%)) repeat-x;
   border: 1px solid $pink;
   border-radius: 0.375rem;
-  padding: 0.25rem 0.5rem;
+  padding: 0.43rem 0.8rem;
   font-size: 0.875rem;
+  font-weight: bold;
   cursor: pointer;
 
   &:hover {

@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef, inject, AfterViewInit } from '@angular/core';
+import { GhButtonModule } from '@ctrl/ngx-github-buttons';
 
 @Component({
   selector: 'app-header',
+  imports: [GhButtonModule],
   template: `
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center h-16">
@@ -18,7 +20,7 @@ import { Component } from '@angular/core';
           <a
             href="https://github.com/klajdm/ngx-notitia/discussions"
             target="_blank"
-            class="text-gray-600 hover:text-gray-900 text-sm font-medium flex items-center"
+            class="text-gray-300 hover:text-white text-sm font-medium flex items-center transition-colors"
           >
             Support
             <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -33,7 +35,7 @@ import { Component } from '@angular/core';
           <a
             href="https://github.com/klajdm/ngx-notitia"
             target="_blank"
-            class="text-gray-600 hover:text-gray-900 text-sm font-medium flex items-center"
+            class="text-gray-300 hover:text-white text-sm font-medium flex items-center transition-colors"
           >
             GitHub
             <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,9 +47,17 @@ import { Component } from '@angular/core';
               />
             </svg>
           </a>
+          <gh-button user="klajdm" repo="ngx-notitia" [count]="true"></gh-button>
         </div>
       </div>
     </div>
   `,
 })
-export class HeaderComponent {}
+export class HeaderComponent implements AfterViewInit {
+  private cdr = inject(ChangeDetectorRef);
+
+  ngAfterViewInit() {
+    // gh-button resolves its fetch outside Angular's zone; trigger CD after it settles
+    setTimeout(() => this.cdr.markForCheck(), 500);
+  }
+}

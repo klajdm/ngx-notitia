@@ -1,20 +1,20 @@
-<div class="h-screen bg-white flex flex-col">
+<div class="h-screen bg-gradient flex flex-col">
   <!-- Header at the very top -->
-  <header class="z-40 shadow-sm border-b border-gray-200">
+  <header class="z-40 glass-header">
     <app-header></app-header>
   </header>
 
   <!-- Main layout use overflow-hidden so only main scrolls -->
   <div class="flex-1 flex overflow-hidden">
     <!-- Main Content Column -->
-    <div #scrollContainer class="flex-1 overflow-auto">
+    <div #scrollContainer class="app-scroll flex-1 overflow-auto">
       <!-- Scrollable main content -->
-      <main class="p-4 lg:p-6 max-w-4xl min-h-screen mx-auto">
+      <main class="p-4 lg:p-6 max-w-7xl mx-auto">
         <router-outlet></router-outlet>
       </main>
 
       <!-- Footer (scrolls with content)-->
-      <footer class="border-t border-gray-200">
+      <footer class="border-t border-white/10">
         <app-footer></app-footer>
       </footer>
     </div>
