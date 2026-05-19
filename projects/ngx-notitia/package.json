@@ -31,9 +31,6 @@
     "./toastr": {
       "default": "./toastr.css"
     },
-    "./toastr-old": {
-      "default": "./toastr-old.css"
-    },
     "./toastr-bs4-alert": {
       "default": "./toastr-bs4-alert.scss"
     },
