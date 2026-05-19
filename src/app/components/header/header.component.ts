@@ -6,19 +6,18 @@ import {
   Output,
   EventEmitter,
 } from '@angular/core';
-import { GhButtonModule } from '@ctrl/ngx-github-buttons';
 import { ThemeService } from '../../services/theme.service';
 import { LucideMenu, LucideSun, LucideMoon } from '@lucide/angular';
 
 @Component({
   selector: 'app-header',
-  imports: [GhButtonModule, LucideMenu, LucideSun, LucideMoon],
+  imports: [LucideMenu, LucideSun, LucideMoon],
   template: `
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center h-16">
-        <!-- Hamburger for mobile -->
+        <!-- Hamburger (mobile only) -->
         <button
-          class="lg:hidden relative flex items-center justify-center mr-4 p-2 focus:outline-none rounded-md z-50 theme-toggle"
+          class="lg:hidden relative flex items-center justify-center p-2 mr-3 focus:outline-none rounded-md z-50 theme-toggle"
           aria-label="Open menu"
           (click)="onToggleMobileMenu()"
         >
@@ -33,10 +32,10 @@ import { LucideMenu, LucideSun, LucideMoon } from '@lucide/angular';
           </a>
         </div>
 
-        <!-- Theme toggle (mobile only) -->
+        <!-- Theme toggle (mobile only, right of logo) -->
         <button
           (click)="themeService.toggle()"
-          class="theme-toggle lg:hidden"
+          class="lg:hidden theme-toggle"
           [attr.aria-label]="themeService.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
         >
           @if (themeService.isDark()) {
@@ -78,8 +77,6 @@ import { LucideMenu, LucideSun, LucideMoon } from '@lucide/angular';
               />
             </svg>
           </a>
-          <gh-button user="klajdm" repo="ngx-notitia" [count]="true"></gh-button>
-
           <button
             (click)="themeService.toggle()"
             class="theme-toggle"
@@ -106,8 +103,7 @@ export class HeaderComponent implements AfterViewInit {
   @Output() toggleMobileMenu = new EventEmitter<void>();
 
   ngAfterViewInit() {
-    // gh-button resolves its fetch outside Angular's zone; trigger CD after it settles
-    setTimeout(() => this.cdr.markForCheck(), 500);
+    this.cdr.markForCheck();
   }
 
   public onToggleMobileMenu(): void {

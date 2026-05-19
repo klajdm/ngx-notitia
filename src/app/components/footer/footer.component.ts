@@ -28,9 +28,9 @@ import { Component } from '@angular/core';
               class="footer-link"
               aria-label="npm"
             >
-              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 576 512">
                 <path
-                  d="M0 0v24h24V0H0zm6.672 19.992H4.008V4.008h2.664v15.984zm6.66 0H10.68V7.992h-2.67V4.008h8.007v3.984h-2.685v12zm6.66 0h-2.664V7.992h-2.664V4.008h7.992v3.984h-2.664v12z"
+                  d="M288 288h-32v-64h32v64zm288-128v192H288v32H160v-32H0V160h576zm-416 32H32v128h64v-96h32v96h32V192zm160 0H192v160h64v-32h64V192zm224 0H352v128h64v-96h32v96h32v-96h32v96h32V192z"
                 />
               </svg>
             </a>

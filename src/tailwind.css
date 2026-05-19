@@ -178,14 +178,16 @@ body {
   align-items: center;
   justify-content: center;
   padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: #fff;
   background-image: linear-gradient(to right, #ef4444, #8b5cf6);
   background-size: 200% 100%;
   background-position: 0% 0%;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
+  text-decoration: none;
   transition: background-position 250ms ease, transform 80ms ease, box-shadow 150ms ease;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
@@ -441,6 +443,8 @@ body {
    Action buttons
    ===================================================== */
 .btn-secondary {
+  display: inline-flex;
+  align-items: center;
   border-radius: 0.5rem;
   border: 1px solid var(--border-btn-secondary);
   padding: 0.5rem 1rem;
@@ -449,6 +453,7 @@ body {
   color: var(--color-btn-secondary);
   background: transparent;
   cursor: pointer;
+  text-decoration: none;
   transition: background-color 150ms ease;
 }
 .btn-secondary:focus {
