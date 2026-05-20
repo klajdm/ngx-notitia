@@ -6,10 +6,10 @@ import {
   type ToastNoAnimation,
   ToastrService,
 } from 'ngx-notitia';
-import { NotyfToast } from './toasts/notyf-toast/notyf-toast.component';
-import { PinkToast } from './toasts/pink-toast/pink-toast.component';
+import { NotyfToast } from './components/notyf-toast/notyf-toast.component';
+import { PinkToast } from './components/pink-toast/pink-toast.component';
 import { firstValueFrom } from 'rxjs';
-import { ToastManagerService } from './toast-manager.service';
+import { ToastManagerService } from './services/toast-manager.service';
 
 describe('Toasts', () => {
   let toastManager!: ToastManagerService;
