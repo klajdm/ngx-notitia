@@ -23,9 +23,14 @@ import { TimeoutsService } from '../../timeouts.service';
   host: {
     '[class]': 'toastClasses()',
     '[style.display]': 'displayStyle()',
+    '[style.--nt-border-width]': 'options().showBorder ? null : "0"',
+    '[attr.data-color-scheme]': 'options().colorScheme !== "auto" ? options().colorScheme : null',
     '(mouseenter)': 'stickAround()',
     '(mouseleave)': 'delayedHideToast()',
     '(click)': 'tapToast()',
+    '(touchstart)': 'onTouchStart($event)',
+    '(touchmove)': 'onTouchMove($event)',
+    '(touchend)': 'onTouchEnd()',
   },
 })
 export class ToastBase<ConfigPayload = unknown> implements OnDestroy {
@@ -53,7 +58,37 @@ export class ToastBase<ConfigPayload = unknown> implements OnDestroy {
   protected timeout: number | undefined;
   protected intervalId: number | undefined;
 
+  private touchStartX = 0;
+  protected _swipeDeltaX = 0;
+  private readonly SWIPE_THRESHOLD = 80;
+
   private sanitizer = inject(DomSanitizer);
+
+  onTouchStart(event: TouchEvent): void {
+    this.touchStartX = event.touches[0].clientX;
+    this._swipeDeltaX = 0;
+  }
+
+  onTouchMove(event: TouchEvent): void {
+    this._swipeDeltaX = event.touches[0].clientX - this.touchStartX;
+    this.applySwipeTranslate(this._swipeDeltaX);
+  }
+
+  onTouchEnd(): void {
+    if (Math.abs(this._swipeDeltaX) >= this.SWIPE_THRESHOLD) {
+      this.swipeRemove(this._swipeDeltaX);
+    } else {
+      this.resetSwipeTranslate();
+    }
+    this.touchStartX = 0;
+    this._swipeDeltaX = 0;
+  }
+
+  protected applySwipeTranslate(_delta: number): void {}
+  protected resetSwipeTranslate(): void {}
+  protected swipeRemove(_delta: number): void {
+    this.remove();
+  }
 
   readonly safeHtmlMessage = computed(() =>
     this.sanitizer.sanitize(SecurityContext.HTML, this.toastPackage.message ?? ''),

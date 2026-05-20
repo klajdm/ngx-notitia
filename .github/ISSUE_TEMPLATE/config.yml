@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 GitHub Discussions
+    url: https://github.com/klajdm/ngx-notitia/discussions
+    about: Ask questions and discuss ideas with the community
+  - name: 🚀 Demo App
+    url: https://ngx-notitia.vercel.app
+    about: See NGX-Notitia in action with live examples
+  - name: 💡 Feature Requests
+    url: https://github.com/klajdm/ngx-notitia/discussions/categories/feature-requests
+    about: Suggest and vote on new features

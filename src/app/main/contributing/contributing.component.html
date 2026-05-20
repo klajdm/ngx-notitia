@@ -1,0 +1,421 @@
+<div class="py-4 lg:py-8">
+  <!-- Page Header -->
+  <div class="mb-8">
+    <p class="section-label mb-2">Community</p>
+    <h1 class="text-3xl font-bold text-primary mb-2">Contributing to NGX-Notitia</h1>
+    <p class="text-lg text-muted leading-relaxed">
+      Thank you for considering contributing to NGX-Notitia! We welcome contributions from the
+      community.
+    </p>
+  </div>
+
+  <!-- Ways to Contribute -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-semibold text-body mb-6">Ways to Contribute</h2>
+    <div class="space-y-4">
+      <div class="flex items-start gap-4 p-4 glass-card rounded-lg">
+        <svg lucideBug class="w-8 h-8 shrink-0 text-red-400"></svg>
+        <div>
+          <h3 class="font-semibold text-body mb-1">Report Bugs</h3>
+          <p class="text-muted text-sm">
+            Found a bug? Open an issue with detailed reproduction steps.
+          </p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-4 glass-card rounded-lg">
+        <svg lucideLightbulb class="w-8 h-8 shrink-0 text-yellow-400"></svg>
+        <div>
+          <h3 class="font-semibold text-body mb-1">Suggest Features</h3>
+          <p class="text-muted text-sm">
+            Have an idea? Start a discussion or submit a feature request.
+          </p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-4 glass-card rounded-lg">
+        <svg lucideFileText class="w-8 h-8 shrink-0 text-blue-400"></svg>
+        <div>
+          <h3 class="font-semibold text-body mb-1">Improve Documentation</h3>
+          <p class="text-muted text-sm">Fix typos, add examples, or clarify confusing sections.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-4 glass-card rounded-lg">
+        <svg lucideWrench class="w-8 h-8 shrink-0 text-purple-400"></svg>
+        <div>
+          <h3 class="font-semibold text-body mb-1">Submit Code</h3>
+          <p class="text-muted text-sm">Fix bugs, add features, or improve performance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Development Setup -->
+  <div id="getting-started" class="mb-12">
+    <h2 class="text-2xl font-semibold text-body mb-6">Development Setup</h2>
+
+    <div class="mb-6">
+      <h3 class="text-lg font-medium text-body mb-3">Prerequisites</h3>
+      <ul class="list-disc list-inside space-y-2 text-muted">
+        <li>Node.js 18+ and npm 9+</li>
+        <li>Angular CLI 21+</li>
+        <li>Git</li>
+      </ul>
+    </div>
+
+    <div class="mb-6">
+      <h3 class="text-lg font-medium text-body mb-3">Setup Steps</h3>
+      <div class="space-y-4">
+        <div>
+          <p class="text-muted mb-2">1. Fork and clone the repository:</p>
+          <div class="bg-gray-900 rounded-lg p-4">
+            <pre
+              class="text-green-400 text-sm"
+            ><code>git clone https://github.com/YOUR_USERNAME/ngx-notitia.git
+cd ngx-notitia</code></pre>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-muted mb-2">2. Install dependencies:</p>
+          <div class="bg-gray-900 rounded-lg p-4">
+            <pre class="text-green-400 text-sm"><code>npm install</code></pre>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-muted mb-2">3. Start the development server:</p>
+          <div class="bg-gray-900 rounded-lg p-4">
+            <pre class="text-green-400 text-sm"><code>ng serve</code></pre>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-muted mb-2">4. Build the library:</p>
+          <div class="bg-gray-900 rounded-lg p-4">
+            <pre class="text-green-400 text-sm"><code>npm run build</code></pre>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-muted mb-2">5. Run tests:</p>
+          <div class="bg-gray-900 rounded-lg p-4">
+            <pre class="text-green-400 text-sm"><code>npm test</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coding Guidelines -->
+  <div id="guidelines" class="mb-12">
+    <h2 class="text-2xl font-semibold text-body mb-6">Coding Guidelines</h2>
+
+    <div class="space-y-6">
+      <div class="border-l-4 border-blue-500 pl-4">
+        <h3 class="text-lg font-medium text-body mb-2">TypeScript</h3>
+        <ul class="list-disc list-inside space-y-1 text-muted">
+          <li>Use TypeScript strict mode</li>
+          <li>Provide explicit return types for all functions</li>
+          <li>
+            Avoid <code class="text-code px-1.5 py-0.5 rounded text-sm">any</code> type — use proper
+            typing
+          </li>
+          <li>Use interfaces for object types</li>
+        </ul>
+      </div>
+
+      <div class="border-l-4 border-purple-500 pl-4">
+        <h3 class="text-lg font-medium text-body mb-2">Angular</h3>
+        <ul class="list-disc list-inside space-y-1 text-muted">
+          <li>Use standalone components by default</li>
+          <li>Use Angular signals for reactive state where appropriate</li>
+          <li>Follow Angular style guide</li>
+          <li>Add ARIA attributes for accessibility</li>
+        </ul>
+      </div>
+
+      <div class="border-l-4 border-green-500 pl-4">
+        <h3 class="text-lg font-medium text-body mb-2">Testing</h3>
+        <ul class="list-disc list-inside space-y-1 text-muted">
+          <li>Write tests for all new features</li>
+          <li>Maintain &gt;90% code coverage</li>
+          <li>Test edge cases and error conditions</li>
+          <li>Use descriptive test names</li>
+        </ul>
+      </div>
+
+      <div class="border-l-4 border-orange-500 pl-4">
+        <h3 class="text-lg font-medium text-body mb-2">Accessibility</h3>
+        <ul class="list-disc list-inside space-y-1 text-muted">
+          <li>Add proper ARIA labels and roles</li>
+          <li>Support keyboard navigation</li>
+          <li>Ensure screen reader compatibility</li>
+          <li>Maintain color contrast ratios</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Commit Convention -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-semibold text-body mb-6">Commit Convention</h2>
+    <p class="text-muted mb-4">
+      We follow
+      <a
+        href="https://www.conventionalcommits.org/"
+        target="_blank"
+        class="text-primary hover:underline"
+        >Conventional Commits</a
+      >:
+    </p>
+
+    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+      <pre class="text-green-400 text-sm"><code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;
+
+&lt;body&gt;
+
+&lt;footer&gt;</code></pre>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+      <div class="glass-card rounded-lg p-4">
+        <h4 class="font-semibold text-body mb-2">Types</h4>
+        <ul class="space-y-1 text-sm text-muted">
+          <li><code class="text-code px-1.5 py-0.5 rounded">feat</code> — New feature</li>
+          <li><code class="text-code px-1.5 py-0.5 rounded">fix</code> — Bug fix</li>
+          <li><code class="text-code px-1.5 py-0.5 rounded">docs</code> — Documentation</li>
+          <li><code class="text-code px-1.5 py-0.5 rounded">style</code> — Formatting</li>
+          <li><code class="text-code px-1.5 py-0.5 rounded">refactor</code> — Code refactoring</li>
+          <li><code class="text-code px-1.5 py-0.5 rounded">test</code> — Tests</li>
+          <li><code class="text-code px-1.5 py-0.5 rounded">chore</code> — Maintenance</li>
+        </ul>
+      </div>
+
+      <div class="glass-card rounded-lg p-4">
+        <h4 class="font-semibold text-body mb-2">Examples</h4>
+        <ul class="space-y-2 text-sm text-muted">
+          <li>
+            <code class="text-code px-1.5 py-0.5 rounded text-xs"
+              >feat(toast): add colorScheme option</code
+            >
+          </li>
+          <li>
+            <code class="text-code px-1.5 py-0.5 rounded text-xs"
+              >fix(service): prevent duplicate reset bug</code
+            >
+          </li>
+          <li>
+            <code class="text-code px-1.5 py-0.5 rounded text-xs"
+              >docs(readme): update options table</code
+            >
+          </li>
+          <li>
+            <code class="text-code px-1.5 py-0.5 rounded text-xs"
+              >test(container): add directive tests</code
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pull Request Process -->
+  <div id="pull-requests" class="mb-12">
+    <h2 class="text-2xl font-semibold text-body mb-6">Pull Request Process</h2>
+
+    <div class="space-y-4">
+      <div class="flex gap-4">
+        <div
+          class="shrink-0 w-8 h-8 btn-primary rounded-full flex items-center justify-center font-semibold text-sm"
+        >
+          1
+        </div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-body mb-1">Create a Feature Branch</h3>
+          <p class="text-muted text-sm mb-2">
+            Branch from <code class="text-code px-1.5 py-0.5 rounded text-sm">main</code> with a
+            descriptive name:
+          </p>
+          <div class="bg-gray-900 rounded-lg p-3">
+            <pre
+              class="text-green-400 text-sm"
+            ><code>git checkout -b feature/amazing-feature</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-4">
+        <div
+          class="shrink-0 w-8 h-8 btn-primary rounded-full flex items-center justify-center font-semibold text-sm"
+        >
+          2
+        </div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-body mb-1">Make Your Changes</h3>
+          <p class="text-muted text-sm">
+            Follow coding standards and write tests for new functionality.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex gap-4">
+        <div
+          class="shrink-0 w-8 h-8 btn-primary rounded-full flex items-center justify-center font-semibold text-sm"
+        >
+          3
+        </div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-body mb-1">Run Tests and Linter</h3>
+          <p class="text-muted text-sm mb-2">
+            Ensure all tests pass and code is properly formatted:
+          </p>
+          <div class="bg-gray-900 rounded-lg p-3">
+            <pre class="text-green-400 text-sm"><code>npm test && npm run lint</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-4">
+        <div
+          class="shrink-0 w-8 h-8 btn-primary rounded-full flex items-center justify-center font-semibold text-sm"
+        >
+          4
+        </div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-body mb-1">Commit Your Changes</h3>
+          <p class="text-muted text-sm">Use conventional commit messages.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-4">
+        <div
+          class="shrink-0 w-8 h-8 btn-primary rounded-full flex items-center justify-center font-semibold text-sm"
+        >
+          5
+        </div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-body mb-1">Push and Create PR</h3>
+          <p class="text-muted text-sm mb-2">Push to your fork and open a pull request:</p>
+          <div class="bg-gray-900 rounded-lg p-3">
+            <pre
+              class="text-green-400 text-sm"
+            ><code>git push origin feature/amazing-feature</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-4">
+        <div
+          class="shrink-0 w-8 h-8 btn-primary rounded-full flex items-center justify-center font-semibold text-sm"
+        >
+          6
+        </div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-body mb-1">PR Review</h3>
+          <p class="text-muted text-sm">
+            A maintainer will review within 3–5 business days. Address any feedback and your PR will
+            be merged!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PR Requirements -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-semibold text-body mb-6">PR Requirements Checklist</h2>
+    <div class="glass-card rounded-lg p-6">
+      <div class="space-y-2">
+        <div class="flex items-start gap-3">
+          <svg lucideCheck class="w-4 h-4 text-green-400 mt-1 shrink-0"></svg>
+          <span class="text-muted"
+            >All tests pass (<code class="text-code px-1.5 py-0.5 rounded text-sm">npm test</code
+            >)</span
+          >
+        </div>
+        <div class="flex items-start gap-3">
+          <svg lucideCheck class="w-4 h-4 text-green-400 mt-1 shrink-0"></svg>
+          <span class="text-muted"
+            >Code is linted (<code class="text-code px-1.5 py-0.5 rounded text-sm"
+              >npm run lint</code
+            >)</span
+          >
+        </div>
+        <div class="flex items-start gap-3">
+          <svg lucideCheck class="w-4 h-4 text-green-400 mt-1 shrink-0"></svg>
+          <span class="text-muted">New features have tests</span>
+        </div>
+        <div class="flex items-start gap-3">
+          <svg lucideCheck class="w-4 h-4 text-green-400 mt-1 shrink-0"></svg>
+          <span class="text-muted">Documentation is updated</span>
+        </div>
+        <div class="flex items-start gap-3">
+          <svg lucideCheck class="w-4 h-4 text-green-400 mt-1 shrink-0"></svg>
+          <span class="text-muted">Commit messages follow convention</span>
+        </div>
+        <div class="flex items-start gap-3">
+          <svg lucideCheck class="w-4 h-4 text-green-400 mt-1 shrink-0"></svg>
+          <span class="text-muted">PR description clearly explains changes</span>
+        </div>
+        <div class="flex items-start gap-3">
+          <svg lucideCheck class="w-4 h-4 text-green-400 mt-1 shrink-0"></svg>
+          <span class="text-muted">No merge conflicts with main branch</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recognition -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-semibold text-body mb-6">Recognition</h2>
+    <div class="glass-card rounded-lg p-6">
+      <p class="text-muted mb-4">Contributors will be:</p>
+      <ul class="space-y-2 text-muted">
+        <li class="flex items-start gap-2">
+          <svg lucideTrophy class="w-5 h-5 shrink-0 text-yellow-400"></svg>
+          <span>Listed in the Contributors page</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <svg lucideFileText class="w-5 h-5 shrink-0 text-blue-400"></svg>
+          <span>Mentioned in release notes</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <svg lucideStar class="w-5 h-5 shrink-0 text-purple-400"></svg>
+          <span>Added to the README acknowledgments section</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Getting Help -->
+  <div class="mb-6 lg:mb-12">
+    <h2 class="text-2xl font-semibold text-body mb-6">Getting Help</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <a
+        href="https://github.com/klajdm/ngx-notitia/discussions"
+        target="_blank"
+        class="block p-4 glass-card rounded-lg hover:opacity-80 transition-opacity"
+      >
+        <svg lucideMessageCircle class="w-8 h-8 mb-2 text-blue-400"></svg>
+        <h3 class="font-semibold text-body mb-1">Discussions</h3>
+        <p class="text-sm text-muted">Ask questions and get help</p>
+      </a>
+      <a
+        href="https://github.com/klajdm/ngx-notitia/issues"
+        target="_blank"
+        class="block p-4 glass-card rounded-lg hover:opacity-80 transition-opacity"
+      >
+        <svg lucideBug class="w-8 h-8 mb-2 text-red-400"></svg>
+        <h3 class="font-semibold text-body mb-1">Issues</h3>
+        <p class="text-sm text-muted">Report bugs and problems</p>
+      </a>
+      <a
+        routerLink="/documentation"
+        class="block p-4 glass-card rounded-lg hover:opacity-80 transition-opacity"
+      >
+        <svg lucideBookOpen class="w-8 h-8 mb-2 text-purple-400"></svg>
+        <h3 class="font-semibold text-body mb-1">Documentation</h3>
+        <p class="text-sm text-muted">Read the full docs</p>
+      </a>
+    </div>
+  </div>
+</div>

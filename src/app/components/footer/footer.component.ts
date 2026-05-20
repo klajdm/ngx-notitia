@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
+  imports: [RouterModule],
   template: `
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Brand -->
         <div class="col-span-1">
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">ngx-notitia</h3>
-          <p class="text-gray-600 mb-4">Easy Toasts for Angular.</p>
+          <h3 class="text-lg font-semibold footer-heading mb-2">ngx-notitia</h3>
+          <p class="footer-text mb-4">Easy Toasts for Angular.</p>
           <div class="flex space-x-4">
             <a
               href="https://github.com/klajdm/ngx-notitia"
               target="_blank"
-              class="text-gray-400 hover:text-gray-500"
+              class="footer-link"
               aria-label="GitHub"
             >
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -25,12 +27,12 @@ import { Component } from '@angular/core';
             <a
               href="https://www.npmjs.com/package/ngx-notitia"
               target="_blank"
-              class="text-gray-400 hover:text-gray-500"
+              class="footer-link"
               aria-label="npm"
             >
-              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 576 512">
                 <path
-                  d="M0 0v24h24V0H0zm6.672 19.992H4.008V4.008h2.664v15.984zm6.66 0H10.68V7.992h-2.67V4.008h8.007v3.984h-2.685v12zm6.66 0h-2.664V7.992h-2.664V4.008h7.992v3.984h-2.664v12z"
+                  d="M288 288h-32v-64h32v64zm288-128v192H288v32H160v-32H0V160h576zm-416 32H32v128h64v-96h32v96h32V192zm160 0H192v160h64v-32h64V192zm224 0H352v128h64v-96h32v96h32v-96h32v96h32V192z"
                 />
               </svg>
             </a>
@@ -40,23 +42,18 @@ import { Component } from '@angular/core';
         <div class="flex flex-row justify-between">
           <!-- Resources -->
           <div>
-            <h4 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
+            <h4 class="text-sm font-semibold footer-heading uppercase tracking-wider mb-4">
               Resources
             </h4>
             <ul class="space-y-2">
               <li>
-                <a
-                  href="https://github.com/klajdm/ngx-notitia#readme"
-                  target="_blank"
-                  class="text-gray-600 hover:text-gray-900"
-                  >Documentation</a
-                >
+                <a routerLink="/documentation" class="footer-link">Documentation</a>
               </li>
               <li>
                 <a
                   href="https://github.com/klajdm/ngx-notitia/issues"
                   target="_blank"
-                  class="text-gray-600 hover:text-gray-900"
+                  class="footer-link"
                   >Issues</a
                 >
               </li>
@@ -65,7 +62,7 @@ import { Component } from '@angular/core';
 
           <!-- Community -->
           <div class="me-6">
-            <h4 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
+            <h4 class="text-sm font-semibold footer-heading uppercase tracking-wider mb-4">
               Community
             </h4>
             <ul class="space-y-2">
@@ -73,27 +70,28 @@ import { Component } from '@angular/core';
                 <a
                   href="https://github.com/klajdm/ngx-notitia/discussions"
                   target="_blank"
-                  class="text-gray-600 hover:text-gray-900"
+                  class="footer-link"
                   >Discussions</a
                 >
               </li>
               <li>
-                <a
-                  href="https://github.com/klajdm/ngx-notitia/blob/main/.github/CONTRIBUTING.md"
-                  target="_blank"
-                  class="text-gray-600 hover:text-gray-900"
-                  >Contributing</a
-                >
+                <a routerLink="/development/contributing" class="footer-link">Contributing</a>
+              </li>
+              <li>
+                <a routerLink="/development/code-of-conduct" class="footer-link">Code of Conduct</a>
+              </li>
+              <li>
+                <a routerLink="/license" class="footer-link">License</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div class="mt-8 pt-8 border-t border-gray-200">
+      <div class="mt-8 pt-8" style="border-top: 1px solid var(--color-footer-border)">
         <div class="flex flex-col md:flex-row justify-between items-center">
-          <p class="text-gray-500 text-sm">© {{ currentYear }} ngx-notitia. Licensed under MIT.</p>
-          <p class="text-gray-500 text-sm mt-2 md:mt-0">
+          <p class="footer-text text-sm">© {{ currentYear }} ngx-notitia. Licensed under MIT.</p>
+          <p class="footer-text text-sm mt-2 md:mt-0">
             Built with ❤️ by
             <a
               href="https://klajdimurataj.dev"

@@ -6,7 +6,7 @@ import { ComponentType } from '../portal/portal';
 import { ToastRef } from './toast-ref';
 
 export type ProgressAnimationType = 'increasing' | 'decreasing';
-export type DisableTimoutType = boolean | 'timeOut' | 'extendedTimeOut';
+export type DisableTimeoutType = boolean | 'timeOut' | 'extendedTimeOut';
 
 /**
  * Configuration for an individual toast.
@@ -16,7 +16,7 @@ export interface IndividualConfig<ConfigPayload = unknown> {
    * disable both timeOut and extendedTimeOut
    * default: false
    */
-  disableTimeOut: DisableTimoutType;
+  disableTimeOut: DisableTimeoutType;
   /**
    * toast time to live in milliseconds
    * default: 5000
@@ -99,6 +99,19 @@ export interface IndividualConfig<ConfigPayload = unknown> {
    * default: true
    */
   newestOnTop: boolean;
+
+  /**
+   * Show or hide the toast border
+   * default: true
+   */
+  showBorder: boolean;
+
+  /**
+   * Force a color scheme on the toast, overriding page-level theme detection.
+   * 'auto' follows the page theme (data-theme, .dark class, or prefers-color-scheme).
+   * default: 'auto'
+   */
+  colorScheme: 'auto' | 'light' | 'dark';
 
   /**
    * Payload to pass to the toast component
@@ -228,6 +241,8 @@ export const DefaultNoComponentGlobalConfig: GlobalConfig = {
   tapToDismiss: true,
   onActivateTick: false,
   progressAnimation: 'decreasing',
+  showBorder: true,
+  colorScheme: 'auto',
 };
 
 export interface ToastToken {

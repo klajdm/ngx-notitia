@@ -6,13 +6,26 @@
   &.toast-out {
     animation: toast-animation var(--animation-duration) var(--animation-easing) reverse forwards;
   }
+
+  &.toast-swipe-out {
+    animation: toast-swipe-animation var(--animation-duration) ease forwards;
+  }
+}
+
+@keyframes toast-swipe-animation {
+  to {
+    opacity: 0;
+    transform: translateX(var(--swipe-direction, 120%));
+  }
 }
 
 @keyframes toast-animation {
   from {
     opacity: 0;
+    transform: scale(0.85);
   }
   to {
     opacity: 1;
+    transform: scale(1);
   }
 }

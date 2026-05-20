@@ -8,7 +8,7 @@
       </div>
     }
     @if (message() && _options.enableHtml) {
-      <div role="alert" [class]="_options.messageClass" [innerHTML]="message()"></div>
+      <div role="alert" [class]="_options.messageClass" [innerHTML]="safeHtmlMessage()"></div>
     }
     @if (message() && !_options.enableHtml) {
       <div role="alert" [class]="_options.messageClass" [attr.aria-label]="message()">

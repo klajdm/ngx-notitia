@@ -1,0 +1,53 @@
+name: Publish Package
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+
+      - name: Update npm
+        run: npm install -g npm@latest
+
+      - run: npm ci
+
+      - name: Run tests with coverage
+        run: npm run test:ci
+
+      - name: Build library
+        run: npm run build
+
+      - name: Verify build output
+        run: |
+          if [ ! -d "dist/ngx-notitia" ]; then
+            echo "Build failed: dist/ngx-notitia directory not found"
+            exit 1
+          fi
+          if [ ! -f "dist/ngx-notitia/package.json" ]; then
+            echo "Build failed: package.json not found in dist"
+            exit 1
+          fi
+          echo "Build verification passed"
+
+      - name: Publish to npm
+        run: |
+          cd dist/ngx-notitia
+          npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

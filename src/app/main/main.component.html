@@ -1,22 +1,48 @@
-<div class="h-screen bg-white flex flex-col">
+<div class="h-screen bg-gradient flex flex-col">
   <!-- Header at the very top -->
-  <header class="z-40 shadow-sm border-b border-gray-200">
-    <app-header></app-header>
+  <header class="z-40 glass-header">
+    <app-header (toggleMobileMenu)="toggleMobileDrawer()"></app-header>
   </header>
 
   <!-- Main layout use overflow-hidden so only main scrolls -->
   <div class="flex-1 flex overflow-hidden">
     <!-- Main Content Column -->
-    <div #scrollContainer class="flex-1 overflow-auto">
+    <div #scrollContainer class="app-scroll flex-1 overflow-auto">
       <!-- Scrollable main content -->
-      <main class="p-4 lg:p-6 max-w-4xl min-h-screen mx-auto">
+      <main class="p-4 lg:p-6 max-w-7xl mx-auto">
         <router-outlet></router-outlet>
       </main>
 
       <!-- Footer (scrolls with content)-->
-      <footer class="border-t border-gray-200">
+      <footer class="footer-divider">
         <app-footer></app-footer>
       </footer>
     </div>
   </div>
+
+  <!-- Mobile Drawer Sidebar (pure Tailwind off-canvas) -->
+  @if (mobileDrawerVisible()) {
+    <div
+      class="fixed inset-0 z-50 lg:hidden transition-all duration-300 ease-in-out"
+      [class.pointer-events-none]="!mobileDrawerOpen()"
+      [class.pointer-events-auto]="mobileDrawerOpen()"
+    >
+      <!-- backdrop with animation -->
+      <div
+        class="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out"
+        [class.opacity-0]="!mobileDrawerOpen()"
+        [class.opacity-50]="mobileDrawerOpen()"
+        (click)="closeMobileDrawer()"
+      ></div>
+
+      <!-- panel with slide animation -->
+      <aside
+        class="relative z-50 w-64 max-w-full h-full glass-drawer shadow-xl transform transition-transform duration-300 ease-in-out"
+        [class.-translate-x-full]="!mobileDrawerOpen()"
+        [class.translate-x-0]="mobileDrawerOpen()"
+      >
+        <app-mobile-menu (closeMenu)="closeMobileDrawer()"></app-mobile-menu>
+      </aside>
+    </div>
+  }
 </div>
