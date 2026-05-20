@@ -6,7 +6,7 @@ on:
       - 'v*'
 
 permissions:
-  id-token: write # Required for OIDC
+  id-token: write
   contents: read
 
 jobs:
@@ -20,31 +20,37 @@ jobs:
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
 
-      # Ensure npm 11.5.1 or later is installed
       - name: Update npm
         run: npm install -g npm@latest
+
       - run: npm ci
+
       - name: Security audit
         run: npm audit --audit-level=high --omit=dev
+
       - name: Run tests with coverage
         run: npm run test:ci
+
       - name: Build library
-        run: npm run build:lib
+        run: npm run build
+
       - name: Verify build output
         run: |
-          if [ ! -d "dist/chronica" ]; then
-            echo "Build failed: dist/chronica directory not found"
+          if [ ! -d "dist/ngx-notitia" ]; then
+            echo "Build failed: dist/ngx-notitia directory not found"
             exit 1
           fi
-          if [ ! -f "dist/chronica/package.json" ]; then
+          if [ ! -f "dist/ngx-notitia/package.json" ]; then
             echo "Build failed: package.json not found in dist"
             exit 1
           fi
           echo "Build verification passed"
+
       - name: Publish to npm
         run: |
-          cd dist/chronica
+          cd dist/ngx-notitia
           npm publish --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

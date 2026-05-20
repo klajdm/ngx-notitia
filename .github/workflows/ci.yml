@@ -2,30 +2,30 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
+    branches-ignore:
+      - master
   pull_request:
+    branches:
+      - master
 
 jobs:
-  build:
-    if: false
+  quality:
     runs-on: ubuntu-latest
     steps:
-      # https://github.com/actions/checkout
-      - uses: actions/checkout@v6
-      # https://github.com/actions/setup-node
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: '20'
           cache: 'npm'
+
       - run: npm ci
-      - name: lint
-        run: npm run lint
-      - run: npm run build
-      - name: test
+
+      - name: Security audit
+        run: npm audit --audit-level=high --omit=dev
+
+      - name: Run tests with coverage
         run: npm run test:ci
-      # https://github.com/codecov/codecov-action
-      - name: coverage
-        uses: codecov/codecov-action@v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Build library
+        run: npm run build
