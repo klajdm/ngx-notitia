@@ -1,41 +1,48 @@
-> **Note:** This repository is a fork of [ngx-toastr](https://github.com/scttcper/ngx-toastr). It builds upon the original project to provide additional features, fixes, or customizations.
-
--------------------------------------------------------------------------------
-
 <div align="center">
-  <img src="https://raw.githubusercontent.com/klajdm/ngx-notitia/main/public/logo.png" width="300" alt="Angular Notitia">
+  <img src="https://raw.githubusercontent.com/klajdm/ngx-notitia/main/public/logo.png" width="120" height="120" alt="Angular Notitia">
   <br>
   <h1>Angular Notitia</h1>
-  <br>
-  <a href="https://www.npmjs.org/package/ngx-notitia">
-    <img src="https://badge.fury.io/js/ngx-notitia.svg" alt="npm">
-  </a>
-  <a href="https://codecov.io/github/klajdm/ngx-notitia">
-    <img src="https://img.shields.io/codecov/c/github/klajdm/ngx-notitia.svg" alt="codecov">
-  </a>
-  <br>
-  <br>
+  <p><strong>Easy, flexible toast notifications for Angular</strong></p>
+
+  <p>
+    <a href="https://www.npmjs.com/package/ngx-notitia"><img src="https://img.shields.io/npm/v/ngx-notitia.svg?style=flat-square" alt="npm version"></a>
+    <a href="https://www.npmjs.com/package/ngx-notitia"><img src="https://img.shields.io/npm/dm/ngx-notitia.svg?style=flat-square" alt="npm downloads"></a>
+    <a href="https://angular.io"><img src="https://img.shields.io/badge/Angular-21%2B-green.svg" alt="Angular 21+"></a>
+    <a href="https://github.com/klajdm/ngx-notitia/stargazers"><img src="https://img.shields.io/github/stars/klajdm/ngx-notitia?style=flat-square" alt="GitHub stars"></a>
+  </p>
+
+  <p>
+    <a href="https://ngx-notitia.vercel.app"><strong>Demo</strong></a> •
+    <a href="#-install"><strong>Install</strong></a> •
+    <a href="#-options"><strong>Options</strong></a> •
+    <a href="#-using-a-custom-toast"><strong>Custom Toast</strong></a>
+  </p>
 </div>
+
+> **Note:** This repository is a fork of [ngx-toastr](https://github.com/scttcper/ngx-toastr). It builds upon the original project to provide additional features, fixes, and modernizations for Angular 21+.
+
+---
 
 DEMO: https://ngx-notitia.vercel.app
 
 ## Features
 
 - Toast Component Injection without being passed `ViewContainerRef`
-- No use of `@for`. Fewer dirty checks and higher performance
+- No use of `*ngFor`. Fewer dirty checks and higher performance
 - No use of `@angular/animations`
 - AoT compilation and lazy loading compatible
 - Component inheritance for custom toasts
-- SystemJS/UMD rollup bundle
+- Swipe-to-dismiss gesture support on mobile
+- Dark / light / auto color scheme support
 - Output toasts to an optional target directive
 
 ## Dependencies
 
 Latest version available for each version of Angular
 
-| ngx-notitia     | Angular         |
-| --------------- | --------------- |
-| current         | >= 20.x         |
+| ngx-notitia | Angular  |
+| ----------- | -------- |
+| current     | >= 21.x  |
 
 ## Install
 
@@ -47,9 +54,7 @@ npm install ngx-notitia --save
 
 **step 1:** add css
 
-- copy
-  [toast css](/src/lib/toastr.css)
-  to your project.
+- copy [toast css](/src/lib/toastr.css) to your project.
 - If you are using sass you can import the css.
 
 ```scss
@@ -61,7 +66,7 @@ npm install ngx-notitia --save
 ```ts
 "styles": [
   "styles.scss",
-  "node_modules/ngx-notitia/toastr.css" // try adding '../' if you're using angular cli before 6
+  "node_modules/ngx-notitia/toastr.css"
 ]
 ```
 
@@ -119,30 +124,32 @@ There are **individual options** and **global options**.
 
 Passed to `ToastrService.success/error/warning/info/show()`
 
-| Option            | Type                           | Default                        | Description                                                                             
-| ----------------- | ------------------------------ | ------------------------------ | ------------------------------------------------- |
-| toastComponent    | Component                      | Toast                          | Angular component that will be used               |
-| closeButton       | boolean                        | false                          | Show close button                                 |
-| timeOut           | number                         | 5000                           | Time to live in milliseconds                      |
-| extendedTimeOut   | number                         | 1000                           | Time to close after a user hovers over toast      |
-| disableTimeOut    | `boolean \| 'timeOut' \| 'extendedTimeOut'`  | false              | Disable both timeOut and extendedTimeOut when set to `true`. Allows specifying which timeOut to disable, either: `timeOut` or `extendedTimeOut` |
-| easing            | string                         | 'ease-in'                      | Toast component easing                            |
-| easeTime          | string \| number               | 300                            | Time spent easing                                 |
-| enableHtml        | boolean                        | false                          | Allow html in message                             |
-| newestOnTop       | boolean                        | true                           | New toast placement                               |
-| progressBar       | boolean                        | false                          | Show progress bar                                 |
-| progressAnimation | `'decreasing' \| 'increasing'` | 'decreasing'                   | Changes the animation of the progress bar.        |
-| toastClass        | string                         | 'ngx-notitia'                   | CSS class(es) for toast                           |
-| positionClass     | string                         | 'toast-top-right'              | CSS class(es) for toast container                 |
-| titleClass        | string                         | 'toast-title'                  | CSS class(es) for inside toast on title           |
-| messageClass      | string                         | 'toast-message'                | CSS class(es) for inside toast on message         |
-| tapToDismiss      | boolean                        | true                           | Close on click                                    |
-| onActivateTick    | boolean                        | false                          | Fires `changeDetectorRef.detectChanges()` when activated. Helps show toast from asynchronous events outside of Angular's change detection |
+| Option            | Type                                            | Default           | Description                                                                                                                                   |
+| ----------------- | ----------------------------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| toastComponent    | Component                                       | Toast             | Angular component that will be used                                                                                                           |
+| closeButton       | boolean                                         | false             | Show close button                                                                                                                             |
+| timeOut           | number                                          | 5000              | Time to live in milliseconds                                                                                                                  |
+| extendedTimeOut   | number                                          | 1000              | Time to close after a user hovers over toast                                                                                                  |
+| disableTimeOut    | `boolean \| 'timeOut' \| 'extendedTimeOut'`     | false             | Disable both timeOut and extendedTimeOut when set to `true`. Allows specifying which timeOut to disable: `timeOut` or `extendedTimeOut`       |
+| easing            | string                                          | 'ease-in'         | Toast component easing                                                                                                                        |
+| easeTime          | string \| number                                | 300               | Time spent easing                                                                                                                             |
+| enableHtml        | boolean                                         | false             | Allow html in message                                                                                                                         |
+| newestOnTop       | boolean                                         | true              | New toast placement                                                                                                                           |
+| progressBar       | boolean                                         | false             | Show progress bar                                                                                                                             |
+| progressAnimation | `'decreasing' \| 'increasing'`                  | 'decreasing'      | Changes the animation of the progress bar                                                                                                     |
+| toastClass        | string                                          | 'ngx-notitia'     | CSS class(es) for toast                                                                                                                       |
+| positionClass     | string                                          | 'toast-top-right' | CSS class(es) for toast container                                                                                                             |
+| titleClass        | string                                          | 'toast-title'     | CSS class(es) for inside toast on title                                                                                                       |
+| messageClass      | string                                          | 'toast-message'   | CSS class(es) for inside toast on message                                                                                                     |
+| tapToDismiss      | boolean                                         | true              | Close on click                                                                                                                                |
+| showBorder        | boolean                                         | true              | Show or hide the toast border                                                                                                                 |
+| colorScheme       | `'auto' \| 'light' \| 'dark'`                   | 'auto'            | Force a color scheme. `'auto'` follows the page theme, `'light'` or `'dark'` override it                                                     |
+| payload           | unknown                                         | undefined         | Custom data passed through to a custom toast component                                                                                        |
+| onActivateTick    | boolean                                         | false             | Fires `changeDetectorRef.detectChanges()` when activated. Helps show toast from asynchronous events outside of Angular's change detection    |
 
 #### Setting Individual Options
 
-success, error, info, warning take `(message, title, ToastConfig)` pass an
-options object to replace any default option.
+`success`, `error`, `info`, `warning` take `(message, title, ToastConfig)` — pass an options object to replace any default option.
 
 ```typescript
 this.toastrService.error('everything is broken', 'Major Error', {
@@ -152,19 +159,17 @@ this.toastrService.error('everything is broken', 'Major Error', {
 
 ### Global Options
 
-All [individual options](#individual-options) can be overridden in the global
-options to affect all toasts. In addition, global options include the following
-options:
+All [individual options](#individual-options) can be overridden in the global options to affect all toasts. In addition, global options include:
 
-| Option                  | Type    | Default                            | Description                                                                                                   |
-| ----------------------- | ------- | ---------------------------------- | ------------------------------------------------------------------ |
-| maxOpened               | number  | 0                                  | Max toasts opened. Toasts will be queued. 0 is unlimited           |
-| autoDismiss             | boolean | false                              | Dismiss current toast when max is reached                          |
-| iconClasses             | object  | [see below](#iconclasses-defaults) | Classes used on toastr service methods                             |
-| preventDuplicates       | boolean | false                              | Block duplicate messages                                           |
-| countDuplicates         | boolean | false                              | Displays a duplicates counter (preventDuplicates must be true). Toast must have a title and duplicate message |
-| resetTimeoutOnDuplicate | boolean | false                              | Reset toast timeout on duplicate (preventDuplicates must be true)  |
-| includeTitleDuplicates  | boolean | false                              | Include the title of a toast when checking for duplicates (by default only message is compared) |
+| Option                  | Type                       | Default                            | Description                                                                                                   |
+| ----------------------- | -------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| maxOpened               | number                     | 0                                  | Max toasts opened. Toasts will be queued. 0 is unlimited                                                      |
+| autoDismiss             | boolean                    | false                              | Dismiss current toast when max is reached                                                                     |
+| iconClasses             | object                     | [see below](#iconclasses-defaults) | Classes used on toastr service methods                                                                        |
+| preventDuplicates       | boolean                    | false                              | Block duplicate messages                                                                                      |
+| countDuplicates         | boolean                    | false                              | Displays a duplicates counter (preventDuplicates must be true). Toast must have a title and duplicate message |
+| resetTimeoutOnDuplicate | boolean                    | false                              | Reset toast timeout on duplicate (preventDuplicates must be true)                                             |
+| includeTitleDuplicates  | boolean                    | false                              | Include the title of a toast when checking for duplicates (by default only message is compared)               |
 
 ##### iconClasses defaults
 
@@ -184,7 +189,6 @@ Pass values to `ToastrModule.forRoot()` or `provideToastr()` to set global optio
 - Module based
 
 ```typescript
-// root app NgModule
 imports: [
   ToastrModule.forRoot({
     timeOut: 10000,
@@ -206,11 +210,10 @@ bootstrapApplication(AppComponent, {
       timeOut: 10000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
-    }), 
+    }),
   ]
 });
 ```
-
 
 ### Toastr Service methods return:
 
@@ -239,11 +242,7 @@ export interface ActiveToast {
 
 ### Put toasts in your own container
 
-Put toasts in a specific div inside your application. This should probably be
-somewhere that doesn't get deleted. Add `ToastContainerDirective` to the ngModule
-where you need the directive available. Make sure that your container has
-an `aria-live="polite"` attribute, so that any time a toast is injected into
-the container it is announced by screen readers.
+Put toasts in a specific div inside your application. This should probably be somewhere that doesn't get deleted. Add `ToastContainerDirective` to the NgModule where you need the directive available. Make sure that your container has an `aria-live="polite"` attribute so that any time a toast is injected into the container it is announced by screen readers.
 
 ```typescript
 import { NgModule } from '@angular/core';
@@ -302,50 +301,44 @@ toastrService.clear(toastId?: number);
 
 Remove and destroy a single toast by id
 
-```
+```ts
 toastrService.remove(toastId: number);
-```
-
-## SystemJS
-
-If you are using SystemJS, you should also adjust your configuration to point to
-the UMD bundle.
-
-In your SystemJS config file, `map` needs to tell the System loader where to
-look for `ngx-notitia`:
-
-```js
-map: {
-  'ngx-notitia': 'node_modules/ngx-notitia/bundles/ngx-notitia.umd.min.js',
-}
 ```
 
 ## Setup Without Animations
 
-If you do not want animations you can override the default 
-toast component in the global config to use
-`ToastNoAnimation` instead of the default one.
-
-In your main module (ex: `app.module.ts`)
+If you do not want animations, override the default toast component in the global config to use `ToastNoAnimation`.
 
 ```typescript
-import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-notitia';
+import { provideToastr, ToastNoAnimation } from 'ngx-notitia';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideToastr({
+      toastComponent: ToastNoAnimation,
+    }),
+  ]
+});
+```
+
+Or with `ToastrModule`:
+
+```typescript
+import { ToastrModule, ToastNoAnimation } from 'ngx-notitia';
 
 @NgModule({
   imports: [
-    // ...
-    ToastNoAnimationModule.forRoot(),
+    ToastrModule.forRoot({
+      toastComponent: ToastNoAnimation,
+    }),
   ],
-  // ...
 })
 class AppModule {}
 ```
 
-That's it! No animations.
-
 ## Using A Custom Toast
 
-Create your toast component extending Toast see the demo's pink toast for an example
+Create your toast component extending `Toast` — see the demo's pink toast for an example:
 https://github.com/klajdm/ngx-notitia/blob/main/src/app/pink.toast.ts
 
 ```typescript
@@ -365,8 +358,7 @@ class AppModule {}
 
 ## FAQ
 
-1.  ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it
-    was checked\
+1.  ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked\
     When opening a toast inside an angular lifecycle wrap it in setTimeout
 
 ```typescript
@@ -394,17 +386,12 @@ ngOnInit() {
       console.log('Toastr clicked');
     }
     ```
-6. How to customize styling without overridding defaults?\
+6. How to customize styling without overriding defaults?\
     Add multiple CSS classes separated by a space:
     ```ts
     toastClass: 'yourclass ngx-notitia'
     ```
     See: https://github.com/klajdm/ngx-notitia/issues/594.
-
-## Previous Works
-
-[ngx-chronica](https://github.com/klajdm/ngx-chronica) About
-📅 Chronica - Complete Angular Date & Time Component Library
 
 ## License
 
@@ -412,5 +399,4 @@ MIT
 
 ---
 
-> GitHub [@klajdm](https://github.com/klajdm) &nbsp;&middot;&nbsp;
-> Twitter [@klajdm](https://twitter.com/klajdm)
+> GitHub [@klajdm](https://github.com/klajdm)

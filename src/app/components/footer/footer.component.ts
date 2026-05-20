@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
+  imports: [RouterModule],
   template: `
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -45,12 +47,7 @@ import { Component } from '@angular/core';
             </h4>
             <ul class="space-y-2">
               <li>
-                <a
-                  href="https://github.com/klajdm/ngx-notitia#readme"
-                  target="_blank"
-                  class="footer-link"
-                  >Documentation</a
-                >
+                <a routerLink="/documentation" class="footer-link">Documentation</a>
               </li>
               <li>
                 <a
@@ -78,12 +75,13 @@ import { Component } from '@angular/core';
                 >
               </li>
               <li>
-                <a
-                  href="https://github.com/klajdm/ngx-notitia/blob/main/.github/CONTRIBUTING.md"
-                  target="_blank"
-                  class="footer-link"
-                  >Contributing</a
-                >
+                <a routerLink="/development/contributing" class="footer-link">Contributing</a>
+              </li>
+              <li>
+                <a routerLink="/development/code-of-conduct" class="footer-link">Code of Conduct</a>
+              </li>
+              <li>
+                <a routerLink="/license" class="footer-link">License</a>
               </li>
             </ul>
           </div>

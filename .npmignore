@@ -1,0 +1,34 @@
+# Files to exclude from npm package
+
+# Source files (only dist should be published)
+src/
+angular.json
+tsconfig.json
+tsconfig.app.json
+
+# Development files
+karma.conf.js
+.angular/
+.vscode/
+.idea/
+
+# Tests
+**/*.spec.ts
+**/*.test.ts
+coverage/
+
+# Build artifacts
+out-tsc/
+tmp/
+
+# Node modules
+node_modules/
+
+# Git
+.git/
+.gitignore
+
+# Demo and development files
+*.md
+!README.md
+!CHANGELOG.md

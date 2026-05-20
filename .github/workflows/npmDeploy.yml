@@ -1,0 +1,50 @@
+name: Publish Package
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      # Ensure npm 11.5.1 or later is installed
+      - name: Update npm
+        run: npm install -g npm@latest
+      - run: npm ci
+      - name: Security audit
+        run: npm audit --audit-level=high --omit=dev
+      - name: Run tests with coverage
+        run: npm run test:ci
+      - name: Build library
+        run: npm run build:lib
+      - name: Verify build output
+        run: |
+          if [ ! -d "dist/chronica" ]; then
+            echo "Build failed: dist/chronica directory not found"
+            exit 1
+          fi
+          if [ ! -f "dist/chronica/package.json" ]; then
+            echo "Build failed: package.json not found in dist"
+            exit 1
+          fi
+          echo "Build verification passed"
+      - name: Publish to npm
+        run: |
+          cd dist/chronica
+          npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

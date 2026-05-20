@@ -1,0 +1,91 @@
+name: ❓ Question
+description: Ask a question about using NGX-Notitia
+title: '[Question]: '
+labels: ['question']
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question? We're here to help!
+
+        **Note:** For general discussions, consider using [GitHub Discussions](https://github.com/klajdm/ngx-notitia/discussions) instead.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know?
+      placeholder: How do I...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Related Area
+      description: Which part of the library is your question about?
+      options:
+        - Toast component
+        - ToastrService
+        - ToastContainerDirective
+        - Configuration / Options
+        - Custom Toasts
+        - Animations
+        - General Usage
+        - Installation / Setup
+        - Forms Integration
+        - Theming / Styling
+        - Other
+
+  - type: textarea
+    id: context
+    attributes:
+      label: What Have You Tried?
+      description: Describe what you've already attempted
+      placeholder: I tried following the documentation but...
+
+  - type: textarea
+    id: code
+    attributes:
+      label: Code Sample (Optional)
+      description: Share relevant code if applicable
+      render: typescript
+      placeholder: |
+        @Component({...})
+        export class MyComponent {
+          toastr = inject(ToastrService);
+
+          show() {
+            this.toastr.success('Hello!');
+          }
+        }
+
+  - type: input
+    id: angular-version
+    attributes:
+      label: Angular Version
+      placeholder: '21.0.0'
+
+  - type: input
+    id: notitia-version
+    attributes:
+      label: NGX-Notitia Version
+      placeholder: '1.0.0'
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other information that might help us answer your question
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have checked the documentation
+          required: true
+        - label: I have searched for similar questions
+          required: true

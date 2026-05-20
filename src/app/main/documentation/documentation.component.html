@@ -1,0 +1,312 @@
+<div class="py-4 lg:py-8">
+  <!-- Page Header -->
+  <div class="mb-10">
+    <p class="section-label mb-2">ngx-notitia</p>
+    <h1 class="text-3xl font-bold text-primary mb-3">Documentation</h1>
+    <p class="text-lg text-muted leading-relaxed">
+      Easy, flexible toast notifications for Angular 21+. Forked from
+      <a
+        href="https://github.com/scttcper/ngx-toastr"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-primary hover:underline"
+        >ngx-toastr</a
+      >
+      and modernized with standalone components, Angular signals, and new features like
+      swipe-to-dismiss and per-toast color scheme control.
+    </p>
+  </div>
+
+  <div class="section-divider mb-10"></div>
+
+  <!-- ── Getting Started ── -->
+  <div class="mb-14" id="getting-started">
+    <h2 class="text-2xl font-semibold text-body mb-2 flex items-center gap-2">
+      <svg lucideZap class="w-6 h-6"></svg>
+      Getting Started
+    </h2>
+    <p class="text-muted mb-8">Four steps to your first toast.</p>
+
+    <div class="space-y-6">
+      @for (s of setupSteps; track s.step) {
+        <div class="glass-card rounded-xl p-6">
+          <div class="flex items-start gap-4">
+            <div
+              class="flex-shrink-0 w-9 h-9 rounded-full btn-primary flex items-center justify-center text-sm font-bold"
+            >
+              {{ s.step }}
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-base font-semibold text-body mb-1">{{ s.title }}</h3>
+              <p class="text-muted text-sm mb-3">{{ s.description }}</p>
+              <pre
+                class="bg-gray-900 text-gray-100 rounded-lg p-4 text-xs overflow-x-auto leading-relaxed"
+              ><code>{{ s.code }}</code></pre>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="section-divider mb-10"></div>
+
+  <!-- ── Core Features ── -->
+  <div class="mb-14" id="features">
+    <h2 class="text-2xl font-semibold text-body mb-2 flex items-center gap-2">
+      <svg lucideLayers class="w-6 h-6"></svg>
+      Core Features
+    </h2>
+    <p class="text-muted mb-8">What ngx-notitia brings to the table.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      @for (f of coreFeatures; track f.title) {
+        <div class="glass-card rounded-xl p-5">
+          <h3 class="font-semibold text-body mb-2">{{ f.title }}</h3>
+          <p class="text-muted text-sm mb-3">{{ f.description }}</p>
+          <ul class="space-y-1">
+            @for (item of f.items; track item) {
+              <li class="flex items-center gap-2 text-sm text-faint">
+                <svg lucideCheck class="w-3.5 h-3.5 flex-shrink-0 text-green-400"></svg>
+                {{ item }}
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="section-divider mb-10"></div>
+
+  <!-- ── Service Methods ── -->
+  <div class="mb-14" id="service-methods">
+    <h2 class="text-2xl font-semibold text-body mb-2 flex items-center gap-2">
+      <svg lucideBell class="w-6 h-6"></svg>
+      Service Methods
+    </h2>
+    <p class="text-muted mb-6">
+      All public methods on <code class="text-code">ToastrService</code>.
+    </p>
+
+    <div class="glass-card rounded-xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b" style="border-color: var(--color-divider)">
+              <th class="px-4 py-3 text-left field-label font-semibold">Method</th>
+              <th class="px-4 py-3 text-left field-label font-semibold">Signature</th>
+              <th class="px-4 py-3 text-left field-label font-semibold">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (m of serviceMethods; track m.method) {
+              <tr class="border-b last:border-0" style="border-color: var(--color-divider)">
+                <td class="px-4 py-3 font-mono text-xs text-purple-400 whitespace-nowrap">
+                  {{ m.method }}
+                </td>
+                <td class="px-4 py-3 font-mono text-xs text-code">{{ m.signature }}</td>
+                <td class="px-4 py-3 text-xs text-muted">{{ m.description }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider mb-10"></div>
+
+  <!-- ── Individual Options ── -->
+  <div class="mb-14" id="individual-options">
+    <h2 class="text-2xl font-semibold text-body mb-2 flex items-center gap-2">
+      <svg lucideSettings class="w-6 h-6"></svg>
+      Individual Options
+    </h2>
+    <p class="text-muted mb-2">
+      Passed as the third argument to any service method —
+      <code class="text-code">toastr.success('msg', 'title', options)</code>.
+    </p>
+    <p class="text-faint text-sm mb-6">
+      All individual options can also be set globally via
+      <code class="text-code">provideToastr(&#123;...&#125;)</code> or
+      <code class="text-code">ToastrModule.forRoot(&#123;...&#125;)</code>.
+    </p>
+
+    <div class="glass-card rounded-xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b" style="border-color: var(--color-divider)">
+              <th class="px-4 py-3 text-left field-label font-semibold">Option</th>
+              <th class="px-4 py-3 text-left field-label font-semibold">Type</th>
+              <th class="px-4 py-3 text-left field-label font-semibold">Default</th>
+              <th class="px-4 py-3 text-left field-label font-semibold">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (o of individualOptions; track o.option) {
+              <tr class="border-b last:border-0" style="border-color: var(--color-divider)">
+                <td class="px-4 py-3 font-mono text-xs text-purple-400 whitespace-nowrap">
+                  {{ o.option }}
+                </td>
+                <td class="px-4 py-3 font-mono text-xs text-code">{{ o.type }}</td>
+                <td class="px-4 py-3 font-mono text-xs text-faint">{{ o.default }}</td>
+                <td class="px-4 py-3 text-xs text-muted">{{ o.description }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider mb-10"></div>
+
+  <!-- ── Global-Only Options ── -->
+  <div class="mb-14" id="global-options">
+    <h2 class="text-2xl font-semibold text-body mb-2 flex items-center gap-2">
+      <svg lucidePackage class="w-6 h-6"></svg>
+      Global-Only Options
+    </h2>
+    <p class="text-muted mb-6">
+      These options are only available when configuring globally via
+      <code class="text-code">provideToastr()</code> or
+      <code class="text-code">ToastrModule.forRoot()</code>.
+    </p>
+
+    <div class="glass-card rounded-xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b" style="border-color: var(--color-divider)">
+              <th class="px-4 py-3 text-left field-label font-semibold">Option</th>
+              <th class="px-4 py-3 text-left field-label font-semibold">Type</th>
+              <th class="px-4 py-3 text-left field-label font-semibold">Default</th>
+              <th class="px-4 py-3 text-left field-label font-semibold">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (o of globalOnlyOptions; track o.option) {
+              <tr class="border-b last:border-0" style="border-color: var(--color-divider)">
+                <td class="px-4 py-3 font-mono text-xs text-purple-400 whitespace-nowrap">
+                  {{ o.option }}
+                </td>
+                <td class="px-4 py-3 font-mono text-xs text-code">{{ o.type }}</td>
+                <td class="px-4 py-3 font-mono text-xs text-faint">{{ o.default }}</td>
+                <td class="px-4 py-3 text-xs text-muted">{{ o.description }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider mb-10"></div>
+
+  <!-- ── ActiveToast Reference ── -->
+  <div class="mb-14" id="active-toast">
+    <h2 class="text-2xl font-semibold text-body mb-6">ActiveToast Reference</h2>
+    <p class="text-muted mb-6">
+      Every service method returns an
+      <code class="text-code">ActiveToast</code> object (or <code class="text-code">null</code> when
+      suppressed by duplicate rules).
+    </p>
+
+    <div class="glass-card rounded-xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b" style="border-color: var(--color-divider)">
+              <th class="px-4 py-3 text-left field-label font-semibold">Property</th>
+              <th class="px-4 py-3 text-left field-label font-semibold">Type</th>
+              <th class="px-4 py-3 text-left field-label font-semibold">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (p of activeToastProps; track p.property) {
+              <tr class="border-b last:border-0" style="border-color: var(--color-divider)">
+                <td class="px-4 py-3 font-mono text-xs text-blue-400 whitespace-nowrap">
+                  {{ p.property }}
+                </td>
+                <td class="px-4 py-3 font-mono text-xs text-code">{{ p.type }}</td>
+                <td class="px-4 py-3 text-xs text-muted">{{ p.description }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider mb-10"></div>
+
+  <!-- ── Type Definitions ── -->
+  <div class="mb-14" id="types">
+    <h2 class="text-2xl font-semibold text-body mb-6">Type Definitions</h2>
+
+    <div class="space-y-4">
+      @for (t of typeDefinitions; track t.name) {
+        <div class="glass-card rounded-xl overflow-hidden">
+          <div
+            class="px-4 py-2 border-b flex items-center"
+            style="border-color: var(--color-divider)"
+          >
+            <span class="text-sm font-semibold text-body">{{ t.name }}</span>
+          </div>
+          <div class="p-4">
+            <pre
+              class="bg-gray-900 text-gray-100 rounded-lg p-4 text-xs overflow-x-auto"
+            ><code [innerHTML]="t.code"></code></pre>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="section-divider mb-10"></div>
+
+  <!-- ── Custom Toasts ── -->
+  <div class="mb-14" id="custom-toasts">
+    <h2 class="text-2xl font-semibold text-body mb-2 flex items-center gap-2">
+      <svg lucideCode class="w-6 h-6"></svg>
+      Custom Toast Components
+    </h2>
+    <p class="text-muted mb-6">
+      Extend <code class="text-code">Toast</code> (animated) or
+      <code class="text-code">ToastNoAnimation</code> (no animation) to build a fully custom toast
+      UI. Use the <code class="text-code">payload</code> option to pass arbitrary data through.
+    </p>
+
+    <div class="glass-card rounded-xl overflow-hidden">
+      <div class="px-4 py-2 border-b" style="border-color: var(--color-divider)">
+        <span class="text-sm font-semibold text-body">my-toast.component.ts</span>
+      </div>
+      <pre
+        class="bg-gray-900 text-gray-100 p-4 text-xs overflow-x-auto leading-relaxed"
+      ><code>{{ customToastCode }}</code></pre>
+    </div>
+  </div>
+
+  <div class="section-divider mb-10"></div>
+
+  <!-- ── Toast Container Directive ── -->
+  <div class="mb-6 lg:mb-12" id="container">
+    <h2 class="text-2xl font-semibold text-body mb-2">Toast Container Directive</h2>
+    <p class="text-muted mb-6">
+      Place toasts inside any element using
+      <code class="text-code">ToastContainerDirective</code>. Add
+      <code class="text-code">aria-live="polite"</code> to keep screen readers informed.
+    </p>
+
+    <div class="glass-card rounded-xl overflow-hidden">
+      <div class="px-4 py-2 border-b" style="border-color: var(--color-divider)">
+        <span class="text-sm font-semibold text-body">app.component.ts</span>
+      </div>
+      <pre
+        class="bg-gray-900 text-gray-100 p-4 text-xs overflow-x-auto leading-relaxed"
+      ><code>{{ containerCode }}</code></pre>
+    </div>
+  </div>
+</div>
