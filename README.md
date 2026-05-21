@@ -389,7 +389,7 @@ ngOnInit() {
 
 ## Previous Works
 
-[WhatsApp Web Privacy Mode](https://wsp-web-privacy.com/) About
+[WhatsApp Web Privacy Mode](https://wsp-web-privacy.com/)
 Intelligently blur your WhatsApp Web chat list and messages during screen sharing.
 
 [ngx-chronica](https://github.com/klajdm/ngx-chronica) A Complete Angular Date & Time Component Library
