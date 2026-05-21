@@ -390,10 +390,9 @@ ngOnInit() {
 ## Previous Works
 
 [WhatsApp Web Privacy Mode](https://wsp-web-privacy.com/) About
-Browser Extension - Intelligently blur your WhatsApp Web chat list and messages during screen sharing.
+Intelligently blur your WhatsApp Web chat list and messages during screen sharing.
 
-[ngx-chronica](https://github.com/klajdm/ngx-chronica) About
-📅 Chronica - Complete Angular Date & Time Component Library
+[ngx-chronica](https://github.com/klajdm/ngx-chronica) A Complete Angular Date & Time Component Library
 
 ## License
 
