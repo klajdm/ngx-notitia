@@ -1,6 +1,6 @@
 {
   "name": "ngx-notitia",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Easy, flexible toast notifications for Angular",
     "keywords": [
     "angular",
