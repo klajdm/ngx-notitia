@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.3] - 2026-05-21
+
+### Fixed
+
+- **Exit animation missing**: `state` was set to `'removed'` immediately on dismiss, causing `display: none` to be applied before the exit animation could play. The state update is now deferred until after the animation completes, and `toast-in` is removed before `toast-out` is applied to prevent class conflicts.
+
 ## [1.0.2] - 2026-05-21
 
 ### Fixed

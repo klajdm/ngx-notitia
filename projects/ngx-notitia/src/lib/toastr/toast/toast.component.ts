@@ -47,12 +47,15 @@ export class Toast<ConfigPayload = unknown>
     if (this.state() === 'removed') return;
 
     clearTimeout(this.timeout);
-    this.state.set('removed');
-    this.elementRef.nativeElement.classList.add('toast-out');
-    this.timeout = this.timeoutsService.setTimeout(
-      () => this.toastrService.remove(this.toastPackage.toastId),
-      +this.params.easeTime,
-    );
+    const el = this.elementRef.nativeElement;
+    el.classList.remove('toast-in');
+    // Keep element visible during exit animation — state stays 'active' until animation ends
+    el.style.display = 'block';
+    el.classList.add('toast-out');
+    this.timeout = this.timeoutsService.setTimeout(() => {
+      this.state.set('removed');
+      this.toastrService.remove(this.toastPackage.toastId);
+    }, +this.params.easeTime);
   }
 
   protected override applySwipeTranslate(delta: number): void {
