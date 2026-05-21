@@ -143,7 +143,7 @@ body {
 }
 
 /* =====================================================
-   Scrollbar — matches accent color in both themes
+   Scrollbar - matches accent color in both themes
    ===================================================== */
 .app-scroll {
   scrollbar-width: thin;
@@ -267,7 +267,7 @@ body {
 }
 
 /* =====================================================
-   Playground card — section utilities
+   Playground card - section utilities
    ===================================================== */
 .section-divider {
   height: 1px;
@@ -451,7 +451,7 @@ body {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-btn-secondary);
-  background: transparent;
+  background: var(--bg-glass-card);
   cursor: pointer;
   text-decoration: none;
   transition: background-color 150ms ease;
@@ -523,7 +523,7 @@ body {
 }
 
 /* =====================================================
-   Outline white button (hero CTA — theme-independent)
+   Outline white button (hero CTA - theme-independent)
    ===================================================== */
 .btn-outline-white {
   display: inline-flex;

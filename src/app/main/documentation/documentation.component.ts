@@ -61,7 +61,6 @@ interface TypeDefinition {
     LucideBell,
   ],
   templateUrl: './documentation.component.html',
-  styleUrls: ['./documentation.component.css'],
 })
 export class DocumentationComponent {
   setupSteps: SetupStep[] = [
@@ -132,7 +131,7 @@ export class AppComponent {
     {
       title: 'Four Toast Types',
       description:
-        'Success, error, info, and warning toasts — each with a distinct style and icon.',
+        'Success, error, info, and warning toasts - each with a distinct style and icon.',
       items: ['success()', 'error()', 'info()', 'warning()', 'show() for custom types'],
     },
     {
@@ -403,7 +402,7 @@ export class AppComponent {
     {
       property: 'toastId',
       type: 'number',
-      description: 'Unique ID — use to clear/remove a specific toast',
+      description: 'Unique ID - use to clear/remove a specific toast',
     },
     { property: 'title', type: 'string', description: 'Title text (used for duplicate checking)' },
     {
@@ -419,7 +418,7 @@ export class AppComponent {
     {
       property: 'toastRef',
       type: 'ToastRef<C>',
-      description: 'Control reference — call manualClose() to close programmatically',
+      description: 'Control reference - call manualClose() to close programmatically',
     },
     {
       property: 'onShown',
