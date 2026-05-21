@@ -1,20 +1,25 @@
 {
   "name": "ngx-notitia",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easy, flexible toast notifications for Angular",
-  "keywords": [
+    "keywords": [
     "angular",
     "toast",
     "notification",
     "toastr",
     "alert",
-    "snackbar"
+    "snackbar",
+    "component",
+    "ui",
+    "typescript",
+    "standalone"
   ],
+  "author": "Klajdi Murataj <klajdimurati3@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^21.0.0",
-    "@angular/core": "^21.0.0",
-    "rxjs": "^7.8.2"
+    "@angular/common": "^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0",
+    "@angular/core": "^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0",
+    "rxjs": "^7.0.0"
   },
   "dependencies": {
     "tslib": "^2.8.1"
@@ -27,6 +32,10 @@
     "type": "git",
     "url": "https://github.com/klajdm/ngx-notitia"
   },
+  "bugs": {
+    "url": "https://github.com/klajdm/ngx-notitia/issues"
+  },
+  "homepage": "https://ngx-notitia.vercel.app",
   "exports": {
     "./toastr": {
       "default": "./toastr.css"

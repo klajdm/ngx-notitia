@@ -7,23 +7,16 @@
   <p>
     <a href="https://www.npmjs.com/package/ngx-notitia"><img src="https://img.shields.io/npm/v/ngx-notitia.svg?style=flat-square" alt="npm version"></a>
     <a href="https://www.npmjs.com/package/ngx-notitia"><img src="https://img.shields.io/npm/dm/ngx-notitia.svg?style=flat-square" alt="npm downloads"></a>
-    <a href="https://angular.io"><img src="https://img.shields.io/badge/Angular-21%2B-green.svg" alt="Angular 21+"></a>
+    <a href="https://angular.io"><img src="https://img.shields.io/badge/Angular-17%2B-green.svg" alt="Angular 17+"></a>
     <a href="https://github.com/klajdm/ngx-notitia/stargazers"><img src="https://img.shields.io/github/stars/klajdm/ngx-notitia?style=flat-square" alt="GitHub stars"></a>
-  </p>
-
-  <p>
-    <a href="https://ngx-notitia.vercel.app"><strong>Demo</strong></a> •
-    <a href="#-install"><strong>Install</strong></a> •
-    <a href="#-options"><strong>Options</strong></a> •
-    <a href="#-using-a-custom-toast"><strong>Custom Toast</strong></a>
   </p>
 </div>
 
-> **Note:** This repository is a fork of [ngx-toastr](https://github.com/scttcper/ngx-toastr). It builds upon the original project to provide additional features, fixes, and modernizations for Angular 21+.
+> **Note:** This repository is a fork of [ngx-toastr](https://github.com/scttcper/ngx-toastr). It builds upon the original project to provide additional features, fixes, and modernizations for Angular 17+.
 
 ---
 
-DEMO: https://ngx-notitia.vercel.app
+<a href="https://ngx-notitia.vercel.app"><strong>Demo Website</strong></a>
 
 ## Features
 
@@ -42,7 +35,7 @@ Latest version available for each version of Angular
 
 | ngx-notitia | Angular  |
 | ----------- | -------- |
-| current     | >= 21.x  |
+| current     | >= 17.x  |
 
 ## Install
 
@@ -392,6 +385,14 @@ ngOnInit() {
     toastClass: 'yourclass ngx-notitia'
     ```
     See: https://github.com/klajdm/ngx-notitia/issues/594.
+
+
+## Previous Works
+
+[WhatsApp Web Privacy Mode](https://wsp-web-privacy.com/) About
+Browser Extension - Intelligently blur your WhatsApp Web chat list and messages during screen sharing.
+[ngx-chronica](https://github.com/klajdm/ngx-chronica) About
+📅 Chronica - Complete Angular Date & Time Component Library
 
 ## License
 

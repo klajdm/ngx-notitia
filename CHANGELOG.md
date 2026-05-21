@@ -28,7 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **`onActivateTick`** option: Triggers `ChangeDetectorRef.detectChanges()` on activation for toasts opened outside Angular's zone
 - **Observable events** on `ActiveToast`: `onShown`, `onHidden`, `onTap`, `onAction`
 - **Custom toast components**: Extend `Toast` or `ToastNoAnimation` to create fully custom toast UI
-- **Angular 21+ support**: Built with standalone components, Angular signals, and zone-aware `TimeoutsService`
+- **Angular 17+ support**: Built with standalone components, Angular signals, and zone-aware `TimeoutsService`
 - **Dark mode support**: Auto-detects system/page color scheme via `colorScheme: 'auto'`
 - **Accessible markup**: ARIA roles and labels on toast containers and messages
 - **Portal system**: Decoupled `Overlay` / `OverlayRef` / `ComponentPortal` for component attachment without `ViewContainerRef`
