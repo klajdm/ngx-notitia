@@ -184,36 +184,36 @@
 }
 
 /* dark theme overrides — triggers on data-theme="dark", .dark class (Tailwind), or system preference */
-[data-theme='dark'] .toast-container .ngx-notitia,
-.dark .toast-container .ngx-notitia {
+[data-theme='dark'] .toast-container .ngx-notitia:not([data-color-scheme]),
+.dark .toast-container .ngx-notitia:not([data-color-scheme]) {
   --nt-bg: rgba(30, 41, 59, 0.88);
   --nt-border-color: rgba(255, 255, 255, 0.12);
   --nt-accent: #94a3b8;
   --nt-text: #e2e8f0;
 }
-[data-theme='dark'] .toast-container .ngx-notitia.toast-info,
-.dark .toast-container .ngx-notitia.toast-info {
+[data-theme='dark'] .toast-container .ngx-notitia:not([data-color-scheme]).toast-info,
+.dark .toast-container .ngx-notitia:not([data-color-scheme]).toast-info {
   --nt-bg: rgba(15, 40, 60, 0.90);
   --nt-border-color: #0e7490;
   --nt-accent: #22d3ee;
   --nt-text: #e0f7fa;
 }
-[data-theme='dark'] .toast-container .ngx-notitia.toast-success,
-.dark .toast-container .ngx-notitia.toast-success {
+[data-theme='dark'] .toast-container .ngx-notitia:not([data-color-scheme]).toast-success,
+.dark .toast-container .ngx-notitia:not([data-color-scheme]).toast-success {
   --nt-bg: rgba(10, 38, 25, 0.90);
   --nt-border-color: #15803d;
   --nt-accent: #4ade80;
   --nt-text: #dcfce7;
 }
-[data-theme='dark'] .toast-container .ngx-notitia.toast-warning,
-.dark .toast-container .ngx-notitia.toast-warning {
+[data-theme='dark'] .toast-container .ngx-notitia:not([data-color-scheme]).toast-warning,
+.dark .toast-container .ngx-notitia:not([data-color-scheme]).toast-warning {
   --nt-bg: rgba(40, 30, 5, 0.90);
   --nt-border-color: #b45309;
   --nt-accent: #fbbf24;
   --nt-text: #fef9c3;
 }
-[data-theme='dark'] .toast-container .ngx-notitia.toast-error,
-.dark .toast-container .ngx-notitia.toast-error {
+[data-theme='dark'] .toast-container .ngx-notitia:not([data-color-scheme]).toast-error,
+.dark .toast-container .ngx-notitia:not([data-color-scheme]).toast-error {
   --nt-bg: rgba(45, 15, 15, 0.90);
   --nt-border-color: #b91c1c;
   --nt-accent: #f87171;
@@ -284,31 +284,31 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  html:not([data-theme]):not(.dark) .toast-container .ngx-notitia {
+  html:not([data-theme]):not(.dark) .toast-container .ngx-notitia:not([data-color-scheme]) {
     --nt-bg: rgba(30, 41, 59, 0.88);
     --nt-border-color: rgba(255, 255, 255, 0.12);
     --nt-accent: #94a3b8;
     --nt-text: #e2e8f0;
   }
-  html:not([data-theme]):not(.dark) .toast-container .ngx-notitia.toast-info {
+  html:not([data-theme]):not(.dark) .toast-container .ngx-notitia:not([data-color-scheme]).toast-info {
     --nt-bg: rgba(15, 40, 60, 0.90);
     --nt-border-color: #0e7490;
     --nt-accent: #22d3ee;
     --nt-text: #e0f7fa;
   }
-  html:not([data-theme]):not(.dark) .toast-container .ngx-notitia.toast-success {
+  html:not([data-theme]):not(.dark) .toast-container .ngx-notitia:not([data-color-scheme]).toast-success {
     --nt-bg: rgba(10, 38, 25, 0.90);
     --nt-border-color: #15803d;
     --nt-accent: #4ade80;
     --nt-text: #dcfce7;
   }
-  html:not([data-theme]):not(.dark) .toast-container .ngx-notitia.toast-warning {
+  html:not([data-theme]):not(.dark) .toast-container .ngx-notitia:not([data-color-scheme]).toast-warning {
     --nt-bg: rgba(40, 30, 5, 0.90);
     --nt-border-color: #b45309;
     --nt-accent: #fbbf24;
     --nt-text: #fef9c3;
   }
-  html:not([data-theme]):not(.dark) .toast-container .ngx-notitia.toast-error {
+  html:not([data-theme]):not(.dark) .toast-container .ngx-notitia:not([data-color-scheme]).toast-error {
     --nt-bg: rgba(45, 15, 15, 0.90);
     --nt-border-color: #b91c1c;
     --nt-accent: #f87171;

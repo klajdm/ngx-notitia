@@ -27,14 +27,20 @@ export class Toast<ConfigPayload = unknown>
   private elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
 
   ngAfterViewInit(): void {
-    // Must be non-passive to call preventDefault() and block browser swipe-back
-    this.elementRef.nativeElement.addEventListener(
-      'touchmove',
-      (e: TouchEvent) => {
-        if (Math.abs(this._swipeDeltaX) > 10) e.preventDefault();
-      },
-      { passive: false },
-    );
+    const el = this.elementRef.nativeElement;
+    el.classList.add('toast-in');
+
+    // Only register touch listeners on touch-capable devices
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+      // Must be non-passive to call preventDefault() and block browser swipe-back
+      el.addEventListener(
+        'touchmove',
+        (e: TouchEvent) => {
+          if (Math.abs(this._swipeDeltaX) > 10) e.preventDefault();
+        },
+        { passive: false },
+      );
+    }
   }
 
   override remove(): void {

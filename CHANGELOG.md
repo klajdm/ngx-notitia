@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-05-21
+
+### Fixed
+
+- **`colorScheme` override ignored when page uses dark theme**: `colorScheme: 'light'` had no effect on apps with `[data-theme="dark"]`, a `.dark` class, or a dark system `prefers-color-scheme`. The dark theme CSS selectors now include `:not([data-color-scheme])` so explicit per-toast color scheme always wins.
+- **Enter animation missing**: The `toast-in` CSS class was never applied on activation due to an invalid `animate.enter` host binding. The class is now added in `ngAfterViewInit`, restoring the scale-in enter animation.
+- **Non-passive touch event warning on desktop**: `touchmove` listener with `{ passive: false }` was registered unconditionally, causing browser console violations on non-touch devices. It is now only registered when the device supports touch (`'ontouchstart' in window || navigator.maxTouchPoints > 0`).
+
+## [1.0.1] - 2026-05-21
+
+### Fixed
+
+- **Peer dependency range too narrow**: `@angular/common` and `@angular/core` were pinned to `^21.0.0`, preventing installation on Angular 17–20 projects. Widened to `>=17.0.0` (the true minimum based on `@if`/`@let` template syntax and `linkedSignal()` usage).
+- **`rxjs` peer dependency too narrow**: Changed from `^7.8.2` to `^7.0.0` to accept any rxjs 7.x release.
+
 ## [1.0.0] - 2025-05-01
 
 ### Added
