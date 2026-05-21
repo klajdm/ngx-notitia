@@ -142,7 +142,7 @@ Passed to `ToastrService.success/error/warning/info/show()`
 
 #### Setting Individual Options
 
-`success`, `error`, `info`, `warning` take `(message, title, ToastConfig)` — pass an options object to replace any default option.
+`success`, `error`, `info`, `warning` take `(message, title, ToastConfig)` - pass an options object to replace any default option.
 
 ```typescript
 this.toastrService.error('everything is broken', 'Major Error', {
@@ -331,7 +331,7 @@ class AppModule {}
 
 ## Using A Custom Toast
 
-Create your toast component extending `Toast` — see the demo's pink toast for an example:
+Create your toast component extending `Toast` - see the demo's pink toast for an example:
 https://github.com/klajdm/ngx-notitia/blob/main/src/app/pink.toast.ts
 
 ```typescript
@@ -389,10 +389,9 @@ ngOnInit() {
 
 ## Previous Works
 
-[WhatsApp Web Privacy Mode](https://wsp-web-privacy.com/)
-Intelligently blur your WhatsApp Web chat list and messages during screen sharing.
+[WhatsApp Web Privacy Mode](https://wsp-web-privacy.com/) - Intelligently blur your WhatsApp Web chat list and messages during screen sharing.
 
-[ngx-chronica](https://github.com/klajdm/ngx-chronica) A Complete Angular Date & Time Component Library
+[ngx-chronica](https://github.com/klajdm/ngx-chronica) - A Complete Angular Date & Time Component Library
 
 ## License
 

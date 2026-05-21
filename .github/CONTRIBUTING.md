@@ -165,7 +165,7 @@ ngx-notitia/
 - Use **TypeScript strict mode**
 - Provide **explicit return types** for all functions
 - Use **interfaces** for object types
-- Avoid `any` type — use proper typing
+- Avoid `any` type - use proper typing
 - Use **readonly** where applicable
 
 ```typescript

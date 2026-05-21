@@ -1,6 +1,6 @@
 {
   "name": "ngx-notitia",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Easy, flexible toast notifications for Angular",
     "keywords": [
     "angular",
@@ -11,14 +11,16 @@
     "snackbar",
     "component",
     "ui",
+    "notitia",
+    "notice",
     "typescript",
     "standalone"
   ],
   "author": "Klajdi Murataj <klajdimurati3@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0",
-    "@angular/core": "^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0",
+    "@angular/common": ">=17.0.0",
+    "@angular/core": ">=17.0.0",
     "rxjs": "^7.0.0"
   },
   "dependencies": {

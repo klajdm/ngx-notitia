@@ -27,6 +27,5 @@ import {
     LucideCheck,
   ],
   templateUrl: './contributing.component.html',
-  styleUrl: './contributing.component.css',
 })
 export class ContributingComponent {}

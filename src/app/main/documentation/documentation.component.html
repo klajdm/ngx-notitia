@@ -32,7 +32,7 @@
         <div class="glass-card rounded-xl p-6">
           <div class="flex items-start gap-4">
             <div
-              class="flex-shrink-0 w-9 h-9 rounded-full btn-primary flex items-center justify-center text-sm font-bold"
+              class="shrink-0 w-9 h-9 rounded-full btn-primary flex items-center justify-center text-sm font-bold"
             >
               {{ s.step }}
             </div>
@@ -67,7 +67,7 @@
           <ul class="space-y-1">
             @for (item of f.items; track item) {
               <li class="flex items-center gap-2 text-sm text-faint">
-                <svg lucideCheck class="w-3.5 h-3.5 flex-shrink-0 text-green-400"></svg>
+                <svg lucideCheck class="w-3.5 h-3.5 shrink-0 text-green-400"></svg>
                 {{ item }}
               </li>
             }
@@ -124,7 +124,7 @@
       Individual Options
     </h2>
     <p class="text-muted mb-2">
-      Passed as the third argument to any service method —
+      Passed as the third argument to any service method -
       <code class="text-code">toastr.success('msg', 'title', options)</code>.
     </p>
     <p class="text-faint text-sm mb-6">
