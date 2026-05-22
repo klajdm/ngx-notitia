@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/klajdm/ngx-notitia/main/public/logo.png" width="120" height="120" alt="Angular Notitia">
   <br>
   <h1>Angular Notitia</h1>
-  <p><strong>Easy, flexible toast notifications for Angular 17 - 21. Forked from ngx-toastr and modernized with standalone components, Angular signals, and new features like swipe-to-dismiss, per-toast color scheme control, and full glassmorphism customization.</strong></p>
+  <p><strong>Easy, flexible toast notifications for Angular</strong></p>
 
   <p>
     <a href="https://www.npmjs.com/package/ngx-notitia"><img src="https://img.shields.io/npm/v/ngx-notitia.svg?style=flat-square" alt="npm version"></a>
