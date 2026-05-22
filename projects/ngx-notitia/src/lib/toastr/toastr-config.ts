@@ -114,6 +114,20 @@ export interface IndividualConfig<ConfigPayload = unknown> {
   colorScheme: 'auto' | 'light' | 'dark';
 
   /**
+   * Backdrop blur intensity in pixels.
+   * 0 = no blur (clear glass), higher values increase the frosted effect.
+   * default: 8
+   */
+  blur: number;
+
+  /**
+   * Glass background opacity from 0 (fully transparent) to 1 (fully frosted).
+   * Only the background is affected - text and icons remain fully opaque.
+   * default: 1
+   */
+  backgroundOpacity: number;
+
+  /**
    * Payload to pass to the toast component
    */
   payload?: ConfigPayload;
@@ -243,6 +257,8 @@ export const DefaultNoComponentGlobalConfig: GlobalConfig = {
   progressAnimation: 'decreasing',
   showBorder: true,
   colorScheme: 'auto',
+  blur: 8,
+  backgroundOpacity: 1,
 };
 
 export interface ToastToken {

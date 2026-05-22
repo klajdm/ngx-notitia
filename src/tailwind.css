@@ -352,6 +352,53 @@ body {
 /* =====================================================
    Form controls
    ===================================================== */
+.field-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  border-radius: 9999px;
+  background: var(--border-field-input);
+  cursor: pointer;
+  outline: none;
+}
+
+.field-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  cursor: pointer;
+  transition: transform 100ms ease, box-shadow 100ms ease;
+}
+
+.field-range::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 4px var(--shadow-field-input-focus);
+}
+
+.field-range::-moz-range-track {
+  height: 5px;
+  border-radius: 9999px;
+  background: var(--border-field-input);
+}
+
+.field-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  border: none;
+  cursor: pointer;
+  transition: transform 100ms ease, box-shadow 100ms ease;
+}
+
+.field-range::-moz-range-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 4px var(--shadow-field-input-focus);
+}
+
 .toggle-row {
   display: flex;
   align-items: center;
