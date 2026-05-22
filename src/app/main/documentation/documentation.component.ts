@@ -188,6 +188,18 @@ export class AppComponent {
         'Set globally or per-toast',
       ],
     },
+    {
+      title: 'Glassmorphism Controls',
+      description:
+        'Fine-tune the glass aesthetic per toast or globally with blur and background opacity.',
+      items: [
+        'blur: backdrop blur intensity (px)',
+        'backgroundOpacity: glass background alpha',
+        '0 blur = clear glass, 20 = heavily frosted',
+        'Background fades, text stays sharp',
+        'Set globally or override per toast',
+      ],
+    },
   ];
 
   serviceMethods: MethodRow[] = [
@@ -300,6 +312,20 @@ export class AppComponent {
       type: "'auto' | 'light' | 'dark'",
       default: "'auto'",
       description: "Override the color scheme. 'auto' follows the page theme",
+    },
+    {
+      option: 'blur',
+      type: 'number',
+      default: '8',
+      description:
+        'Backdrop blur in px. 0 = clear glass, higher values increase the frosted effect.',
+    },
+    {
+      option: 'backgroundOpacity',
+      type: 'number',
+      default: '1',
+      description:
+        'Glass background opacity from 0 (fully transparent) to 1 (fully frosted). Text and icons remain fully opaque.',
     },
     {
       option: 'positionClass',

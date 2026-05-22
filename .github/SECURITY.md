@@ -17,7 +17,7 @@ Report vulnerabilities privately via GitHub's built-in security advisories:
 
 1. Go to the [Security Advisories](https://github.com/klajdm/ngx-notitia/security/advisories/new) page
 2. Click **Report a vulnerability**
-3. Fill in the details — affected version, reproduction steps, and potential impact
+3. Fill in the details - affected version, reproduction steps, and potential impact
 
 Alternatively, you can email **klajdimurati3@gmail.com** with the subject line `[ngx-notitia] Security Vulnerability`.
 
@@ -31,7 +31,7 @@ Alternatively, you can email **klajdimurati3@gmail.com** with the subject line `
 
 This library is a client-side Angular toast notification package. Relevant security concerns include:
 
-- **XSS via `enableHtml: true`** — HTML content passed to toasts is sanitized by Angular's `DomSanitizer`, but enabling `enableHtml` with untrusted user input is the responsibility of the consuming application
-- **Dependency vulnerabilities** — issues in `tslib` or Angular peer dependencies
+- **XSS via `enableHtml: true`** - HTML content passed to toasts is sanitized by Angular's `DomSanitizer`, but enabling `enableHtml` with untrusted user input is the responsibility of the consuming application
+- **Dependency vulnerabilities** - issues in `tslib` or Angular peer dependencies
 
 Out of scope: issues in the demo site (ngx-notitia.vercel.app) that do not affect the published npm package.

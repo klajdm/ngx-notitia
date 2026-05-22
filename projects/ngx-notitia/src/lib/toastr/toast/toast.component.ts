@@ -49,7 +49,7 @@ export class Toast<ConfigPayload = unknown>
     clearTimeout(this.timeout);
     const el = this.elementRef.nativeElement;
     el.classList.remove('toast-in');
-    // Keep element visible during exit animation — state stays 'active' until animation ends
+    // Keep element visible during exit animation - state stays 'active' until animation ends
     el.style.display = 'block';
     el.classList.add('toast-out');
     this.timeout = this.timeoutsService.setTimeout(() => {

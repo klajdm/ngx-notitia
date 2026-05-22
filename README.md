@@ -2,17 +2,17 @@
   <img src="https://raw.githubusercontent.com/klajdm/ngx-notitia/main/public/logo.png" width="120" height="120" alt="Angular Notitia">
   <br>
   <h1>Angular Notitia</h1>
-  <p><strong>Easy, flexible toast notifications for Angular</strong></p>
+  <p><strong>Easy, flexible toast notifications for Angular 17 - 21. Forked from ngx-toastr and modernized with standalone components, Angular signals, and new features like swipe-to-dismiss, per-toast color scheme control, and full glassmorphism customization.</strong></p>
 
   <p>
     <a href="https://www.npmjs.com/package/ngx-notitia"><img src="https://img.shields.io/npm/v/ngx-notitia.svg?style=flat-square" alt="npm version"></a>
     <a href="https://www.npmjs.com/package/ngx-notitia"><img src="https://img.shields.io/npm/dm/ngx-notitia.svg?style=flat-square" alt="npm downloads"></a>
-    <a href="https://angular.io"><img src="https://img.shields.io/badge/Angular-17%2B-green.svg" alt="Angular 17+"></a>
+    <a href="https://angular.io"><img src="https://img.shields.io/badge/Angular-17--21-green.svg" alt="Angular 17-21"></a>
     <a href="https://github.com/klajdm/ngx-notitia/stargazers"><img src="https://img.shields.io/github/stars/klajdm/ngx-notitia?style=flat-square" alt="GitHub stars"></a>
   </p>
 </div>
 
-> **Note:** This repository is a fork of [ngx-toastr](https://github.com/scttcper/ngx-toastr). It builds upon the original project to provide additional features, fixes, and modernizations for Angular 17+.
+> **Note:** This repository is a fork of [ngx-toastr](https://github.com/scttcper/ngx-toastr). It builds upon the original project to provide additional features, fixes, and modernizations for Angular 17 - 21.
 
 ---
 
@@ -28,14 +28,13 @@
 - Swipe-to-dismiss gesture support on mobile
 - Dark / light / auto color scheme support
 - Output toasts to an optional target directive
+- **Full glassmorphism control**: configure backdrop `blur` and `backgroundOpacity`
 
 ## Dependencies
 
-Latest version available for each version of Angular
-
-| ngx-notitia | Angular  |
-| ----------- | -------- |
-| current     | >= 17.x  |
+| ngx-notitia | Angular     |
+| ----------- | ----------- |
+| 1.x         | 17.x - 21.x |
 
 ## Install
 
@@ -137,6 +136,8 @@ Passed to `ToastrService.success/error/warning/info/show()`
 | tapToDismiss      | boolean                                         | true              | Close on click                                                                                                                                |
 | showBorder        | boolean                                         | true              | Show or hide the toast border                                                                                                                 |
 | colorScheme       | `'auto' \| 'light' \| 'dark'`                   | 'auto'            | Force a color scheme. `'auto'` follows the page theme, `'light'` or `'dark'` override it                                                     |
+| blur              | number                                          | 8                 | Backdrop blur in px. 0 = clear glass, higher values increase the frosted effect                                                               |
+| backgroundOpacity | number                                          | 1                 | Glass background opacity from 0 (fully transparent) to 1 (fully frosted). Text and icons remain fully opaque.                                |
 | payload           | unknown                                         | undefined         | Custom data passed through to a custom toast component                                                                                        |
 | onActivateTick    | boolean                                         | false             | Fires `changeDetectorRef.detectChanges()` when activated. Helps show toast from asynchronous events outside of Angular's change detection    |
 

@@ -25,6 +25,8 @@ import { TimeoutsService } from '../../timeouts.service';
     '[style.display]': 'displayStyle()',
     '[style.--nt-border-width]': 'options().showBorder ? null : "0"',
     '[attr.data-color-scheme]': 'options().colorScheme !== "auto" ? options().colorScheme : null',
+    '[style.--nt-blur]': 'options().blur + "px"',
+    '[style.--nt-bg-opacity]': 'options().backgroundOpacity',
     '(mouseenter)': 'stickAround()',
     '(mouseleave)': 'delayedHideToast()',
     '(click)': 'tapToast()',

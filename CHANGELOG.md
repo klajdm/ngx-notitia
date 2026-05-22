@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-05-22
+
+### Added
+
+- **`blur`** option (`number`, default `8`): controls the backdrop-filter blur intensity in px, per toast or globally. Set to `0` for clear glass, increase for a more frosted effect.
+- **`backgroundOpacity`** option (`number`, default `1`): controls the glass background color opacity per toast or globally. At `0` the background is fully transparent; at `1` it uses the full themed color. Text, icons, and the close button remain fully opaque at all values.
+
+These two options give developers complete control over the glassmorphism aesthetic - a differentiating feature not available in the original `ngx-toastr`.
+
+```typescript
+// Clear glass with no blur
+this.toastr.success('Saved!', 'Success', { blur: 0, backgroundOpacity: 0 });
+
+// Heavy frosted glass
+this.toastr.info('Loading…', '', { blur: 20, backgroundOpacity: 1 });
+```
+
 ## [1.0.3] - 2026-05-21
 
 ### Fixed
@@ -23,7 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- **Peer dependency range too narrow**: `@angular/common` and `@angular/core` were pinned to `^21.0.0`, preventing installation on Angular 17–20 projects. Widened to `>=17.0.0` (the true minimum based on `@if`/`@let` template syntax and `linkedSignal()` usage).
+- **Peer dependency range too narrow**: `@angular/common` and `@angular/core` were pinned to `^21.0.0`, preventing installation on Angular 17-20 projects. Widened to `>=17.0.0` (the true minimum based on `@if`/`@let` template syntax and `linkedSignal()` usage).
 - **`rxjs` peer dependency too narrow**: Changed from `^7.8.2` to `^7.0.0` to accept any rxjs 7.x release.
 
 ## [1.0.0] - 2025-05-01
