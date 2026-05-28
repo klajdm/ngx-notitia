@@ -64,6 +64,8 @@ export class ToastrService {
         ...token.config.iconClasses,
       };
     }
+
+    (window as Window & { ngxNotitia?: string })['ngxNotitia'] = '1.1.1';
   }
   /** show toast */
   show<C extends ToastBase = ToastBase, ConfigPayload = unknown>(

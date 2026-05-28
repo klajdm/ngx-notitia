@@ -1,6 +1,6 @@
 {
   "name": "ngx-notitia",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Easy, flexible toast notifications for Angular 17+. Glassmorphism theme with blur and background opacity controls, dark/light mode, swipe-to-dismiss, and Angular signals.",
     "keywords": [
     "angular",
