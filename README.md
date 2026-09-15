@@ -7,12 +7,12 @@
   <p>
     <a href="https://www.npmjs.com/package/ngx-notitia"><img src="https://img.shields.io/npm/v/ngx-notitia.svg?style=flat-square" alt="npm version"></a>
     <a href="https://www.npmjs.com/package/ngx-notitia"><img src="https://img.shields.io/npm/dm/ngx-notitia.svg?style=flat-square" alt="npm downloads"></a>
-    <a href="https://angular.io"><img src="https://img.shields.io/badge/Angular-17--22-green.svg" alt="Angular 17-22"></a>
+    <a href="https://angular.io"><img src="https://img.shields.io/badge/Angular-20--22-green.svg" alt="Angular 20-22"></a>
     <a href="https://github.com/klajdm/ngx-notitia/stargazers"><img src="https://img.shields.io/github/stars/klajdm/ngx-notitia?style=flat-square" alt="GitHub stars"></a>
   </p>
 </div>
 
-> **Note:** This repository is a fork of [ngx-toastr](https://github.com/scttcper/ngx-toastr). It builds upon the original project to provide additional features, fixes, and modernizations for Angular 17 - 22.
+> **Note:** This repository is a fork of [ngx-toastr](https://github.com/scttcper/ngx-toastr). It builds upon the original project to provide additional features, fixes, and modernizations for Angular 20 - 22.
 
 ---
 
@@ -34,7 +34,7 @@
 
 | ngx-notitia | Angular     |
 | ----------- | ----------- |
-| 1.x         | 17.x - 22.x |
+| 1.x         | 20.x - 22.x |
 
 ## Install
 

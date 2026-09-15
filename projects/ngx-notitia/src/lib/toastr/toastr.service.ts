@@ -66,7 +66,7 @@ export class ToastrService {
     }
 
     if (typeof window !== 'undefined') {
-      (window as Window & { ngxNotitia?: string })['ngxNotitia'] = '1.1.1';
+      (window as Window & { ngxNotitia?: string })['ngxNotitia'] = '1.2.0';
     }
   }
   /** show toast */

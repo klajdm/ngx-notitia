@@ -67,7 +67,7 @@ Documentation improvements are always appreciated:
 ### Prerequisites
 
 - Node.js 18+ and npm 9+
-- Angular CLI 21+
+- Angular CLI 22+
 - Git
 
 ### Setup Steps
