@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-09-15
+
+### Added
+
+- **Angular 22 support**: Upgraded the workspace and library tooling to Angular 22 (`@angular/core`, `@angular/cli`, `@angular/build`, `ng-packagr`, `angular-eslint`), TypeScript 6, and ESLint 10. The `ngx-notitia` peer dependency range remains `>=17.0.0`, so no consumer-facing changes are required.
+
+### Changed
+
+- CI workflows now run on Node.js 22 (Angular 22 requires Node `^22.22.3 || ^24.15.0 || >=26.0.0`).
+
 ## [1.1.1] - 2026-05-28
 
 ### Added
