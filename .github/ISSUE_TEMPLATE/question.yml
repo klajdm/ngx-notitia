@@ -66,7 +66,7 @@ body:
     id: angular-version
     attributes:
       label: Angular Version
-      placeholder: '21.0.0'
+      placeholder: '22.0.0'
 
   - type: input
     id: notitia-version

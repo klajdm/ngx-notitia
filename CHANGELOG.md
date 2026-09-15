@@ -9,11 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **Angular 22 support**: Upgraded the workspace and library tooling to Angular 22 (`@angular/core`, `@angular/cli`, `@angular/build`, `ng-packagr`, `angular-eslint`), TypeScript 6, and ESLint 10. The `ngx-notitia` peer dependency range remains `>=17.0.0`, so no consumer-facing changes are required.
+- **Angular 22 support**: Upgraded the workspace and library tooling to Angular 22 (`@angular/core`, `@angular/cli`, `@angular/build`, `ng-packagr`, `angular-eslint`), TypeScript 6, and ESLint 10.
 
 ### Changed
 
+- **Peer dependency floor raised to Angular 20**: `@angular/common` and `@angular/core` are now `>=20.0.0` (previously `>=17.0.0`). `linkedSignal()`, used internally by the library, is only stable as of Angular 20.0.
 - CI workflows now run on Node.js 22 (Angular 22 requires Node `^22.22.3 || ^24.15.0 || >=26.0.0`).
+- Updated the Wappalyzer fingerprint (`window.ngxNotitia`) to `1.2.0`.
 
 ## [1.1.1] - 2026-05-28
 

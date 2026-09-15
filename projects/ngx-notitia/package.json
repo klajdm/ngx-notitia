@@ -29,8 +29,8 @@
   "author": "Klajdi Murataj <klajdimurati3@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": ">=17.0.0",
-    "@angular/core": ">=17.0.0",
+    "@angular/common": ">=20.0.0",
+    "@angular/core": ">=20.0.0",
     "rxjs": "^7.0.0"
   },
   "dependencies": {
