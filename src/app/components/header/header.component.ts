@@ -6,12 +6,13 @@ import {
   Output,
   EventEmitter,
 } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ThemeService } from '../../services/theme.service';
 import { LucideMenu, LucideSun, LucideMoon } from '@lucide/angular';
 
 @Component({
   selector: 'app-header',
-  imports: [LucideMenu, LucideSun, LucideMoon],
+  imports: [RouterLink, LucideMenu, LucideSun, LucideMoon],
   template: `
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center h-16">
@@ -26,7 +27,7 @@ import { LucideMenu, LucideSun, LucideMoon } from '@lucide/angular';
 
         <!-- Logo -->
         <div class="flex-1 flex justify-start items-center">
-          <a href="/" class="flex items-center">
+          <a routerLink="/" class="flex items-center">
             <img src="logo.png" alt="ngx-notitia logo" class="h-10 w-10 md:h-12 md:w-12 mr-3" />
             <span class="text-xl md:text-2xl font-bold text-primary">NGX-NOTITIA</span>
           </a>
