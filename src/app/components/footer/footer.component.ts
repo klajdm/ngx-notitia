@@ -8,10 +8,10 @@ import { RouterModule } from '@angular/router';
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Brand -->
-        <div class="col-span-1">
+        <div class="col-span-1 text-center md:text-left">
           <h3 class="text-lg font-semibold footer-heading mb-2">ngx-notitia</h3>
           <p class="footer-text mb-4">Easy Toasts for Angular.</p>
-          <div class="flex space-x-4">
+          <div class="flex justify-center md:justify-start space-x-4">
             <a
               href="https://github.com/klajdm/ngx-notitia"
               target="_blank"
@@ -39,7 +39,7 @@ import { RouterModule } from '@angular/router';
           </div>
         </div>
 
-        <div class="flex flex-row justify-between">
+        <div class="flex flex-row justify-around md:justify-between text-center md:text-left">
           <!-- Resources -->
           <div>
             <h4 class="text-sm font-semibold footer-heading uppercase tracking-wider mb-4">
@@ -61,7 +61,7 @@ import { RouterModule } from '@angular/router';
           </div>
 
           <!-- Community -->
-          <div class="me-6">
+          <div class="md:me-6">
             <h4 class="text-sm font-semibold footer-heading uppercase tracking-wider mb-4">
               Community
             </h4>
@@ -89,7 +89,9 @@ import { RouterModule } from '@angular/router';
       </div>
 
       <div class="mt-8 pt-8" style="border-top: 1px solid var(--color-footer-border)">
-        <div class="flex flex-col md:flex-row justify-between items-center">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center text-center md:text-left"
+        >
           <p class="footer-text text-sm">© {{ currentYear }} ngx-notitia. Licensed under MIT.</p>
           <p class="footer-text text-sm mt-2 md:mt-0">
             Built with ❤️ by
@@ -97,7 +99,7 @@ import { RouterModule } from '@angular/router';
               href="https://klajdimurataj.dev"
               target="_blank"
               rel="noopener noreferrer"
-              class="font-semibold text-primary hover:underline"
+              class="text-primary hover:underline"
               >Klajdi Murataj</a
             >
             for the Angular community
