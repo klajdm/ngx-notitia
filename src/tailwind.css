@@ -143,6 +143,23 @@ body {
 }
 
 /* =====================================================
+   Theme change - cross-fade via the View Transitions API
+   ===================================================== */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 400ms;
+  animation-timing-function: ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none;
+  }
+}
+
+/* =====================================================
    Scrollbar - matches accent color in both themes
    ===================================================== */
 .app-scroll {

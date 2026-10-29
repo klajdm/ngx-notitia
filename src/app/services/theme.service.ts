@@ -1,7 +1,9 @@
-import { Injectable, signal } from '@angular/core';
+import { ApplicationRef, inject, Injectable, signal } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
+  private appRef = inject(ApplicationRef);
+
   readonly isDark = signal(true);
 
   constructor() {
@@ -15,9 +17,19 @@ export class ThemeService {
 
   toggle() {
     const next = !this.isDark();
-    this.isDark.set(next);
-    this.apply(next);
     localStorage.setItem('theme', next ? 'dark' : 'light');
+
+    if (!document.startViewTransition) {
+      this.isDark.set(next);
+      this.apply(next);
+      return;
+    }
+
+    document.startViewTransition(() => {
+      this.isDark.set(next);
+      this.apply(next);
+      this.appRef.tick();
+    });
   }
 
   private apply(dark: boolean) {
