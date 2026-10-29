@@ -1,24 +1,18 @@
-<div class="h-screen bg-gradient flex flex-col">
-  <!-- Header at the very top -->
-  <header class="z-40 glass-header">
+<!-- The window scrolls (not an inner container) so pull-to-refresh works on mobile -->
+<div class="min-h-screen bg-gradient flex flex-col">
+  <!-- Header stays pinned to the top while the page scrolls -->
+  <header class="sticky top-0 z-40 glass-header">
     <app-header (toggleMobileMenu)="toggleMobileDrawer()"></app-header>
   </header>
 
-  <!-- Main layout use overflow-hidden so only main scrolls -->
-  <div class="flex-1 flex overflow-hidden">
-    <!-- Main Content Column -->
-    <div #scrollContainer class="app-scroll flex-1 overflow-auto">
-      <!-- Scrollable main content -->
-      <main class="p-4 lg:p-6 max-w-7xl mx-auto">
-        <router-outlet></router-outlet>
-      </main>
+  <!-- flex-1 pushes the footer to the bottom on short pages -->
+  <main class="flex-1 w-full p-4 lg:p-6 max-w-7xl mx-auto">
+    <router-outlet></router-outlet>
+  </main>
 
-      <!-- Footer (scrolls with content)-->
-      <footer class="footer-divider">
-        <app-footer></app-footer>
-      </footer>
-    </div>
-  </div>
+  <footer class="footer-divider">
+    <app-footer></app-footer>
+  </footer>
 
   <!-- Mobile Drawer Sidebar (pure Tailwind off-canvas) -->
   @if (mobileDrawerVisible()) {

@@ -1,9 +1,11 @@
 @import 'tailwindcss';
 
-html,
-body {
-  overflow: hidden;
-  height: 100%;
+/* Solid color behind the page gradient (overscroll / pull-to-refresh area) */
+html {
+  background-color: #0f172a;
+}
+html[data-theme='light'] {
+  background-color: #f8fafc;
 }
 
 /* =====================================================
@@ -162,21 +164,21 @@ body {
 /* =====================================================
    Scrollbar - matches accent color in both themes
    ===================================================== */
-.app-scroll {
+html {
   scrollbar-width: thin;
   scrollbar-color: var(--color-scrollbar) transparent;
 }
-.app-scroll::-webkit-scrollbar {
+html::-webkit-scrollbar {
   width: 6px;
 }
-.app-scroll::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track {
   background: transparent;
 }
-.app-scroll::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb {
   background: var(--color-scrollbar);
   border-radius: 9999px;
 }
-.app-scroll::-webkit-scrollbar-thumb:hover {
+html::-webkit-scrollbar-thumb:hover {
   background: var(--color-scrollbar-hover);
 }
 
